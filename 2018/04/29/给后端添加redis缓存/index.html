@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="chinese">
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  
+  
+  
+
+  <link rel="stylesheet" href="/css/mobi.css-3.0.4/dist/mobi.min.css">
+<link rel="stylesheet" href="/css/caomei1.2.1/style.css">
+<link rel="stylesheet" href="/css/theme.css">
+
+  
+    <meta name="keywords" content="后端 redis">
+  
+
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  <title>给后端添加redis缓存 - Malu blog</title>
+  <script data-ad-client="ca-pub-4390654727225048" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?196bdd0c9837159f8e291ef5a93aef95";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-4390654727225048",
+        enable_page_level_ads: true
+      });
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+      ga('create', 'UA-28923877-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+</head>
+
+  <body class="theme-body">
+    <div class="flex-center theme-header-wrapper">
+  <div class="container flex-left units-gap theme-header-container">
+    <a href="/" class="unit-0 theme-header-icon theme-icon-link" title="Home">
+      <i class="czs-home-l"></i>
+    </a>
+    <div class="flex-center text-center flex-middle unit theme-header-title theme-header-title-no-transition">
+      Malu blog
+    </div>
+    <a class="unit-0 theme-header-icon theme-icon-link theme-header-sidebar-icon" href="javascript:void(0);" title="More">
+      <i class="czs-menu-l"></i>
+    </a>
+  </div>
+</div>
+<div class="theme-header-placeholder"></div>
+
+    <div class="flex-center">
+      <div class="container">
+        <article>
+  <h1 class="text-center">
+    给后端添加redis缓存
+  </h1>
+  <div class="text-center top-gap">
+    <div class="text-small text-muted">
+  <time datetime="2018-04-29T00:01:47+08:00">
+    2018-04-29
+  </time>
+  <span class="theme-separator">·</span>
+  <i class="czs-user-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="https://github.com/"></a>
+  <span class="theme-separator">·</span>
+  <i class="czs-bookmark-l"></i>
+  
+  <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
+    <span class="theme-separator">·</span>
+    <a class="text-muted theme-text-no-decoration" href="/2018/04/29/给后端添加redis缓存/#disqus_thread">
+      <i class="czs-comment-l"></i>
+      <span class="disqus-comment-count theme-comment-count" data-disqus-identifier="2018/04/29/给后端添加redis缓存/"></span>
+    </a>
+  </span>
+</div>
+
+  </div>
+  <div class="top-gap-big">
+    <p>​    在 VPS 上架设好 Flask 后，我测试并发是经常发现 ORM 框架会发生错误，查询之后是 连接时设置的 pool_size 太小， 使用 SQLCHEMY 时默认的 pool_size = 5， 我改为100后就可以了。</p>
+<p>​    但是如果大并发的时候一些热点数据应该还是会频繁的查询数据库，但是这些数据是不会经常更新的。所以我就想着这么用 redis 缓存那些经常被查询但是不会更新的数据， 比如公告， STOCK 的基本信息.</p>
+<p>​     我试了测试没有使用redis进行缓存时候打开首页查询公告时候的web服务器性能，使用 webbench 进行 500 线程 60 秒的测试。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Benchmarking: GET http://127.0.0.1:5000/</span><br><span class="line">500 clients, running 60 sec.</span><br><span class="line"></span><br><span class="line">Speed=1924 pages/min, 54160 bytes/sec.</span><br><span class="line">Requests: 1924 susceed, 0 failed.</span><br></pre></td></tr></table></figure>
+
+<p>在添加 Reids 缓存后再以同样的参数进行测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Benchmarking: GET http://127.0.0.1:5000/</span><br><span class="line">500 clients, running 60 sec.</span><br><span class="line"></span><br><span class="line">Speed=16735 pages/min, 468472 bytes/sec.</span><br><span class="line">Requests: 16642 susceed, 93 failed.</span><br></pre></td></tr></table></figure>
+
+<p>发送速率直接上了一个数量级，舒服。</p>
+<p>直接测试一下在 VPS 上跑的后端并发数，在没有添加 Redis 的后端测试的时候本地打开网页是不是回500</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Benchmarking: GET http://106.15.205.43/index</span><br><span class="line">500 clients, running 60 sec.</span><br><span class="line"></span><br><span class="line">Speed=3990 pages/min, 106517 bytes/sec.</span><br><span class="line">Requests: 3990 susceed, 0 failed.</span><br></pre></td></tr></table></figure>
+
+<p>添加后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Benchmarking: GET http://106.15.205.43/index</span><br><span class="line">500 clients, running 60 sec.</span><br><span class="line"></span><br><span class="line">Speed=3810 pages/min, 108984 bytes/sec.</span><br><span class="line">Requests: 3810 susceed, 0 failed.</span><br></pre></td></tr></table></figure>
+
+<p>没想到却是一样的，为啥啊?</p>
+
+  </div>
+</article>
+<blockquote class="top-gap-big"> <p> 本文遵循 <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" class"text-muted">CC BY-ND-ND 3.0</a> 协议，转载请注明原作者，禁止商用，禁止演绎。 </p> </blockquote>
+<div class="top-gap-big text-center text-muted">
+  <small>
+    <i class="czs-tag-l"></i>
+    <a class="text-muted" href="/tags/后端-redis/">后端 redis</a>
+  </small>
+</div>
+
+
+  <div id="disqus_thread" class="top-gap-big"></div>
+  <script>
+    var langMap = {
+      en: 'en',
+      'zh-CN': 'zh'
+    };
+    var disqus_config = function () {
+      this.language = langMap['chinese'] || langMap['en'];
+      this.page.url = 'http://malu.moe/2018/04/29/给后端添加redis缓存/';
+      this.page.identifier = '2018/04/29/给后端添加redis缓存/';
+      this.page.title = '给后端添加redis缓存';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = '//malusama.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        <hr class="top-gap-big"></hr>
+<p class="text-center">
+  <small class="text-muted">
+    &copy;
+    
+      2012 -
+    
+    <span itemprop="copyrightYear">2020</span>
+    <i class="czs-heart" style="color:red;"></i>
+    <span itemprop="copyrightHolder">malu</span>
+
+    <br/>
+
+    Powered by <a class="text-muted" href="https://hexo.io" title="Hexo">Hexo</a>
+    <span class="theme-separator">·</span>
+    Theme
+    <a class="text-muted" href="https://github.com/xcatliu/hexo-theme-milk">Milk</a>
+  </small>
+</p>
+
+      </div>
+      <div class="theme-sidebar-mask theme-hide"></div>
+<aside class="theme-sidebar-wrapper">
+  <div class="container flex-left units-gap theme-header-container">
+    
+    <a class="unit-0 theme-icon-link" href="/archives" title="归档">
+      <i class="czs-folder-l"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="/categories" title="分类">
+      <i class="czs-bookmark-l"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="/tags" title="标签">
+      <i class="czs-tag-l"></i>
+    </a>
+  
+    <div class="unit"></div>
+  
+    <a class="unit-0 theme-icon-link" href="http://malu.moe" title="关于我">
+      <i class="czs-user-l"></i>
+    </a>
+  
+
+  </div>
+  <div class="container">
+    
+          <h2>Malu blog</h2>
+          
+          <p class="top-gap-0 text-muted"></p>
+          
+          <div class="flex-left flex-middle top-gap">
+            <img alt="Avatar" height="24" src="/assets/about/favicon.ico"/>
+            <span class="theme-sidebar-author">malu</span>
+          </div>
+          
+          <p>欢迎访问Malusama的博客，这里搜集了我的技术文章和生活感悟，希望能够与您一起交流，共同成长。</p>
+          
+          <p class="theme-sidebar-social">
+            
+    <a class="unit-0 theme-icon-link" href="https://github.com/malusama" title="GitHub">
+      <i class="czs-github"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="https://www.v2ex.com/member/malusama" title="V2EX">
+      <i class="czs-v2ex"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="https://twitter.com/791644947" title="Twitter">
+      <i class="czs-twitter"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="mailto:chensichengmalu@gmail.com" title="Gmail">
+      <i class="czs-message-l"></i>
+    </a>
+  
+
+          </p>
+          
+          <h5>Links</h5>
+          <p class="text-muted">
+            <small>
+              <ul class="theme-list-style-none">
+                <li><a class="text-muted" href="https://github.com/malusama">github</a></li>
+              </ul>
+            </small>
+          </p>
+          
+  </div>
+</aside>
+
+    </div>
+    <script src="/js/theme.js"></script>
+    
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-28923877-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?196bdd0c9837159f8e291ef5a93aef95";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+    
+  <script id="dsq-count-scr" src="//malusama.disqus.com/count.js" async></script>
+
+  </body>
+</html>

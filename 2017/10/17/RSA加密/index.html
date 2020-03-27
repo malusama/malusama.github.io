@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="chinese">
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  
+  
+  
+
+  <link rel="stylesheet" href="/css/mobi.css-3.0.4/dist/mobi.min.css">
+<link rel="stylesheet" href="/css/caomei1.2.1/style.css">
+<link rel="stylesheet" href="/css/theme.css">
+
+  
+    <meta name="keywords" content="java RSA">
+  
+
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  <title>RSA加密 - Malu blog</title>
+  <script data-ad-client="ca-pub-4390654727225048" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?196bdd0c9837159f8e291ef5a93aef95";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-4390654727225048",
+        enable_page_level_ads: true
+      });
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+      ga('create', 'UA-28923877-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+</head>
+
+  <body class="theme-body">
+    <div class="flex-center theme-header-wrapper">
+  <div class="container flex-left units-gap theme-header-container">
+    <a href="/" class="unit-0 theme-header-icon theme-icon-link" title="Home">
+      <i class="czs-home-l"></i>
+    </a>
+    <div class="flex-center text-center flex-middle unit theme-header-title theme-header-title-no-transition">
+      Malu blog
+    </div>
+    <a class="unit-0 theme-header-icon theme-icon-link theme-header-sidebar-icon" href="javascript:void(0);" title="More">
+      <i class="czs-menu-l"></i>
+    </a>
+  </div>
+</div>
+<div class="theme-header-placeholder"></div>
+
+    <div class="flex-center">
+      <div class="container">
+        <article>
+  <h1 class="text-center">
+    RSA加密
+  </h1>
+  <div class="text-center top-gap">
+    <div class="text-small text-muted">
+  <time datetime="2017-10-17T18:18:55+08:00">
+    2017-10-17
+  </time>
+  <span class="theme-separator">·</span>
+  <i class="czs-user-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="https://github.com/"></a>
+  <span class="theme-separator">·</span>
+  <i class="czs-bookmark-l"></i>
+  
+  <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
+    <span class="theme-separator">·</span>
+    <a class="text-muted theme-text-no-decoration" href="/2017/10/17/RSA加密/#disqus_thread">
+      <i class="czs-comment-l"></i>
+      <span class="disqus-comment-count theme-comment-count" data-disqus-identifier="2017/10/17/RSA加密/"></span>
+    </a>
+  </span>
+</div>
+
+  </div>
+  <div class="top-gap-big">
+    <p>2017年五月13日早些时候群里就流传了一些学校机房里的机器中了一种蠕虫病毒的图，那时候都是怀着一种调侃的心情看这些图，因为机房没法使用我们学生们就不用上一些实习了233。</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/%E7%95%8C%E9%9D%A2.jpg?x-oss-process=style/blog" alt></p>
+<p>比这的更早些时候也有一些勒索程序，windows平台下的，也有<a href="https://www.android.com/" target="_blank" rel="noopener">Android</a>平台下的。不过他们更像是一些脚本小子是使用出售的模版改些东西就传播的东西，因为当时确实也因为各种勒索软件爆发论坛上有一些抱怨，互联网更深的地方还有人出售易语言勒索程序的模版。但是五月13日后画风就越来越不一样了。先是群里这种机房被感染的图片越来越多，它不是单独的一个勒索软件，他还是一个蠕虫病毒，他会自我复制传播感染其他机器，更要命的是他还利用了一个windows平台下的0DAY（<a href="https://zh.wikipedia.org/wiki/%E6%B0%B8%E6%81%92%E4%B9%8B%E8%93%9D" target="_blank" rel="noopener">永恒之蓝</a>）漏洞。。。</p>
+<p>五月12日晚微博上<a href="https://zh.wikipedia.org/wiki/%E5%B1%B1%E4%B8%9C%E5%A4%A7%E5%AD%A6" target="_blank" rel="noopener">山东大学</a>、<a href="https://zh.wikipedia.org/wiki/%E5%8D%97%E6%98%8C%E5%A4%A7%E5%AD%A6" target="_blank" rel="noopener">南昌大学</a>、<a href="https://zh.wikipedia.org/wiki/%E5%B9%BF%E8%A5%BF%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6" target="_blank" rel="noopener">广西师范大学</a>、<a href="https://zh.wikipedia.org/wiki/%E6%A1%82%E6%9E%97%E9%9B%BB%E5%AD%90%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%B8" target="_blank" rel="noopener">桂林电子科技大学</a>、<a href="https://zh.wikipedia.org/wiki/%E5%A4%A7%E8%BF%9E%E6%B5%B7%E4%BA%8B%E5%A4%A7%E5%AD%A6" target="_blank" rel="noopener">大连海事大学</a>、<a href="https://zh.wikipedia.org/wiki/%E4%B8%9C%E5%8C%97%E8%B4%A2%E7%BB%8F%E5%A4%A7%E5%AD%A6" target="_blank" rel="noopener">东北财经大学</a>等十几家高校发布通知，提醒师生注意防范。这个时候就能看出WannaCry这个蠕虫病毒开始搞大新闻了。除了教育网、校园网以外，<a href="https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A" target="_blank" rel="noopener">新浪微博</a>上不少用户反馈，北京、上海、江苏、天津等多地的出入境、派出所等公安网和政企专网也遭遇了病毒袭击，许多公安机关和政府部门由于勒索软件的影响被迫停止工作。<a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E5%9B%BD%E5%AE%B6%E4%BA%92%E8%81%94%E7%BD%91%E5%BA%94%E6%80%A5%E4%B8%AD%E5%BF%83" target="_blank" rel="noopener">中国国家互联网应急中心</a>发布关于防范WannaCry的情况通报，称全球约101.1万个IP地址遭受“永恒之蓝”SMB漏洞攻击工具的攻击尝试，发起攻击尝试的IP地址数量9300余个。重要的是，英国的医院还被感染了。这下感觉彻底没救了，作者公布解密方案都没法挽回了。</p>
+<p>WannaCry会加密硬盘上的所有文件，它还会提示你，如果你想解密，需要给一个比特币地址支付比特币。那么它怎么确认是谁交了比特币呢？它得确保每个被感染的机器都有唯一的标识，不能用一个统一的比特币钱包地址，因为这样没法确认是谁交了比特币。WannaCry确实会通过tor网络给每一个感染机器分配一个比特币地址，这样作者只需要给检测单独比特币钱包是否有足够的比特币就可以给那些机器解密密钥。但是在中国的GFW是屏蔽了tor网络的。所以在中国地区感染的机器只会显示三个固定的比特币地址</p>
+<p>115p7UMMngoj1pMvkpHijcRdfJNXj6LrLn</p>
+<p>12t9YDPgwueZ9NyMgw519p7AA8isjr6SMw</p>
+<p>13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94</p>
+<p>所以中国地区被感染的机器想要解密是没门的，但是确实有不少人给上面那三个比特币地址支付比特币。不知道那些受害者在支付后石沉大海会是什么感觉。</p>
+<p>这时候我想到了那些交了钱的人拿到解密密钥后把密钥公布那样岂不是其他人就不用交钱了么？</p>
+<p>那如果交了比特币，作者会以什么样的方式给受害者解密呢我想。</p>
+<p>感染加密的时候使用对称加密，加密完上传加密密钥和机器号到作者服务器</p>
+<p>那么这样得确保被感染的机器能联网，而且windows默认是不给联网权限的，pass</p>
+<p>感染的时候使用随机的对称加密密钥，这样不会解密一个其他人都知道了密钥。</p>
+<p>但是这样你怎么知道随机生成的密钥是啥呢？发送给作者？不可能，默认是没联网权限的。pass</p>
+<p>使用不对称加密的其中一个密钥 加密 对称加密的 密钥！</p>
+<p>这样子就变成了加密的时候随机生成一个对称加密的密钥，加密本地的数据，加密完成后使用硬编码的不对称加密的其中一个密钥（这样子就成为公钥）加密对称加密的密钥。</p>
+<p>解密的时候就把被加密过后的密钥发送给作者，作者用自己的私钥解密后发给你。</p>
+<p>这里用到了不对称加密的一个特性，<strong>用其中一个密钥加密的消息只能被另一个密钥解密</strong>。</p>
+<p>实际上WannaCry的加密过程会复杂点，WannaCry会本地生成一对RSA的一对密钥（我一直不明白这是为什么）。WannaCry 会给每个文件都单独生成一个AES的密钥加密后用本地生成的公钥加密，私钥由硬编码在程序里的另一对RSA密钥中的公钥加密（作者在他本地生成的RSA密钥对）实际上WannaCry是硬编码了主公钥，还有一对RSA密钥对，用作演示解密使用。。。（作者真贴心啊）<br><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/%E6%B5%81%E7%A8%8B.jpg?x-oss-process=style/blog" alt></p>
+<p>暑假闲着没事，就尝试用java实现RSA密钥对的生成。</p>
+<p>按照wiki说明，得先选择两个大的质数p和q，生成N = pq。</p>
+<p>这里使用了java的BigInteger对象，BigInteger有probablePrime的方法可以直接生成指定的素数（java就是好，库各种齐全）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BigInteger q = BigInteger.probablePrime(<span class="number">100</span>, <span class="keyword">new</span> Random()); <span class="comment">// 取 2^100-1 范围内的随机素数</span></span><br><span class="line">BigInteger p = BigInteger.probablePrime(<span class="number">100</span>, <span class="keyword">new</span> Random());</span><br><span class="line">BigInteger N = q.multiply(p);  <span class="comment">// q * p</span></span><br></pre></td></tr></table></figure>
+
+<p>接着求一个r，r = (p-1)(q-1)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BigInteger r = q.subtract(BigInteger.ONE).multiply(p.subtract(BigInteger.ONE)); </span><br><span class="line"><span class="comment">//(q - 1)*(p - 1)</span></span><br></pre></td></tr></table></figure>
+
+<p>选择一个小于r的整数e，使e与r互质。</p>
+<p>这里理论上e是任何小于r且与r互质的整数，但是通常基于性能考虑会选择65537.</p>
+<blockquote>
+<p>openssl的低级版本一般会将e=3作为默认的RSA公钥指数。选取小公钥指数主要是为了提高加密或签名验证的性能，比如选e=3只需要2次模乘(ModMul)，而随机选择的e(假设n是1024-bit)则大概需要1000次模乘。NIST SP800-78 Rev 1 (2007) 曾强调“不允许使用比65537更低的公钥指数e”，但PKCS#1却从未有过类似的建议。e=65537=(2^16+1)，其签名/加密运算只需要17次模乘，性能也算不错。但我认为选这个值的目的只是一个介于小指数攻击和运算效率之间的一个折中考虑，即以防万一将来有一天”e=3”被攻破而侥幸”e=65537”可能还是安全的。</p>
+<p>（<a href="http://blog.csdn.net/hherima/article/details/52461759）" target="_blank" rel="noopener">http://blog.csdn.net/hherima/article/details/52461759）</a></p>
+</blockquote>
+<p>求得e关于r的模反元素，命名为d。</p>
+<p>使用扩展欧几里德算法可以求的d</p>
+<p>java里定义了静态变量用于exgcd使用，这里写得很不好看。。。或许还有更优雅的写法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> BigInteger x,y,o = BigInteger.valueOf(<span class="number">0</span>),o1 = BigInteger.valueOf(<span class="number">1</span>);	</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> BigInteger <span class="title">exgcd</span><span class="params">(BigInteger a,BigInteger b)</span></span>&#123;  </span><br><span class="line">	<span class="keyword">if</span>(b.compareTo(o)==<span class="number">0</span>)&#123;</span><br><span class="line">        x = o1; y = o; <span class="keyword">return</span> a;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    	BigInteger d = exgcd(b,a.mod(b));</span><br><span class="line">        BigInteger temp = x;</span><br><span class="line">        x = y;</span><br><span class="line">        y = temp.subtract(a.divide(b).multiply(y))  ;</span><br><span class="line">        <span class="keyword">return</span> d;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样，我们就完成了生成一对RSA密钥对的所有步骤，（N，e）是公钥，(N，d)是你的私钥。</p>
+<blockquote>
+<p>如果你使用随机生成的e，那么任意一个密钥都可以是公钥或私钥，但是工业界e是默认的65537，故(N,e)只能是公钥。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BigInteger n = <span class="keyword">new</span> BigInteger(<span class="string">"65535"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>使用公钥加密消息是，使用双方约定好的方式将消息转换成一段段小于N的且与N互质的整数n,则加密后的消息为<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5c7221f755ee1dc5c37a0d3843763d300a47fd55" alt="{\displaystyle c\equiv n^{e}{\pmod {N}}}">。</p>
+<p>这里因为e是65537，本身就是一个素数。所以消息只需要切片成小于65537且不为1就可以了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BigInteger n = <span class="keyword">new</span> BigInteger(<span class="string">"65535"</span>);</span><br><span class="line">System.out.println(<span class="string">"n= "</span> + n);</span><br><span class="line">BigInteger c = n.modPow(e, N);</span><br></pre></td></tr></table></figure>
+
+<p>解密消息可以用私钥d来解码，将接收的c通过以下公式转换为n：<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/39e4d41353bed8f138cc9f567741051c544b7720" alt=" c^d \equiv n\ (\mathrm{mod}\ N) "></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"c= "</span> + c);</span><br><span class="line">BigInteger nc = c.modPow(d, N);</span><br><span class="line">System.out.println(<span class="string">"nc= "</span> + nc);</span><br></pre></td></tr></table></figure>
+
+<p>解码的原理是</p>
+<p>已知</p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/615bfc80513abf2a32d6c105b6b150c05773029b" alt="{\displaystyle ed\equiv 1{\pmod {r}}}">，即 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/64e2c5e70f23fe9595cf64923d3d190f7470fc08" alt="{\displaystyle ed=1+h\varphi (N)}">。 由<a href="https://zh.wikipedia.org/wiki/%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86_(%E6%95%B0%E8%AE%BA)" target="_blank" rel="noopener">欧拉定理</a>得：<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/79569d77cd17c2c265be3b2980878a3a59aa1a7e" alt="{\displaystyle n^{ed}=n^{1+h\varphi (N)}=n\left(n^{\varphi (N)}\right)^{h}\equiv n(1)^{h}{\pmod {N}}\equiv n{\pmod {N}}}"></p>
+<p>RSA同样可以用来签名消息，只要拥有私钥的一方在消息后添加消息的散列值的加密信息，拥有公钥的一方接收到消息后可以用公钥解密散列值并于消息对比，如果消息的散列值与解密后的一致，则这个消息在传播路径上没有被篡改过。</p>
+<p>至此，RSA密钥的生成实验已经做完了，RSA的加密和签名的安全性是基于目前没有合适的算法，其复杂度增长超过目前计算机算力的增长。所以RSA的加密只要随着计算机升级增加密钥长度就可以了。可是当今计算机是怎么分发公钥的呢？说着说着感觉我知道我的下一篇应该写什么了。</p>
+<p>源代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> math;</span><br><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Encode</span> </span>&#123;</span><br><span class="line"><span class="keyword">static</span> BigInteger x,y,o = BigInteger.valueOf(<span class="number">0</span>),o1 = BigInteger.valueOf(<span class="number">1</span>);</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// TODO 自动生成的方法存根</span></span><br><span class="line">	</span><br><span class="line">	  BigInteger q = BigInteger.probablePrime(<span class="number">100</span>, <span class="keyword">new</span> Random()); <span class="comment">// 取 2^100-1 范围内的随机素数</span></span><br><span class="line">	  BigInteger p = BigInteger.probablePrime(<span class="number">100</span>, <span class="keyword">new</span> Random());</span><br><span class="line">	  BigInteger N = q.multiply(p);  <span class="comment">// q * p </span></span><br><span class="line">	  BigInteger r = q.subtract(BigInteger.ONE).multiply(p.subtract(BigInteger.ONE)); <span class="comment">//(q - 1)*(p - 1)</span></span><br><span class="line">	  System.out.println(<span class="string">"q= "</span> + q);  </span><br><span class="line">	  System.out.println(<span class="string">"p= "</span> + p);  </span><br><span class="line">	  System.out.println(<span class="string">"N= "</span> + N);  </span><br><span class="line">	  System.out.println(<span class="string">"r= "</span> + r);  </span><br><span class="line">	  BigInteger e = <span class="keyword">new</span> BigInteger(<span class="string">"65537"</span> );<span class="comment">//new BigInteger(10,new Random()); </span></span><br><span class="line">	  <span class="comment">//while(r.gcd(e).equals(BigInteger.ONE))&#123;</span></span><br><span class="line">		  <span class="comment">//System.out.println(e);  </span></span><br><span class="line">		  <span class="comment">//e =new BigInteger(10,new Random());</span></span><br><span class="line">	 <span class="comment">// &#125;</span></span><br><span class="line">	  System.out.println(<span class="string">"e= "</span> + e);</span><br><span class="line">	  exgcd(e, r);</span><br><span class="line">	  BigInteger d = x;<span class="comment">//new BigInteger("2753" );</span></span><br><span class="line">	  System.out.println(<span class="string">"d= "</span> + d);</span><br><span class="line">	  <span class="comment">//BigInteger n = BigInteger.probablePrime(11, new Random());</span></span><br><span class="line">	  BigInteger n = <span class="keyword">new</span> BigInteger(<span class="string">"65535"</span>);</span><br><span class="line">	  System.out.println(<span class="string">"n= "</span> + n);</span><br><span class="line">	  BigInteger c = n.modPow(e, N);</span><br><span class="line">	  System.out.println(<span class="string">"c= "</span> + c);</span><br><span class="line">	  BigInteger nc = c.modPow(d, N);</span><br><span class="line">	  System.out.println(<span class="string">"nc= "</span> + nc);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> BigInteger <span class="title">exgcd</span><span class="params">(BigInteger a,BigInteger b)</span></span>&#123;  </span><br><span class="line">	<span class="keyword">if</span>(b.compareTo(o)==<span class="number">0</span>)&#123;</span><br><span class="line">        x = o1; y = o; <span class="keyword">return</span> a;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    	BigInteger d = exgcd(b,a.mod(b));</span><br><span class="line">        BigInteger temp = x;</span><br><span class="line">        x = y;</span><br><span class="line">        y = temp.subtract(a.divide(b).multiply(y))  ;</span><br><span class="line">        <span class="keyword">return</span> d;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+</article>
+<blockquote class="top-gap-big"> <p> 本文遵循 <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" class"text-muted">CC BY-ND-ND 3.0</a> 协议，转载请注明原作者，禁止商用，禁止演绎。 </p> </blockquote>
+<div class="top-gap-big text-center text-muted">
+  <small>
+    <i class="czs-tag-l"></i>
+    <a class="text-muted" href="/tags/java-RSA/">java RSA</a>
+  </small>
+</div>
+
+
+  <div id="disqus_thread" class="top-gap-big"></div>
+  <script>
+    var langMap = {
+      en: 'en',
+      'zh-CN': 'zh'
+    };
+    var disqus_config = function () {
+      this.language = langMap['chinese'] || langMap['en'];
+      this.page.url = 'http://malu.moe/2017/10/17/RSA加密/';
+      this.page.identifier = '2017/10/17/RSA加密/';
+      this.page.title = 'RSA加密';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = '//malusama.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        <hr class="top-gap-big"></hr>
+<p class="text-center">
+  <small class="text-muted">
+    &copy;
+    
+      2012 -
+    
+    <span itemprop="copyrightYear">2020</span>
+    <i class="czs-heart" style="color:red;"></i>
+    <span itemprop="copyrightHolder">malu</span>
+
+    <br/>
+
+    Powered by <a class="text-muted" href="https://hexo.io" title="Hexo">Hexo</a>
+    <span class="theme-separator">·</span>
+    Theme
+    <a class="text-muted" href="https://github.com/xcatliu/hexo-theme-milk">Milk</a>
+  </small>
+</p>
+
+      </div>
+      <div class="theme-sidebar-mask theme-hide"></div>
+<aside class="theme-sidebar-wrapper">
+  <div class="container flex-left units-gap theme-header-container">
+    
+    <a class="unit-0 theme-icon-link" href="/archives" title="归档">
+      <i class="czs-folder-l"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="/categories" title="分类">
+      <i class="czs-bookmark-l"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="/tags" title="标签">
+      <i class="czs-tag-l"></i>
+    </a>
+  
+    <div class="unit"></div>
+  
+    <a class="unit-0 theme-icon-link" href="http://malu.moe" title="关于我">
+      <i class="czs-user-l"></i>
+    </a>
+  
+
+  </div>
+  <div class="container">
+    
+          <h2>Malu blog</h2>
+          
+          <p class="top-gap-0 text-muted"></p>
+          
+          <div class="flex-left flex-middle top-gap">
+            <img alt="Avatar" height="24" src="/assets/about/favicon.ico"/>
+            <span class="theme-sidebar-author">malu</span>
+          </div>
+          
+          <p>欢迎访问Malusama的博客，这里搜集了我的技术文章和生活感悟，希望能够与您一起交流，共同成长。</p>
+          
+          <p class="theme-sidebar-social">
+            
+    <a class="unit-0 theme-icon-link" href="https://github.com/malusama" title="GitHub">
+      <i class="czs-github"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="https://www.v2ex.com/member/malusama" title="V2EX">
+      <i class="czs-v2ex"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="https://twitter.com/791644947" title="Twitter">
+      <i class="czs-twitter"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="mailto:chensichengmalu@gmail.com" title="Gmail">
+      <i class="czs-message-l"></i>
+    </a>
+  
+
+          </p>
+          
+          <h5>Links</h5>
+          <p class="text-muted">
+            <small>
+              <ul class="theme-list-style-none">
+                <li><a class="text-muted" href="https://github.com/malusama">github</a></li>
+              </ul>
+            </small>
+          </p>
+          
+  </div>
+</aside>
+
+    </div>
+    <script src="/js/theme.js"></script>
+    
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-28923877-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?196bdd0c9837159f8e291ef5a93aef95";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+    
+  <script id="dsq-count-scr" src="//malusama.disqus.com/count.js" async></script>
+
+  </body>
+</html>
