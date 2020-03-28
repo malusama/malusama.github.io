@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="/css/theme.css">
 
   
-    <meta name="keywords" content="后端, redis">
+    <meta name="keywords" content="树莓派">
   
 
   
@@ -27,7 +27,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
   
 
-  <title>给后端添加redis缓存 - Malu blog</title>
+  <title>树莓派4 - Malu blog</title>
   <script data-ad-client="ca-pub-4390654727225048" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
     var _hmt = _hmt || [];
@@ -76,12 +76,12 @@
       <div class="container">
         <article>
   <h1 class="text-center">
-    给后端添加redis缓存
+    树莓派4
   </h1>
   <div class="text-center top-gap">
     <div class="text-small text-muted">
-  <time datetime="2018-04-29T00:01:47+08:00">
-    2018-04-29
+  <time datetime="2020-03-28T20:21:20+08:00">
+    2020-03-28
   </time>
   <span class="theme-separator">·</span>
   <i class="czs-user-l"></i>
@@ -91,31 +91,35 @@
   
   <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
     <span class="theme-separator">·</span>
-    <a class="text-muted theme-text-no-decoration" href="/2018/04/29/给后端添加redis缓存/#disqus_thread">
+    <a class="text-muted theme-text-no-decoration" href="/2020/03/28/树莓派4/#disqus_thread">
       <i class="czs-comment-l"></i>
-      <span class="disqus-comment-count theme-comment-count" data-disqus-identifier="2018/04/29/给后端添加redis缓存/"></span>
+      <span class="disqus-comment-count theme-comment-count" data-disqus-identifier="2020/03/28/树莓派4/"></span>
     </a>
   </span>
 </div>
 
   </div>
   <div class="top-gap-big">
-    <p>​    在 VPS 上架设好 Flask 后，我测试并发是经常发现 ORM 框架会发生错误，查询之后是 连接时设置的 pool_size 太小， 使用 SQLCHEMY 时默认的 pool_size = 5， 我改为100后就可以了。</p>
-<p>​    但是如果大并发的时候一些热点数据应该还是会频繁的查询数据库，但是这些数据是不会经常更新的。所以我就想着这么用 redis 缓存那些经常被查询但是不会更新的数据， 比如公告， STOCK 的基本信息.</p>
-<p>​     我试了测试没有使用redis进行缓存时候打开首页查询公告时候的web服务器性能，使用 webbench 进行 500 线程 60 秒的测试。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Benchmarking: GET http://127.0.0.1:5000/</span><br><span class="line">500 clients, running 60 sec.</span><br><span class="line"></span><br><span class="line">Speed=1924 pages/min, 54160 bytes/sec.</span><br><span class="line">Requests: 1924 susceed, 0 failed.</span><br></pre></td></tr></table></figure>
-
-<p>在添加 Reids 缓存后再以同样的参数进行测试</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Benchmarking: GET http://127.0.0.1:5000/</span><br><span class="line">500 clients, running 60 sec.</span><br><span class="line"></span><br><span class="line">Speed=16735 pages/min, 468472 bytes/sec.</span><br><span class="line">Requests: 16642 susceed, 93 failed.</span><br></pre></td></tr></table></figure>
-
-<p>发送速率直接上了一个数量级，舒服。</p>
-<p>直接测试一下在 VPS 上跑的后端并发数，在没有添加 Redis 的后端测试的时候本地打开网页是不是回500</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Benchmarking: GET http://106.15.205.43/index</span><br><span class="line">500 clients, running 60 sec.</span><br><span class="line"></span><br><span class="line">Speed=3990 pages/min, 106517 bytes/sec.</span><br><span class="line">Requests: 3990 susceed, 0 failed.</span><br></pre></td></tr></table></figure>
-
-<p>添加后</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Benchmarking: GET http://106.15.205.43/index</span><br><span class="line">500 clients, running 60 sec.</span><br><span class="line"></span><br><span class="line">Speed=3810 pages/min, 108984 bytes/sec.</span><br><span class="line">Requests: 3810 susceed, 0 failed.</span><br></pre></td></tr></table></figure>
-
-<p>没想到却是一样的，为啥啊?</p>
+    <p>之前写了一个bilibili的爬虫, 根据bilibili 的一个<a href="http://api.bilibili.com/x/web-interface/view?aid=" target="_blank" rel="noopener">api</a>获取 视频的一些信息. (记得我大一的时候也写了一个爬虫, 那时候bilibili似乎没有对api限制qps? 我记得几天就用这自己的笔记本爬了前一百万的av号?). </p>
+<p>爬虫的架构基本上是要爬取的av号先 生成在redis的一个队里, 爬虫从redis去出要爬的av, 获取信息后储存到mongo里. 这样子爬虫完全就是一个消费者. 消费redis里的av号. 可以随时横向扩展. 但是还有一个api对一个ip频率限制的问题.</p>
+<p>于是又起了一个抓取互联网上公开http代理的一个<a href="https://github.com/phpgao/proxy_pool" target="_blank" rel="noopener">应用</a>. 这样子爬虫就可以轮流使用代理池里的http代理. 不间断的请求api.(因为代理的问题还给一些提供http代理的服务氪过金..结果算了一下50块钱还不够一天用的)</p>
+<p>我在自己的笔记本上起了8个爬虫, 每个爬虫 32 的协程持续请求..跑了几个小时就有25w的数据入库, 但是在笔记本跑的最大一个问题就是如果合上盖子爬虫就停了..如果只是测试可以在本地跑, 长期运行还是得在一个不关机的机器上. 而且在自己笔记本上跑还有一个问题就是他娘的mongo写入太费cpu了把.. 爬虫跑起来mongo的进程长期400%的使用率…不一会风扇就转起来了…</p>
+<p>于是我打算把需要用到的服务mongo, redis, 代理池都由docker提供. 整个应用写个docker-compose.yaml 文件拉起来.但是有个问题. 我5刀一个月的vps内存是1g的…起个redis, mongo vps内存就满了. 连ssh上去操作的时候延迟简直不能忍受.  于是又想要一个高内存的vps了….</p>
+<p>转了一圈国内最好的价格是2c4g的机器一年400, 三年1200.但是这个是新用户或者企业用户的优惠. 现在没有那么优惠的价格了….于是便打起了树莓派的主意(绕了那么大一圈才谈到树莓派..)</p>
+<p>逛了淘宝一圈以近500的价格买了一个4g内存的树莓派4, 带散热片套装.</p>
+<p><img src="http://blog-malu.oss-accelerate.aliyuncs.com/uPic/F1B33EB8-9879-44B5-A558-2D0065A8780C_1_105_c-20200328204200707.jpeg" alt="F1B33EB8-9879-44B5-A558-2D0065A8780C_1_105_c"></p>
+<p>这玩意买回来后我尝试下载一个系统写进去..按照教程在根目录创建了一个名ssh的文件.以期待在系统起起来以后能够把ssh服务给来了. 这样我就直接能够连进去了</p>
+<p>但是实际上并不是那么顺利. 首先是在插入写好系统的tf卡后启动树莓派. 在路由器的页面里没看到类似Raspberry名字的机器(这里是第一个坑, 不知道为啥这里看到树莓派机器的名字是*). 于是我把所有不确定机器的ip都ssh了一遍..都直接拒绝了. ..</p>
+<p>但是这时候我没有显示器 ..只知道树莓派开机了. ssh连接不上去. 是不知道树莓派现在什么状态了..可愁死我了.</p>
+<p>于是我在京东下单了hmdi的线.想等线到接上电视看看是什么状态…之后就是漫长的等待.</p>
+<p>等到hdmi的线到了以后. 一样的操作. 接上hdmi的线, 没输入..日了够了. 这样子是完全没有进到系统里?</p>
+<p>于是我把官网上的系统试了好几个..各种方式写了好几遍…完全没有紧张.甚至到都问淘宝店家了.</p>
+<p>之后发现一个异状, 我的树莓派上电后绿色的灯不闪, 理论上读取tf卡绿色灯是会闪烁的. 这是系统有问题? 于是又写了好几遍tf卡…没进展</p>
+<p><strong>然后发现官网上又说树莓派4会有电源功率够的时候可能开机的时候不能顺利启动..于是我试了试就插上电源的网线的树莓派启动..成功了</strong>..</p>
+<p>于是复盘..可能之前写的系统是成功启动的, 但是在根目录下创建ssh文件并没有开启ssh服务.</p>
+<p>在hdmi线到了以后因为一直都是插着hdmi线启动的, 启动电流不够, 带不起开机时候的功率, 于是进入到了不断重启的状态…</p>
+<p>进入树莓派的环境发现apt还有各种依赖的问题..执行apt -f install 修复之后还把我apt给卸载了…于是还手动安装apt了几次…真是一言难尽</p>
+<p>最后还是想说硬件这东西真难调试…出错了都不知道哪里出了问题..想起当初组原实习的时候也是在一个板子上插线..用各种芯片实现小功能..弄了半天发现是板子的线接触有问题.难受死了</p>
 
   </div>
 </article>
@@ -123,7 +127,7 @@
 <div class="top-gap-big text-center text-muted">
   <small>
     <i class="czs-tag-l"></i>
-    <a class="text-muted" href="/tags/后端/">后端</a> , <a class="text-muted" href="/tags/redis/">redis</a>
+    <a class="text-muted" href="/tags/树莓派/">树莓派</a>
   </small>
 </div>
 
@@ -136,9 +140,9 @@
     };
     var disqus_config = function () {
       this.language = langMap['chinese'] || langMap['en'];
-      this.page.url = 'http://malu.moe/2018/04/29/给后端添加redis缓存/';
-      this.page.identifier = '2018/04/29/给后端添加redis缓存/';
-      this.page.title = '给后端添加redis缓存';
+      this.page.url = 'http://malu.moe/2020/03/28/树莓派4/';
+      this.page.identifier = '2020/03/28/树莓派4/';
+      this.page.title = '树莓派4';
     };
     (function() {
       var d = document, s = d.createElement('script');
