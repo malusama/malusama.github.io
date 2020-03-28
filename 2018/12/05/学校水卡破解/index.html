@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="/css/theme.css">
 
   
-    <meta name="keywords" content="IC卡，破解">
+    <meta name="keywords" content="pn532, 水卡">
   
 
   
@@ -101,8 +101,6 @@
   </div>
   <div class="top-gap-big">
     <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>今天淘宝买的pn523 终于到了，话不多说，鼓捣起来。</p>
-
-
 <p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/pn532.jpg?x-oss-process=style/blog" alt></p>
 <p>先下载pn523的驱动，然后配套的软件也都有界面，方便很多</p>
 <p>放上店家赠送的白卡读取看下是否正常，一切正常</p>
@@ -126,8 +124,7 @@
 <p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/cuid.jpg?x-oss-process=style/blog" alt></p>
 <p>如果要尝试修改扇区信息，得破解 M1 卡的各个扇区的KEY A和KEY B。</p>
 <p>这部分软件自动完成。大抵是穷举或者重放攻击，只有算出扇区的KEY A和KEY B才能修改。</p>
-<p>在机器上查询到卡内余额后，尝试修改余额信息。这张水卡只有第八扇区有信息。我们只需要看这部分就行<br><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/17.39.jpg?x-oss-process=style/blog" alt></p>
-<p>17.77<br><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/17.77.png?x-oss-process=style/blog" alt></p>
+<p>在机器上查询到卡内余额后，尝试修改余额信息。这张水卡只有第八扇区有信息。我们只需要看这部分就行<br>17.77<br><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/17.77.png?x-oss-process=style/blog" alt></p>
 <p>发现卡内0和2块内信息是相同的。且N2和N3就是余额信息</p>
 <p>因为卡内的数据都是二进制储存的，软件为了便于显示转换为16进制</p>
 <p>DEC 1777 == HEX  06FF.<br>在0 区块下  我除了 N2和N3其他都不知道是什么。</p>
@@ -229,7 +226,7 @@
 <div class="top-gap-big text-center text-muted">
   <small>
     <i class="czs-tag-l"></i>
-    <a class="text-muted" href="/tags/IC卡，破解/">IC卡，破解</a>
+    <a class="text-muted" href="/tags/pn532/">pn532</a> , <a class="text-muted" href="/tags/水卡/">水卡</a>
   </small>
 </div>
 
