@@ -22,6 +22,8 @@
   
 
   
+    <link rel="alternate" href="/atom.xml" title="Malu blog" type="application/atom+xml">
+  
 
   
     <link rel="shortcut icon" href="/favicon.ico">
@@ -54,7 +56,7 @@
       ga('create', 'UA-28923877-1', 'auto');
       ga('send', 'pageview');
     </script>
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
   <body class="theme-body">
     <div class="flex-center theme-header-wrapper">
@@ -112,7 +114,13 @@
 <p>之后会新打开一个标签页.. 查看浏览器的控制台看具体的网络请求</p>
 <p><img src="http://blog-malu.oss-accelerate.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-03-2822.06.43.png" alt="截屏2020-03-2822.06.43"></p>
 <p>其中最重要的就是获取一个m3u8的文件.. 里面是具体的分片地址 分片的具体连接可以看你请求的ts文件的地址拼接出来.</p>
-<p>其中一个<a href>https://www.dmm.co.jp/service/-/drm_iphone</a>的请求会请求M3U8文件的密钥, </p>
+<p>其中一个<a href>https://www.dmm.co.jp/service/-/drm_iphone</a>的请求会请求M3U8文件的密钥,  这是一个16b大小的文件</p>
+<p>在你获取到m3u8文件后把m3u8文件的key描述信息里的URI替换成你获取的key文件地址就好了</p>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>或者选择base64保存你的key , 其中xxx内容替换为16b 编码过后的base64字符串(24b)</p>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;base64:&#123;xxx&#125;&quot;</span><br></pre></td></tr></table></figure>
+
 <p>你拥有分片地址和密钥之后你就可以下载解密了..现在myhd1080 和sht等论坛的大众破解方式都是这种</p>
 <p>当然sht还有更厉害的wmv破解, 纯手工的方式. 但是这种方式又不能批量工业化的进行..个人觉得串流6000k的影片质量相比之前的1g渣渣好多了..也足够了.</p>
 <p>话说dmm一部影片的价格在500日元到4000日元之间. 对应人民币是30 ~ 240元一部.. 当初年轻的时候觉得代购40一部价格还可以..毕竟得添加点服务费嘛.</p>

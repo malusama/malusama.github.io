@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Malu blog</title>
+  <icon>http://malu.moe/icon.png</icon>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://malu.moe/"/>
+  <updated>2020-04-12T11:37:40.613Z</updated>
+  <id>http://malu.moe/</id>
+  
+  <author>
+    <name>malu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DMM影片破解</title>
+    <link href="http://malu.moe/2020/03/28/DMM%E5%BD%B1%E7%89%87%E7%A0%B4%E8%A7%A3/"/>
+    <id>http://malu.moe/2020/03/28/DMM%E5%BD%B1%E7%89%87%E7%A0%B4%E8%A7%A3/</id>
+    <published>2020-03-28T13:29:43.000Z</published>
+    <updated>2020-04-12T11:37:40.613Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;之前因为在一个jav论坛上发现有大佬(一个叫阿乐的奇怪大叔)发福利. 提交dmm上的月额影片然后她分享M3U8文件给你, 你下载M3U8文件的里视频分片合并就是完整的视频了. &lt;/p&gt;
+&lt;p&gt;之后发现现在的日本jav流出方式都是这种方式流出的.
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="DMM" scheme="http://malu.moe/tags/DMM/"/>
+    
+      <category term="破解" scheme="http://malu.moe/tags/%E7%A0%B4%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树莓派4</title>
+    <link href="http://malu.moe/2020/03/28/%E6%A0%91%E8%8E%93%E6%B4%BE4/"/>
+    <id>http://malu.moe/2020/03/28/%E6%A0%91%E8%8E%93%E6%B4%BE4/</id>
+    <published>2020-03-28T12:21:20.000Z</published>
+    <updated>2020-03-28T13:08:20.007Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;之前写了一个bilibili的爬虫, 根据bilibili 的一个&lt;a href=&quot;http://api.bilibili.com/x/web-interface/view?aid=&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;api&lt;/a&gt;获取
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="树莓派" scheme="http://malu.moe/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>北京北京</title>
+    <link href="http://malu.moe/2019/11/09/%E5%8C%97%E4%BA%AC%E5%8C%97%E4%BA%AC/"/>
+    <id>http://malu.moe/2019/11/09/%E5%8C%97%E4%BA%AC%E5%8C%97%E4%BA%AC/</id>
+    <published>2019-11-09T10:04:52.000Z</published>
+    <updated>2020-03-29T01:43:57.042Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;来北京也有几个月了 ,还是非常不习惯北京的居住形式.&lt;/p&gt;
+&lt;p&gt;一个特别给我冲击感的就是厕纸不丢在马桶里冲掉! 而是丢进垃圾桶里.&lt;/p&gt;
+&lt;p&gt;起初是在租的房子的厕所里发现有个纸筐,
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Life" scheme="http://malu.moe/categories/Life/"/>
+    
+    
+      <category term="北京" scheme="http://malu.moe/tags/%E5%8C%97%E4%BA%AC/"/>
+    
+      <category term="生活" scheme="http://malu.moe/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>流式计算</title>
+    <link href="http://malu.moe/2019/03/11/%E6%B5%81%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
+    <id>http://malu.moe/2019/03/11/%E6%B5%81%E5%BC%8F%E8%AE%A1%E7%AE%97/</id>
+    <published>2019-03-11T10:16:42.000Z</published>
+    <updated>2020-03-27T16:26:25.678Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;为什么会出现流式计算？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在现实的业务中，会有需要统计计算的需求，一部分的日志需要计算统计信息。这时候会有两个思路。&lt;/p&gt;
+&lt;p&gt;一是当需求来的时候系统实时的计算一遍给出结果。&lt;/p&gt;
+&lt;p&gt;二是当日志信息收集上来的时候就进行
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="storm" scheme="http://malu.moe/tags/storm/"/>
+    
+      <category term="heron" scheme="http://malu.moe/tags/heron/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>古德寺</title>
+    <link href="http://malu.moe/2019/03/05/%E5%8F%A4%E5%BE%B7%E5%AF%BA/"/>
+    <id>http://malu.moe/2019/03/05/%E5%8F%A4%E5%BE%B7%E5%AF%BA/</id>
+    <published>2019-03-05T09:28:21.000Z</published>
+    <updated>2020-03-28T14:30:34.252Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;今天百无聊赖出去了古德寺。古德寺在汉口那边。腾讯地图显示新北门坐402便可以了。于是便出去了。&lt;/p&gt;
+&lt;p&gt;402是一条旅游专线，它绕着东湖走一圈然到武汉大学的凌波门。不得不感叹。镜头里的生活真美。真实的凌波门其实离岸边没那么远，而且因为武汉莫名的天气东湖边的天空永远是灰
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="外出" scheme="http://malu.moe/tags/%E5%A4%96%E5%87%BA/"/>
+    
+  </entry>
+  
+</feed>
