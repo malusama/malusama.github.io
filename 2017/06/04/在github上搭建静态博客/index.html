@@ -118,40 +118,40 @@
 </ul>
 <p>​    必要的环境安装完成后就可以安装hexo了。在命令行下进入你需要安装的目录然后</p>
 <p>​    在命令行中输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 
 <p>然后你将会看到:</p>
 <p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/npm-install-hexo-cli.png?x-oss-process=style/blog" alt></p>
 <p>可能你会看到一个<code>WARN</code>，但是不用担心，这不会影响你的正常使用。 然后输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo --save</span><br></pre></td></tr></table></figure>
 
 <p>然后你会看到命令行窗口刷了一大堆白字，下面我们来看一看Hexo是不是已经安装好了。 在命令行中输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
 
 <p>如果你看到了如图文字，则说明已经安装成功了。</p>
 <p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/hexo-v.png?x-oss-process=style/blog" alt></p>
 <h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2><p>接着上面的操作，输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 
 <p>然后输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
 
 <p>之后npm将会自动安装你需要的组件，只需要等待npm操作即可。</p>
 <h2 id="首次体验Hexo"><a href="#首次体验Hexo" class="headerlink" title="首次体验Hexo"></a>首次体验Hexo</h2><p>继续操作，同样是在命令行中，输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
 
 <p>然后输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
 <p>然后会提示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
 
 <p>在浏览器中打开<code>http://localhost:4000/</code>，你将会看到：</p>
 <p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/hexo-first-time.png?x-oss-process=style/blog" alt></p>
 <p>到目前为止，Hexo在本地的配置已经全都结束了。</p>
 <h2 id="修改全局配置文件"><a href="#修改全局配置文件" class="headerlink" title="修改全局配置文件"></a>修改全局配置文件</h2><p><em>此段落引用自Hexo官方文档</em></p>
 <p>您可以在 <code>_config.yml</code> 中修改大部份的配置。</p>
-<h3 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h3><table>
+<h3 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h3><table class="table">
 <thead>
 <tr>
 <th>参数</th>
@@ -183,7 +183,7 @@
 <td>网站时区。Hexo 默认使用您电脑的时区。<a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" rel="noopener">时区列表</a>。比如说：<code>America/New_York</code>, <code>Japan</code>, 和 <code>UTC</code> 。</td>
 </tr>
 </tbody></table>
-<h3 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h3><table>
+<h3 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h3><table class="table">
 <thead>
 <tr>
 <th>参数</th>
@@ -215,7 +215,7 @@
 <blockquote>
 <p>如果您的网站存放在子目录中，例如 <code>http://yoursite.com/blog</code>，则请将您的 <code>url</code> 设为 <code>http://yoursite.com/blog</code> 并把 <code>root</code> 设为 <code>/blog/</code>。</p>
 </blockquote>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><table>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><table class="table">
 <thead>
 <tr>
 <th>参数</th>
@@ -264,7 +264,7 @@
 <td></td>
 </tr>
 </tbody></table>
-<h3 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h3><table>
+<h3 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h3><table class="table">
 <thead>
 <tr>
 <th>参数</th>
@@ -328,7 +328,7 @@
 <td></td>
 </tr>
 </tbody></table>
-<h3 id="分类-amp-标签"><a href="#分类-amp-标签" class="headerlink" title="分类 &amp; 标签"></a>分类 &amp; 标签</h3><table>
+<h3 id="分类-amp-标签"><a href="#分类-amp-标签" class="headerlink" title="分类 &amp; 标签"></a>分类 &amp; 标签</h3><table class="table">
 <thead>
 <tr>
 <th>参数</th>
@@ -353,7 +353,7 @@
 </tr>
 </tbody></table>
 <h3 id="日期-时间格式"><a href="#日期-时间格式" class="headerlink" title="日期 / 时间格式"></a>日期 / 时间格式</h3><p>Hexo 使用 <a href="http://momentjs.com/" target="_blank" rel="noopener">Moment.js</a> 来解析和显示时间。</p>
-<table>
+<table class="table">
 <thead>
 <tr>
 <th>参数</th>
@@ -372,7 +372,7 @@
 <td><code>H:mm:ss</code></td>
 </tr>
 </tbody></table>
-<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><table>
+<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><table class="table">
 <thead>
 <tr>
 <th>参数</th>
@@ -391,7 +391,7 @@
 <td><code>page</code></td>
 </tr>
 </tbody></table>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><table>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><table class="table">
 <thead>
 <tr>
 <th>参数</th>
@@ -408,24 +408,24 @@
 </tr>
 </tbody></table>
 <h2 id="配置Deployment"><a href="#配置Deployment" class="headerlink" title="配置Deployment"></a>配置Deployment</h2><p>首先，你需要为自己配置身份信息，打开命令行，然后输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;</span><br><span class="line">git config --global user.email &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;</span><br><span class="line">git config --global user.email &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
 
 <p>同样在<code>_config.yml</code>文件中，找到<code>Deployment</code>，然后按照如下修改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>如果使用git方式进行部署，执行<code>npm install hexo-deployer-git --save</code>来安装所需的插件</p>
 </blockquote>
 <p>然后在当前目录打开命令行，输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 <p>随后按照提示，分别输入自己的Github账号用户名和密码，开始上传。 然后通过<a href="http://yourname.github.io/来访问自己刚刚上传的网站。" target="_blank" rel="noopener">http://yourname.github.io/来访问自己刚刚上传的网站。</a></p>
 <h2 id="添加新文章"><a href="#添加新文章" class="headerlink" title="添加新文章"></a>添加新文章</h2><p>打开Hexo目录下的<code>source</code>文件夹，所有的文章都会以md形式保存在<code>_post</code>文件夹中，只要在<code>_post</code>文件夹中新建md类型的文档，就能在执行<code>hexo g</code>的时候被渲染。 新建的文章头需要添加一些yml信息，如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: hello-world   //在此处添加你的标题。</span><br><span class="line">date: 2014-11-7 08:55:29   //在此处输入你编辑这篇文章的时间。</span><br><span class="line">categories: Exercise   //在此处输入这篇文章的分类。</span><br><span class="line">toc: true  //在此处设定是否开启目录，需要主题支持。</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: hello-world   //在此处添加你的标题。</span><br><span class="line">date: 2014-11-7 08:55:29   //在此处输入你编辑这篇文章的时间。</span><br><span class="line">categories: Exercise   //在此处输入这篇文章的分类。</span><br><span class="line">toc: true  //在此处设定是否开启目录，需要主题支持。</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
 <h1 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h1><p>如果成功完成了上述的全部步骤，恭喜你，你已经搭建了一个最为简单且基础的博客。但是这个博客还非常简单， 没有个人的定制，操作也比较复杂，下面的进阶技巧将会让你获得对Hexo更为深入的了解。</p>
 <h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p><em>可以在此处寻找自己喜欢的主题</em> 下载所有的主题文件，保存到Hexo目录下的<code>themes</code>文件夹下。然后在<code>_config.yml</code>文件中修改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: http://hexo.io/plugins/</span><br><span class="line">## Themes: http://hexo.io/themes/</span><br><span class="line">theme: landscape //themes文件夹中对应文件夹的名称</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: http://hexo.io/plugins/</span><br><span class="line">## Themes: http://hexo.io/themes/</span><br><span class="line">theme: landscape //themes文件夹中对应文件夹的名称</span><br></pre></td></tr></table></figure>
 
 <p>然后先执行<code>hexo clean</code>，然后重新<code>hexo g</code>，并且<code>hexo d</code>，很快就能看到新主题的效果了~</p>
 <h2 id="更换域名"><a href="#更换域名" class="headerlink" title="更换域名"></a>更换域名</h2><p>首先，需要注册一个域名。在中国的话，<code>.cn</code>全都需要进行备案，如果不想备案的话，请注册别的顶级域名，可以使用<a href="https://www.godaddy.com/" target="_blank" rel="noopener">godaddy</a>或<a href="http://www.xinnet.com/" target="_blank" rel="noopener">新网</a>或<a href="http://www.xinnet.com/" target="_blank" rel="noopener">万网</a>中的任意一家，自己权衡价格即可。 </p>

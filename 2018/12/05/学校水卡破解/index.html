@@ -113,7 +113,7 @@
 <blockquote>
 <p>M1卡分为16个扇区，每个扇区对应4块（块0-块3）,共64块，编号为0-63.第0扇区的第0块用于存放厂商代码，已经固化无法更改。其余区的第0-2块用于存放数据，块3为控制块用于存放密码A、存取控制、密码B，结构如下：</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> A0 A1 A2 A3 A4 A5     FF 07 80 69      B0 B1 B2 B3 B4 B5</span><br><span class="line"></span><br><span class="line">(密码A 6字节)           (存储控制 4字节)   (密码B 6字节)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> A0 A1 A2 A3 A4 A5     FF 07 80 69      B0 B1 B2 B3 B4 B5</span><br><span class="line"></span><br><span class="line">(密码A 6字节)           (存储控制 4字节)   (密码B 6字节)</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>并且每个扇区块3中的密码和存储控制全部都是独立的，独立控制本扇区的各种操作，每个扇区都能实现不同的功能，所以广泛用作一卡通。存储控制里面4字节的具体含义我也不是很清楚(不影响我们破解)，所以就不说出来误导大家了。</p>
@@ -136,7 +136,7 @@
 <p>在尝试只修改N2和N3块后发现并不能通过验证。应该是有效验位。</p>
 <p>于是我尝试读取不同余额下的第八扇区信息查看修改了什么内容。</p>
 <p>17.74<br><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/17.74.png?x-oss-process=style/blog" alt></p>
-<table>
+<table class="table">
 <thead>
 <tr>
 <th></th>

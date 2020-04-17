@@ -132,10 +132,10 @@
 <p>提问大概是搜索数据库返回的是什么，大概是想问题迭代器的问题？然后我没有看到他的输入，估计也是对着代码对我提问，等我切回页面一看多了一大段代码。。。神游回来顿时出了冷汗。</p>
 <p>面试官看我不明白还给我解释了好多。。。</p>
 <p>我发现我对生成器和迭代器的概念弄错了。。我还以为我以前用的这个是生成器，但是这个是列表生成式</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iter = [i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">5</span>)]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iter = [i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">5</span>)]</span><br></pre></td></tr></table></figure>
 
 <p>下面这个才是生成器，</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iter = (i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iter = (i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">5</span>))</span><br></pre></td></tr></table></figure>
 
 <p>[] 返回的是一个列表，()返回一个生成器。生成器的计算是惰性的，当使用next()计算是才会返回下一个值</p>
 <p>而可以被next()函数不断调用返回下一个值的是迭代器，不同于可被迭代的概念，迭代器内部是yield实现的，</p>
@@ -145,7 +145,7 @@
 <p>问了我是否知道那些数据在Python底层的实现，回答不知道。大概是想问我字典那一类的数据是怎么储存的？</p>
 <p>然后借此聊到hash表？怎么解决冲突？</p>
 <p>然后问了我能否解释的结果</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">3</span></span><br><span class="line">b = <span class="number">3</span></span><br><span class="line">a == b</span><br><span class="line">a <span class="keyword">is</span> b</span><br><span class="line"></span><br><span class="line">str1 == <span class="string">'test'</span></span><br><span class="line">str2 == <span class="string">'test'</span></span><br><span class="line">str1 == str2</span><br><span class="line">str1 <span class="keyword">is</span> str2</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table class="table"><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">3</span></span><br><span class="line">b = <span class="number">3</span></span><br><span class="line">a == b</span><br><span class="line">a <span class="keyword">is</span> b</span><br><span class="line"></span><br><span class="line">str1 == <span class="string">'test'</span></span><br><span class="line">str2 == <span class="string">'test'</span></span><br><span class="line">str1 == str2</span><br><span class="line">str1 <span class="keyword">is</span> str2</span><br></pre></td></tr></table></figure>
 
 <p>我回答 is 是判断两个对象是否相等，== 是判断两个对象的值是相等。</p>
 <p>结果是两个结果都是True。。。我还以为我至少数字答对了呢。。结果不是</p>
