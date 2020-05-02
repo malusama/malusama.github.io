@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://malu.moe/"/>
-  <updated>2020-05-02T07:30:51.721Z</updated>
+  <updated>2020-05-02T16:29:22.935Z</updated>
   <id>http://malu.moe/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>目前的一些想法</title>
+    <link href="http://malu.moe/2020/05/02/%E7%9B%AE%E5%89%8D%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/"/>
+    <id>http://malu.moe/2020/05/02/%E7%9B%AE%E5%89%8D%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</id>
+    <published>2020-05-02T15:35:06.000Z</published>
+    <updated>2020-05-02T16:29:22.935Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近几个月总是有一些需求在脑内蹦出, 不如在blog里罗列一下, 也算是对自己的一个提醒&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://abyss.malu.moe/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;abyss&lt;/a&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Programmer" scheme="http://malu.moe/categories/Programmer/"/>
+    
+    
+      <category term="Life" scheme="http://malu.moe/tags/Life/"/>
+    
+  </entry>
   
   <entry>
     <title>DMM影片破解</title>
@@ -127,32 +156,6 @@
       <category term="storm" scheme="http://malu.moe/tags/storm/"/>
     
       <category term="heron" scheme="http://malu.moe/tags/heron/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>古德寺</title>
-    <link href="http://malu.moe/2019/03/05/%E5%8F%A4%E5%BE%B7%E5%AF%BA/"/>
-    <id>http://malu.moe/2019/03/05/%E5%8F%A4%E5%BE%B7%E5%AF%BA/</id>
-    <published>2019-03-05T09:28:21.000Z</published>
-    <updated>2020-03-28T14:30:34.252Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;今天百无聊赖出去了古德寺。古德寺在汉口那边。腾讯地图显示新北门坐402便可以了。于是便出去了。&lt;/p&gt;
-&lt;p&gt;402是一条旅游专线，它绕着东湖走一圈然到武汉大学的凌波门。不得不感叹。镜头里的生活真美。真实的凌波门其实离岸边没那么远，而且因为武汉莫名的天气东湖边的天空永远是灰
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="外出" scheme="http://malu.moe/tags/%E5%A4%96%E5%87%BA/"/>
     
   </entry>
   

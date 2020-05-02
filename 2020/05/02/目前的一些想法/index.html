@@ -18,6 +18,8 @@
 <link rel="stylesheet" href="/css/theme.css">
 
   
+    <meta name="keywords" content="Life">
+  
 
   
     <link rel="alternate" href="/atom.xml" title="Malu blog" type="application/atom+xml">
@@ -27,7 +29,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
   
 
-  <title>Malu blog</title>
+  <title>目前的一些想法 - Malu blog</title>
   <script data-ad-client="ca-pub-4390654727225048" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
     var _hmt = _hmt || [];
@@ -74,68 +76,93 @@
 
     <div class="flex-center">
       <div class="container">
-        <ul class="top-gap-big theme-ul-no-style">
-  
-    <li>
-      <a href="/2017/03/14/第一次安装hexo/" class="theme-header-link">
-        <h3>第一次安装hexo</h3>
-      </a>
-      <div class="text-small text-muted">
-  <time datetime="2017-03-14T20:06:24+08:00">
-    2017-03-14
+        <article>
+  <h1 class="text-center">
+    目前的一些想法
+  </h1>
+  <div class="text-center top-gap">
+    <div class="text-small text-muted">
+  <time datetime="2020-05-02T23:35:06+08:00">
+    2020-05-02
   </time>
   <span class="theme-separator">·</span>
   <i class="czs-user-l"></i>
   <a class="text-muted theme-text-no-decoration" href="https://github.com/"></a>
   <span class="theme-separator">·</span>
   <i class="czs-bookmark-l"></i>
-  
+  <a class="text-muted theme-text-no-decoration" href="/categories/Programmer/">Programmer</a>
   <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
     <span class="theme-separator">·</span>
-    <a class="text-muted theme-text-no-decoration" href="/2017/03/14/第一次安装hexo/#disqus_thread">
+    <a class="text-muted theme-text-no-decoration" href="/2020/05/02/目前的一些想法/#disqus_thread">
       <i class="czs-comment-l"></i>
-      <span class="disqus-comment-count theme-comment-count" data-disqus-identifier="2017/03/14/第一次安装hexo/"></span>
+      <span class="disqus-comment-count theme-comment-count" data-disqus-identifier="2020/05/02/目前的一些想法/"></span>
     </a>
   </span>
 </div>
 
-      
-      <div class="top-gap theme-bfc"></div>
-    </li>
-  
-    <li>
-      <a href="/2017/03/11/关于重装系统后的二三事/" class="theme-header-link">
-        <h3>关于重装系统后的二三事</h3>
-      </a>
-      <div class="text-small text-muted">
-  <time datetime="2017-03-11T22:53:52+08:00">
-    2017-03-11
-  </time>
-  <span class="theme-separator">·</span>
-  <i class="czs-user-l"></i>
-  <a class="text-muted theme-text-no-decoration" href="https://github.com/"></a>
-  <span class="theme-separator">·</span>
-  <i class="czs-bookmark-l"></i>
-  
-  <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
-    <span class="theme-separator">·</span>
-    <a class="text-muted theme-text-no-decoration" href="/2017/03/11/关于重装系统后的二三事/#disqus_thread">
-      <i class="czs-comment-l"></i>
-      <span class="disqus-comment-count theme-comment-count" data-disqus-identifier="2017/03/11/关于重装系统后的二三事/"></span>
-    </a>
-  </span>
-</div>
-
-      
-      <div class="top-gap theme-bfc"></div>
-    </li>
-  
+  </div>
+  <div class="top-gap-big">
+    <p>最近几个月总是有一些需求在脑内蹦出, 不如在blog里罗列一下, 也算是对自己的一个提醒</p>
+<ul>
+<li><p><a href="https://abyss.malu.moe/" target="_blank" rel="noopener">abyss</a> 动漫人物识别的一个网站. </p>
+</li>
+<li><p><a href>jav</a> 一个类似jav的网站. 因为自己存了不少DMM 6000k的M3U8, 还是想完成当初的分流计划的. 附带合购的功能</p>
+</li>
+<li><p>python 的DHT网络爬虫, 现在github 上有现成的DHT爬虫, 但是我想更近一步获取种子文件, 解析文件信息. 甚至画出这个种子的DHT网络结构..当然 这个可以是jav网站的一部分</p>
+</li>
+<li><p>分享地方志和的一个社区</p>
+</li>
+<li><p>blog的更新提醒</p>
+</li>
 </ul>
+<p>其中 abyss 是在实习的时候就开始的一个项目, 当初因为在twitter上每天都能看到不少画师二次创作的色图. 但是想使用都不知道是哪位角色. 于是就想弄一个人物识别的工具, 整好当时觉得深度学习挺符合这个需求了.</p>
+<p>一开始企图用google image 搜索关键词来获取标注的数据. 但是爬了几百G的图片后发现可用的实在太少了. 便在pixiv 手工标注图片了.</p>
+<p>最开始依照网络的教程用keras搭建模型. 薅google cloud 300刀试用的羊毛, 开24核心训练数据.</p>
+<p>后来发现百度有easydl这样的平台上传图片用他们的模型和计算资源. 部署也很简单. 后端对接接口前端负责查询展示就好了. 目前用的也是百度的api. 效果蛮不错的.</p>
+<p>但是! 一个应用最重要的还是维护啊. 在回校的一段时间里 abyss 就没有维护了. 网站也是经历了半年不可用的状态..源代码也没上传github, 用python重构了一遍 serverless 部署了后端. 前端放在我vu的日本服务器上. </p>
+<p>目前经过补充有一百多位人物的数据, (但是数据也丢了一部分…只有之前的80多位了..), 感觉这种事情还是要有一个社区持续不断的补充数据. 但是花钱是不可能的. 只有白嫖才能过的了日子的样子. 在首页挂了一个qq群. 期待志同道合的人一起补充数据集. </p>
+<p>jav 是目前想实现的一个项目, 因为当初接触DMM的影片破解后爬了月额20多w的M3U8文件, 但是M3U8文件总会失效, 还是希望这些文件能够以影片的方式保存在某些地方. 于是便想到了实现一个网站. 通过提交需求. 网站后端下载影片后提供一个链接. 并且把文件保存在某个云盘上.</p>
+<p>这样子的目的是优先保存有价值的影片. 有需求的影片. 同时把这个工作自动化. 当有需求,能够提供某些人的需求后. 就有各种方式引导这个项目在一个社区运作下去了.(感觉在这片土地上这个工作有点非法的样子)</p>
+<p>更长远还可以弄一个类似jav的网站. 同时具有合购的功能.  现在有阿乐的开车团. 但是这个东西必须自动化才可以持续运营下去啊.</p>
+<p>打算之后会在blog分享一些地方志.  但是资源源头是一个问题. 还没有想法.</p>
+<p>还有就是一个 blog  更新提醒的小工具. 现在感觉一个个人的blog 还是挺有价值的. 但是blog文件夹已经有超过20个了. 虽然时不时的会全部打开一遍看看有什么更新. 但是这重复的动作还是想自动化. 搜索了一下感觉没有方便的轮子. 便想这自己实现一个. </p>
+<p>感觉技术上的事情都好实现, 但是社区运营还是会挺复杂的..但是实现的一个qq bot, 实现了武汉ingress 玩家群里的要给咕咕鸟的qq bot功能, 对特定的关键词回复或者复读. 实现也挺简单, 用了 <a href="https://nonebot.cqp.moe/guide/" target="_blank" rel="noopener">NoneBot</a> 这个库, 后端用redis 储存回复的内容, 随机抽取关键词的 value 回复. 但是在ingress的玩家群里大家添加的回复还是挺有意思的.</p>
+<p>在阿乐的群里本来打算是大家添加 影片神秘代码的分享连接, 结果都是一些脏话或者对某个人的人身攻击…但是你能说这不是他们的娱乐方式吗? 只是这个娱乐方式在你看来有点刺眼罢了..</p>
+<p>qq bot 还实现了关键词对函数的调用. 理论上可以实现简单的对话游戏, 一些自动化操作.</p>
+<p>本还想实现对M3U8 的分享的. 结果还是自己精力有限. </p>
+<p>七七八八的瞎写了那么多, 也没什么章法. 这篇就当作今一篇碎碎念吧</p>
+
+  </div>
+</article>
+<blockquote class="top-gap-big"> <p> 本文遵循 <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" class"text-muted">CC BY-ND-ND 3.0</a> 协议，转载请注明原作者，禁止商用，禁止演绎。 </p> </blockquote>
+<div class="top-gap-big text-center text-muted">
+  <small>
+    <i class="czs-tag-l"></i>
+    <a class="text-muted" href="/tags/Life/">Life</a>
+  </small>
+</div>
 
 
-  <nav class="theme-pagination top-gap-big text-center">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="czs-angle-left-l"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
-  </nav>
+  <div id="disqus_thread" class="top-gap-big"></div>
+  <script>
+    var langMap = {
+      en: 'en',
+      'zh-CN': 'zh'
+    };
+    var disqus_config = function () {
+      this.language = langMap['chinese'] || langMap['en'];
+      this.page.url = 'http://malu.moe/2020/05/02/目前的一些想法/';
+      this.page.identifier = '2020/05/02/目前的一些想法/';
+      this.page.title = '目前的一些想法';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = '//malusama.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
         <hr class="top-gap-big"></hr>
@@ -257,5 +284,7 @@ var _hmt = _hmt || [];
 
 
     
+  <script id="dsq-count-scr" src="//malusama.disqus.com/count.js" async></script>
+
   </body>
 </html>
