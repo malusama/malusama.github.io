@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://malu.moe/"/>
-  <updated>2020-05-02T16:29:22.935Z</updated>
+  <updated>2020-05-02T16:30:23.026Z</updated>
   <id>http://malu.moe/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://malu.moe/2020/05/02/%E7%9B%AE%E5%89%8D%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/"/>
     <id>http://malu.moe/2020/05/02/%E7%9B%AE%E5%89%8D%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</id>
     <published>2020-05-02T15:35:06.000Z</published>
-    <updated>2020-05-02T16:29:22.935Z</updated>
+    <updated>2020-05-02T16:30:23.026Z</updated>
     
     <summary type="html">
     
@@ -38,7 +38,9 @@
     </summary>
     
     
-      <category term="Programmer" scheme="http://malu.moe/categories/Programmer/"/>
+      <category term="碎碎念" scheme="http://malu.moe/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+      <category term="一些想法" scheme="http://malu.moe/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/"/>
     
     
       <category term="Life" scheme="http://malu.moe/tags/Life/"/>
