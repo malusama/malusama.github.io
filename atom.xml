@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://malu.moe/"/>
-  <updated>2020-05-02T16:30:23.026Z</updated>
+  <updated>2020-05-03T05:40:26.626Z</updated>
   <id>http://malu.moe/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>海南地方志下载</title>
+    <link href="http://malu.moe/2020/05/03/%E6%B5%B7%E5%8D%97%E5%9C%B0%E6%96%B9%E5%BF%97%E4%B8%8B%E8%BD%BD/"/>
+    <id>http://malu.moe/2020/05/03/%E6%B5%B7%E5%8D%97%E5%9C%B0%E6%96%B9%E5%BF%97%E4%B8%8B%E8%BD%BD/</id>
+    <published>2020-05-03T05:28:14.000Z</published>
+    <updated>2020-05-03T05:40:26.626Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;之前说过想分享地方志. 正好翻到以前马伯庸的分享.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://blog-malu.oss-accelerate.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-05-0313.37.52.png&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="地方志" scheme="http://malu.moe/categories/%E5%9C%B0%E6%96%B9%E5%BF%97/"/>
+    
+    
+      <category term="分享" scheme="http://malu.moe/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>目前的一些想法</title>
@@ -128,36 +156,6 @@
       <category term="北京" scheme="http://malu.moe/tags/%E5%8C%97%E4%BA%AC/"/>
     
       <category term="生活" scheme="http://malu.moe/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>流式计算</title>
-    <link href="http://malu.moe/2019/03/11/%E6%B5%81%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
-    <id>http://malu.moe/2019/03/11/%E6%B5%81%E5%BC%8F%E8%AE%A1%E7%AE%97/</id>
-    <published>2019-03-11T10:16:42.000Z</published>
-    <updated>2020-03-27T16:26:25.678Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;strong&gt;为什么会出现流式计算？&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;在现实的业务中，会有需要统计计算的需求，一部分的日志需要计算统计信息。这时候会有两个思路。&lt;/p&gt;
-&lt;p&gt;一是当需求来的时候系统实时的计算一遍给出结果。&lt;/p&gt;
-&lt;p&gt;二是当日志信息收集上来的时候就进行
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="storm" scheme="http://malu.moe/tags/storm/"/>
-    
-      <category term="heron" scheme="http://malu.moe/tags/heron/"/>
     
   </entry>
   
