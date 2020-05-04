@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://malu.moe/"/>
-  <updated>2020-05-03T05:40:26.626Z</updated>
+  <updated>2020-05-04T02:18:26.718Z</updated>
   <id>http://malu.moe/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>民国时期海南的军事地图</title>
+    <link href="http://malu.moe/2020/05/04/%E6%B0%91%E5%9B%BD%E6%97%B6%E6%9C%9F%E6%B5%B7%E5%8D%97%E7%9A%84%E5%86%9B%E4%BA%8B%E5%9C%B0%E5%9B%BE/"/>
+    <id>http://malu.moe/2020/05/04/%E6%B0%91%E5%9B%BD%E6%97%B6%E6%9C%9F%E6%B5%B7%E5%8D%97%E7%9A%84%E5%86%9B%E4%BA%8B%E5%9C%B0%E5%9B%BE/</id>
+    <published>2020-05-04T02:14:34.000Z</published>
+    <updated>2020-05-04T02:18:26.718Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近在翻箱倒柜, 发现以前收藏的一份民国时期的军事地图. 挺有意思的&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blog-malu.oss-accelerate.aliyuncs.com/uPic/txu-oclc-10552568-ne49-1.jpg&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="海南" scheme="http://malu.moe/categories/%E6%B5%B7%E5%8D%97/"/>
+    
+    
+      <category term="Life" scheme="http://malu.moe/tags/Life/"/>
+    
+  </entry>
+  
+  <entry>
     <title>海南地方志下载</title>
     <link href="http://malu.moe/2020/05/03/%E6%B5%B7%E5%8D%97%E5%9C%B0%E6%96%B9%E5%BF%97%E4%B8%8B%E8%BD%BD/"/>
     <id>http://malu.moe/2020/05/03/%E6%B5%B7%E5%8D%97%E5%9C%B0%E6%96%B9%E5%BF%97%E4%B8%8B%E8%BD%BD/</id>
     <published>2020-05-03T05:28:14.000Z</published>
-    <updated>2020-05-03T05:40:26.626Z</updated>
+    <updated>2020-05-04T02:16:07.969Z</updated>
     
     <summary type="html">
     
@@ -30,7 +58,7 @@
         
         
           &lt;p&gt;之前说过想分享地方志. 正好翻到以前马伯庸的分享.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://blog-malu.oss-accelerate.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-05-0313.37.52.png&quot;
+&lt;p&gt;&lt;img src=&quot;https://blog-malu.oss-accelerate.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-05-0313.37.52.png&quot;
         
       
     
@@ -125,37 +153,6 @@
     
     
       <category term="树莓派" scheme="http://malu.moe/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>北京北京</title>
-    <link href="http://malu.moe/2019/11/09/%E5%8C%97%E4%BA%AC%E5%8C%97%E4%BA%AC/"/>
-    <id>http://malu.moe/2019/11/09/%E5%8C%97%E4%BA%AC%E5%8C%97%E4%BA%AC/</id>
-    <published>2019-11-09T10:04:52.000Z</published>
-    <updated>2020-03-29T01:43:57.042Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;来北京也有几个月了 ,还是非常不习惯北京的居住形式.&lt;/p&gt;
-&lt;p&gt;一个特别给我冲击感的就是厕纸不丢在马桶里冲掉! 而是丢进垃圾桶里.&lt;/p&gt;
-&lt;p&gt;起初是在租的房子的厕所里发现有个纸筐,
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Life" scheme="http://malu.moe/categories/Life/"/>
-    
-    
-      <category term="北京" scheme="http://malu.moe/tags/%E5%8C%97%E4%BA%AC/"/>
-    
-      <category term="生活" scheme="http://malu.moe/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
