@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redis on Malu Blog</title>
+    <link>https://malu.ome/tags/redis/</link>
+    <description>Recent content in redis on Malu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 29 Apr 2018 00:01:47 +0000</lastBuildDate><atom:link href="https://malu.ome/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>给后端添加redis缓存</title>
+      <link>https://malu.ome/post/%E7%BB%99%E5%90%8E%E7%AB%AF%E6%B7%BB%E5%8A%A0redis%E7%BC%93%E5%AD%98/</link>
+      <pubDate>Sun, 29 Apr 2018 00:01:47 +0000</pubDate>
+      
+      <guid>https://malu.ome/post/%E7%BB%99%E5%90%8E%E7%AB%AF%E6%B7%BB%E5%8A%A0redis%E7%BC%93%E5%AD%98/</guid>
+      <description>​	在 VPS 上架设好 Flask 后，我测试并发是经常发现 ORM 框架会发生错误，查询之后是 连接时设置的 pool_size 太小， 使用 SQLCHEMY 时默认的 pool_size = 5， 我改为100后就可以了。
+​	但是如果大并发的时候一些热点数据应该还是会频繁的查询数据库，但是这些数据是不会经常更新的。所以我就想着这么用 redis 缓存那些经常被查询但是不会更新的数据， 比如公告， STOCK 的基本信息.
+​	我试了测试没有使用redis进行缓存时候打开首页查询公告时候的web服务器性能，使用 webbench 进行 500 线程 60 秒的测试。
+Benchmarking: GET http://127.0.0.1:5000/ 500 clients, running 60 sec. Speed=1924 pages/min, 54160 bytes/sec. Requests: 1924 susceed, 0 failed. 在添加 Reids 缓存后再以同样的参数进行测试
+Benchmarking: GET http://127.0.0.1:5000/ 500 clients, running 60 sec. Speed=16735 pages/min, 468472 bytes/sec. Requests: 16642 susceed, 93 failed. 发送速率直接上了一个数量级，舒服。</description>
+    </item>
+    
+  </channel>
+</rss>

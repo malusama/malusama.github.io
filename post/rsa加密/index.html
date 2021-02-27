@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> RSA加密 | Malu Blog</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.c1a012fbaa03c1e7c1ca2f1a0d3f8692dcb911bfc677b5432c7c06d2581f7de1.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        😎
+                    </span>
+                    
+                    Malu Blog
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>RSA加密</h1>
+                    <div class="post-meta">
+                        <div>
+                            By  on <time>October 17, 2017</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/java/">java</a>
+                            
+                            <a href="/tags/rsa/">RSA</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>2017年五月13日早些时候群里就流传了一些学校机房里的机器中了一种蠕虫病毒的图，那时候都是怀着一种调侃的心情看这些图，因为机房没法使用我们学生们就不用上一些实习了233。</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/%E7%95%8C%E9%9D%A2.jpg?x-oss-process=style/blog" alt=""></p>
+<p>比这的更早些时候也有一些勒索程序，windows平台下的，也有<a href="https://www.android.com/">Android</a>平台下的。不过他们更像是一些脚本小子是使用出售的模版改些东西就传播的东西，因为当时确实也因为各种勒索软件爆发论坛上有一些抱怨，互联网更深的地方还有人出售易语言勒索程序的模版。但是五月13日后画风就越来越不一样了。先是群里这种机房被感染的图片越来越多，它不是单独的一个勒索软件，他还是一个蠕虫病毒，他会自我复制传播感染其他机器，更要命的是他还利用了一个windows平台下的0DAY（<a href="https://zh.wikipedia.org/wiki/%E6%B0%B8%E6%81%92%E4%B9%8B%E8%93%9D">永恒之蓝</a>）漏洞。。。</p>
+<p>五月12日晚微博上<a href="https://zh.wikipedia.org/wiki/%E5%B1%B1%E4%B8%9C%E5%A4%A7%E5%AD%A6">山东大学</a>、<a href="https://zh.wikipedia.org/wiki/%E5%8D%97%E6%98%8C%E5%A4%A7%E5%AD%A6">南昌大学</a>、<a href="https://zh.wikipedia.org/wiki/%E5%B9%BF%E8%A5%BF%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6">广西师范大学</a>、<a href="https://zh.wikipedia.org/wiki/%E6%A1%82%E6%9E%97%E9%9B%BB%E5%AD%90%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%B8">桂林电子科技大学</a>、<a href="https://zh.wikipedia.org/wiki/%E5%A4%A7%E8%BF%9E%E6%B5%B7%E4%BA%8B%E5%A4%A7%E5%AD%A6">大连海事大学</a>、<a href="https://zh.wikipedia.org/wiki/%E4%B8%9C%E5%8C%97%E8%B4%A2%E7%BB%8F%E5%A4%A7%E5%AD%A6">东北财经大学</a>等十几家高校发布通知，提醒师生注意防范。这个时候就能看出WannaCry这个蠕虫病毒开始搞大新闻了。除了教育网、校园网以外，<a href="https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A">新浪微博</a>上不少用户反馈，北京、上海、江苏、天津等多地的出入境、派出所等公安网和政企专网也遭遇了病毒袭击，许多公安机关和政府部门由于勒索软件的影响被迫停止工作。<a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E5%9B%BD%E5%AE%B6%E4%BA%92%E8%81%94%E7%BD%91%E5%BA%94%E6%80%A5%E4%B8%AD%E5%BF%83">中国国家互联网应急中心</a>发布关于防范WannaCry的情况通报，称全球约101.1万个IP地址遭受“永恒之蓝”SMB漏洞攻击工具的攻击尝试，发起攻击尝试的IP地址数量9300余个。重要的是，英国的医院还被感染了。这下感觉彻底没救了，作者公布解密方案都没法挽回了。</p>
+<p>WannaCry会加密硬盘上的所有文件，它还会提示你，如果你想解密，需要给一个比特币地址支付比特币。那么它怎么确认是谁交了比特币呢？它得确保每个被感染的机器都有唯一的标识，不能用一个统一的比特币钱包地址，因为这样没法确认是谁交了比特币。WannaCry确实会通过tor网络给每一个感染机器分配一个比特币地址，这样作者只需要给检测单独比特币钱包是否有足够的比特币就可以给那些机器解密密钥。但是在中国的GFW是屏蔽了tor网络的。所以在中国地区感染的机器只会显示三个固定的比特币地址</p>
+<p>115p7UMMngoj1pMvkpHijcRdfJNXj6LrLn</p>
+<p>12t9YDPgwueZ9NyMgw519p7AA8isjr6SMw</p>
+<p>13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94</p>
+<p>所以中国地区被感染的机器想要解密是没门的，但是确实有不少人给上面那三个比特币地址支付比特币。不知道那些受害者在支付后石沉大海会是什么感觉。</p>
+<p>这时候我想到了那些交了钱的人拿到解密密钥后把密钥公布那样岂不是其他人就不用交钱了么？</p>
+<p>那如果交了比特币，作者会以什么样的方式给受害者解密呢我想。</p>
+<p>感染加密的时候使用对称加密，加密完上传加密密钥和机器号到作者服务器</p>
+<p>那么这样得确保被感染的机器能联网，而且windows默认是不给联网权限的，pass</p>
+<p>感染的时候使用随机的对称加密密钥，这样不会解密一个其他人都知道了密钥。</p>
+<p>但是这样你怎么知道随机生成的密钥是啥呢？发送给作者？不可能，默认是没联网权限的。pass</p>
+<p>使用不对称加密的其中一个密钥 加密 对称加密的 密钥！</p>
+<p>这样子就变成了加密的时候随机生成一个对称加密的密钥，加密本地的数据，加密完成后使用硬编码的不对称加密的其中一个密钥（这样子就成为公钥）加密对称加密的密钥。</p>
+<p>解密的时候就把被加密过后的密钥发送给作者，作者用自己的私钥解密后发给你。</p>
+<p>这里用到了不对称加密的一个特性，<strong>用其中一个密钥加密的消息只能被另一个密钥解密</strong>。</p>
+<p>实际上WannaCry的加密过程会复杂点，WannaCry会本地生成一对RSA的一对密钥（我一直不明白这是为什么）。WannaCry 会给每个文件都单独生成一个AES的密钥加密后用本地生成的公钥加密，私钥由硬编码在程序里的另一对RSA密钥中的公钥加密（作者在他本地生成的RSA密钥对）实际上WannaCry是硬编码了主公钥，还有一对RSA密钥对，用作演示解密使用。。。（作者真贴心啊）
+<img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/%E6%B5%81%E7%A8%8B.jpg?x-oss-process=style/blog" alt=""></p>
+<p>暑假闲着没事，就尝试用java实现RSA密钥对的生成。</p>
+<p>按照wiki说明，得先选择两个大的质数p和q，生成N = pq。</p>
+<p>这里使用了java的BigInteger对象，BigInteger有probablePrime的方法可以直接生成指定的素数（java就是好，库各种齐全）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">	  <span class="n">BigInteger</span> <span class="n">q</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">probablePrime</span><span class="o">(</span><span class="n">100</span><span class="o">,</span> <span class="k">new</span> <span class="n">Random</span><span class="o">());</span> <span class="c1">// 取 2^100-1 范围内的随机素数
+</span><span class="c1"></span>	  <span class="n">BigInteger</span> <span class="n">p</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">probablePrime</span><span class="o">(</span><span class="n">100</span><span class="o">,</span> <span class="k">new</span> <span class="n">Random</span><span class="o">());</span>
+	  <span class="n">BigInteger</span> <span class="n">N</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>  <span class="c1">// q * p 
+</span></code></pre></td></tr></table>
+</div>
+</div><p>接着求一个r，r = (p-1)(q-1)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">BigInteger</span> <span class="n">r</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">subtract</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">ONE</span><span class="o">).</span><span class="na">multiply</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">subtract</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">ONE</span><span class="o">));</span> 
+<span class="c1">//(q - 1)*(p - 1)
+</span></code></pre></td></tr></table>
+</div>
+</div><p>选择一个小于r的整数e，使e与r互质。</p>
+<p>这里理论上e是任何小于r且与r互质的整数，但是通常基于性能考虑会选择65537.</p>
+<blockquote>
+<p>openssl的低级版本一般会将e=3作为默认的RSA公钥指数。选取小公钥指数主要是为了提高加密或签名验证的性能，比如选e=3只需要2次模乘(ModMul)，而随机选择的e(假设n是1024-bit)则大概需要1000次模乘。NIST SP800-78 Rev 1 (2007) 曾强调“不允许使用比65537更低的公钥指数e”，但PKCS#1却从未有过类似的建议。e=65537=(2^16+1)，其签名/加密运算只需要17次模乘，性能也算不错。但我认为选这个值的目的只是一个介于小指数攻击和运算效率之间的一个折中考虑，即以防万一将来有一天&quot;e=3&quot;被攻破而侥幸&quot;e=65537&quot;可能还是安全的。</p>
+<p>（http://blog.csdn.net/hherima/article/details/52461759）</p>
+</blockquote>
+<p>求得e关于r的模反元素，命名为d。</p>
+<p>使用扩展欧几里德算法可以求的d</p>
+<p>java里定义了静态变量用于exgcd使用，这里写得很不好看。。。或许还有更优雅的写法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">static</span> <span class="n">BigInteger</span> <span class="n">x</span><span class="o">,</span><span class="n">y</span><span class="o">,</span><span class="n">o</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">0</span><span class="o">),</span><span class="n">o1</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>	
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">BigInteger</span> <span class="nf">exgcd</span><span class="o">(</span><span class="n">BigInteger</span> <span class="n">a</span><span class="o">,</span><span class="n">BigInteger</span> <span class="n">b</span><span class="o">){</span>  
+	<span class="k">if</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">o</span><span class="o">)==</span><span class="n">0</span><span class="o">){</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">o1</span><span class="o">;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">o</span><span class="o">;</span> <span class="k">return</span> <span class="n">a</span><span class="o">;</span>
+    <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+    	<span class="n">BigInteger</span> <span class="n">d</span> <span class="o">=</span> <span class="n">exgcd</span><span class="o">(</span><span class="n">b</span><span class="o">,</span><span class="n">a</span><span class="o">.</span><span class="na">mod</span><span class="o">(</span><span class="n">b</span><span class="o">));</span>
+        <span class="n">BigInteger</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="na">subtract</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">divide</span><span class="o">(</span><span class="n">b</span><span class="o">).</span><span class="na">multiply</span><span class="o">(</span><span class="n">y</span><span class="o">))</span>  <span class="o">;</span>
+        <span class="k">return</span> <span class="n">d</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这样，我们就完成了生成一对RSA密钥对的所有步骤，（N，e）是公钥，(N，d)是你的私钥。</p>
+<blockquote>
+<p>如果你使用随机生成的e，那么任意一个密钥都可以是公钥或私钥，但是工业界e是默认的65537，故(N,e)只能是公钥。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">BigInteger</span> <span class="n">n</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigInteger</span><span class="o">(</span><span class="s">&#34;65535&#34;</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>使用公钥加密消息是，使用双方约定好的方式将消息转换成一段段小于N的且与N互质的整数n,则加密后的消息为<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5c7221f755ee1dc5c37a0d3843763d300a47fd55" alt="{\displaystyle c\equiv n^{e}{\pmod {N}}}">。</p>
+<p>这里因为e是65537，本身就是一个素数。所以消息只需要切片成小于65537且不为1就可以了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">	  <span class="n">BigInteger</span> <span class="n">n</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigInteger</span><span class="o">(</span><span class="s">&#34;65535&#34;</span><span class="o">);</span>
+	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;n= &#34;</span> <span class="o">+</span> <span class="n">n</span><span class="o">);</span>
+	  <span class="n">BigInteger</span> <span class="n">c</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="na">modPow</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="n">N</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>解密消息可以用私钥d来解码，将接收的c通过以下公式转换为n：<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/39e4d41353bed8f138cc9f567741051c544b7720" alt=" c^d \equiv n\ (\mathrm{mod}\ N) "></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;c= &#34;</span> <span class="o">+</span> <span class="n">c</span><span class="o">);</span>
+	  <span class="n">BigInteger</span> <span class="n">nc</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="na">modPow</span><span class="o">(</span><span class="n">d</span><span class="o">,</span> <span class="n">N</span><span class="o">);</span>
+	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;nc= &#34;</span> <span class="o">+</span> <span class="n">nc</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>解码的原理是</p>
+<p>已知</p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/615bfc80513abf2a32d6c105b6b150c05773029b" alt="{\displaystyle ed\equiv 1{\pmod {r}}}">，即 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/64e2c5e70f23fe9595cf64923d3d190f7470fc08" alt="{\displaystyle ed=1+h\varphi (N)}">。 由<a href="https://zh.wikipedia.org/wiki/%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86_(%E6%95%B0%E8%AE%BA)">欧拉定理</a>得：<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/79569d77cd17c2c265be3b2980878a3a59aa1a7e" alt="{\displaystyle n^{ed}=n^{1+h\varphi (N)}=n\left(n^{\varphi (N)}\right)^{h}\equiv n(1)^{h}{\pmod {N}}\equiv n{\pmod {N}}}"></p>
+<p>RSA同样可以用来签名消息，只要拥有私钥的一方在消息后添加消息的散列值的加密信息，拥有公钥的一方接收到消息后可以用公钥解密散列值并于消息对比，如果消息的散列值与解密后的一致，则这个消息在传播路径上没有被篡改过。</p>
+<p>至此，RSA密钥的生成实验已经做完了，RSA的加密和签名的安全性是基于目前没有合适的算法，其复杂度增长超过目前计算机算力的增长。所以RSA的加密只要随着计算机升级增加密钥长度就可以了。可是当今计算机是怎么分发公钥的呢？说着说着感觉我知道我的下一篇应该写什么了。</p>
+<p>源代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">math</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.math.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Encode</span> <span class="o">{</span>
+<span class="kd">static</span> <span class="n">BigInteger</span> <span class="n">x</span><span class="o">,</span><span class="n">y</span><span class="o">,</span><span class="n">o</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">0</span><span class="o">),</span><span class="n">o1</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+	<span class="c1">// TODO 自动生成的方法存根
+</span><span class="c1"></span>	
+	  <span class="n">BigInteger</span> <span class="n">q</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">probablePrime</span><span class="o">(</span><span class="n">100</span><span class="o">,</span> <span class="k">new</span> <span class="n">Random</span><span class="o">());</span> <span class="c1">// 取 2^100-1 范围内的随机素数
+</span><span class="c1"></span>	  <span class="n">BigInteger</span> <span class="n">p</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">probablePrime</span><span class="o">(</span><span class="n">100</span><span class="o">,</span> <span class="k">new</span> <span class="n">Random</span><span class="o">());</span>
+	  <span class="n">BigInteger</span> <span class="n">N</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>  <span class="c1">// q * p 
+</span><span class="c1"></span>	  <span class="n">BigInteger</span> <span class="n">r</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">subtract</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">ONE</span><span class="o">).</span><span class="na">multiply</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">subtract</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">ONE</span><span class="o">));</span> <span class="c1">//(q - 1)*(p - 1)
+</span><span class="c1"></span>	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;q= &#34;</span> <span class="o">+</span> <span class="n">q</span><span class="o">);</span>  
+	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;p= &#34;</span> <span class="o">+</span> <span class="n">p</span><span class="o">);</span>  
+	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;N= &#34;</span> <span class="o">+</span> <span class="n">N</span><span class="o">);</span>  
+	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;r= &#34;</span> <span class="o">+</span> <span class="n">r</span><span class="o">);</span>  
+	  <span class="n">BigInteger</span> <span class="n">e</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigInteger</span><span class="o">(</span><span class="s">&#34;65537&#34;</span> <span class="o">);</span><span class="c1">//new BigInteger(10,new Random()); 
+</span><span class="c1"></span>	  <span class="c1">//while(r.gcd(e).equals(BigInteger.ONE)){
+</span><span class="c1"></span>		  <span class="c1">//System.out.println(e);  
+</span><span class="c1"></span>		  <span class="c1">//e =new BigInteger(10,new Random());
+</span><span class="c1"></span>	 <span class="c1">// }
+</span><span class="c1"></span>	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;e= &#34;</span> <span class="o">+</span> <span class="n">e</span><span class="o">);</span>
+	  <span class="n">exgcd</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="n">r</span><span class="o">);</span>
+	  <span class="n">BigInteger</span> <span class="n">d</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span><span class="c1">//new BigInteger(&#34;2753&#34; );
+</span><span class="c1"></span>	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;d= &#34;</span> <span class="o">+</span> <span class="n">d</span><span class="o">);</span>
+	  <span class="c1">//BigInteger n = BigInteger.probablePrime(11, new Random());
+</span><span class="c1"></span>	  <span class="n">BigInteger</span> <span class="n">n</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigInteger</span><span class="o">(</span><span class="s">&#34;65535&#34;</span><span class="o">);</span>
+	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;n= &#34;</span> <span class="o">+</span> <span class="n">n</span><span class="o">);</span>
+	  <span class="n">BigInteger</span> <span class="n">c</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="na">modPow</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="n">N</span><span class="o">);</span>
+	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;c= &#34;</span> <span class="o">+</span> <span class="n">c</span><span class="o">);</span>
+	  <span class="n">BigInteger</span> <span class="n">nc</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="na">modPow</span><span class="o">(</span><span class="n">d</span><span class="o">,</span> <span class="n">N</span><span class="o">);</span>
+	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;nc= &#34;</span> <span class="o">+</span> <span class="n">nc</span><span class="o">);</span>
+
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">BigInteger</span> <span class="nf">exgcd</span><span class="o">(</span><span class="n">BigInteger</span> <span class="n">a</span><span class="o">,</span><span class="n">BigInteger</span> <span class="n">b</span><span class="o">){</span>  
+	<span class="k">if</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">o</span><span class="o">)==</span><span class="n">0</span><span class="o">){</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">o1</span><span class="o">;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">o</span><span class="o">;</span> <span class="k">return</span> <span class="n">a</span><span class="o">;</span>
+    <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+    	<span class="n">BigInteger</span> <span class="n">d</span> <span class="o">=</span> <span class="n">exgcd</span><span class="o">(</span><span class="n">b</span><span class="o">,</span><span class="n">a</span><span class="o">.</span><span class="na">mod</span><span class="o">(</span><span class="n">b</span><span class="o">));</span>
+        <span class="n">BigInteger</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="na">subtract</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">divide</span><span class="o">(</span><span class="n">b</span><span class="o">).</span><span class="na">multiply</span><span class="o">(</span><span class="n">y</span><span class="o">))</span>  <span class="o">;</span>
+        <span class="k">return</span> <span class="n">d</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/%E5%85%B3%E4%BA%8E%E4%B8%80%E4%BA%9B%E7%BD%91%E7%AB%99%E7%9A%84%E4%BC%A0%E8%AF%B4/" title="Previous post (older)">
+            <span>Previous</span>
+            关于一些网站的传说
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/%E8%AE%B0%E5%BD%95%E6%96%B0%E5%8F%91%E7%8E%B0%E7%9A%84%E4%BA%8B%E7%89%A9%E9%AB%98%E4%BC%9A%E4%B8%AD%E8%BD%AC%E7%AB%99/" title="Next post (newer)">
+            <span>Next</span>
+            记录新发现的事物，高会中转站
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

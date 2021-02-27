@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>storm on Malu Blog</title>
+    <link>https://malu.ome/tags/storm/</link>
+    <description>Recent content in storm on Malu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 11 Mar 2019 18:16:42 +0000</lastBuildDate><atom:link href="https://malu.ome/tags/storm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>流式计算</title>
+      <link>https://malu.ome/post/%E6%B5%81%E5%BC%8F%E8%AE%A1%E7%AE%97/</link>
+      <pubDate>Mon, 11 Mar 2019 18:16:42 +0000</pubDate>
+      
+      <guid>https://malu.ome/post/%E6%B5%81%E5%BC%8F%E8%AE%A1%E7%AE%97/</guid>
+      <description>为什么会出现流式计算？
+在现实的业务中，会有需要统计计算的需求，一部分的日志需要计算统计信息。这时候会有两个思路。
+一是当需求来的时候系统实时的计算一遍给出结果。
+二是当日志信息收集上来的时候就进行一遍计算，把结果保存好。这时候需求过来的时候直接取结果就好了。
+这两个方法分别是批量计算和流式计算。
+​	批量计算是一种用户主动发起，高时延（相对流式计算）的计算。他需要加载数据再开始计算流程。在使用一个数据流做输入的情况下他有batch的概念。需要等到数据量满足一个batch的大小后开始计算。
+​	而流式计算更强调数据流的概念。数据到达处理和向后传递是不间断的。
+​	总感觉，流式计算像是batch粒度为一个信息大小的批量计算。而且Spark streaming就是采用小批量（batch）的方式来实现流式计算。
+现在的流式计算框架之间有什么差别
+现在的流计算框架有 Twitter 的 Storm 和 Heron 还有 spark， finlk。
+Storm
+Storm 使用有向图的方式定义计算流程。称之为 Topology。其中 Tuple 是 Storm 的主要数据结构。
+Spout 是有向图的数据源。它定义了数据的来源和去向，从来源接受数据发送给需要的节点。
+Bolts 是有向图中的逻辑处理单元。从 Spout 中接受数据并处理。处理后的数据根据需要指向下一个节点或者储存。
+当定义好 Topology 便可提交到集群运行。Storm 集群主要由 Master node， Worker node 和 Coordinate node 构成。
+ Master node 上的 Nimbus 负责将应用代码分发给 Worker 节点 , 指派任务，并监控任务的执行。 Worker node 上的 Supervisor 负责监听从 Master node 分配来的任务，启动工作进程来运行相应的任务。 Coordinate node运行着 Zookeeper， 负责 Nimbus 和 Supervisor之间的通信。   Worker （JVM虚拟机） 节点中每个 workers 是服务器上相互独立运行的JVM进程。 每一个node可以配置运行一个或者多个worker。一个topology会分配到一个或者多个worker上运行。 Executor(线程)：是指一个worker的JVM进程中运行的Java线程。多个task可以指派给同一个executor来执行。除非是明确指定，Storm默认会给每一个executor分配一个task。 Task(bolt/spout实例)：task是spout和bolt的实例，nextTuple() 和 execute() 方法会被 executors 线程调用执行。  Heron</description>
+    </item>
+    
+  </channel>
+</rss>

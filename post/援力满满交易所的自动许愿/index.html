@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> 援力满满交易所的自动许愿 | Malu Blog</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.c1a012fbaa03c1e7c1ca2f1a0d3f8692dcb911bfc677b5432c7c06d2581f7de1.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        😎
+                    </span>
+                    
+                    Malu Blog
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>援力满满交易所的自动许愿</h1>
+                    <div class="post-meta">
+                        <div>
+                            By  on <time>May 29, 2018</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/python/">Python</a>
+                            
+                            <a href="/tags/acg/">ACG</a>
+                            
+                            <a href="/tags/%E8%84%9A%E6%9C%AC/">脚本</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>​	前几天在逛<a href="https://www.v2ex.com">V2EX</a>的时候发现一个<a href="https://www.v2ex.com/t/457999">帖子</a>,是一个二次元虚拟人物交易所的引流贴，因为自己简历上也是类似的项目所以超激动的点进去了。发现是一个差不多10年的程序员新开了一个项目也是做ACGN交易所，在寻找一起玩的玩家。点进去后发现这个项目早在8年前就有人构思过并实现了，并且站长凭借当初的交易所项目拿到了进入IT行业的敲门砖。（怎么感觉很眼熟的样子。。。）</p>
+<p>​	帖子里还提到了更早以前就由类似的玩法不过是好莱坞明星的<a href="https://www.hsx.com/">虚拟交易市场</a>。这个新的项目使用 VUE+ELE+RAILS+SIDKIQ 写的（话说我觉得RAILS的官方网站响应超级快。。）。也提到了台湾也有个ACGN交易所。顺带吐槽了那个类似90年代的界面。感觉台湾人确实在一些网页界面上莫名的遵循古制。对，说的就是PTT。</p>
+<p>​	援力满满这个网站的玩法和ACGN不太一样，现在还是测试阶段，站长给了每个人每个股1000的原始股做测试。看了看网站界面，比ACGN-STOCK好多了，但是股票不多，也没看到可以提交股票申请上市的选项。</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/index.png?x-oss-process=style/blog" alt=""></p>
+<p>​	这个网站代币的获得方式目前只有 “许愿” ，许愿会随机的给予一定的代币或者股票。通过这样放出代币活跃市场。但是许愿并不是没有代价的。如果没有代价就会有人无限制的点许愿了不是。许愿需要本地计算机提供工作量证明（LOVE_POW），方式大概是和现在的区块链一样。目前网站要求的工作量证明使用的算法是SHA512。</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/stock.png?x-oss-process=style/blog" alt=""></p>
+<p>​	这时候坏想法就出来了，网页上的许愿次数只有一次和十次的选项。作为一名合格的计算机学生这种重复性的工作肯定不能接受啊。于是想着怎么用脚本来刷&quot;许愿&quot;</p>
+<p>​	首先通过CHROME元素查看许愿给服务器发送了些什么数据，通过Network栏看到点击许愿后的这段时间里有5个请求。其中一个名为wishs的POST请求发送的数据是许愿的请求。其他的都是一些股票数据的更新。</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/Network.png?x-oss-process=style/blog" alt=""></p>
+<p>​	其中数据部分发送了</p>
+<pre><code>cheer_word:&quot;TEST&quot;
+code: &quot;ERIRI&quot;
+love_power:63895713284
+</code></pre><p>​	其中cheer_word应该是是许愿时候那段可以自定义的文字，默认是“我永远喜欢泽村·斯宾塞·英梨梨”。code应该是动漫任务的代码，关联你对那个人物许愿。其中love_power应该就是我们关键的工作量证明。这个love_power是本地JavaScript计算出来的。通过这几个关键的字段发送到服务器验证是否通过然后给账户添加代币或者是股票。这时候得弄清楚其中的ove_power是怎么被计算出来的。</p>
+<p>​	好消息是JavaScript这种脚本语言是保留在计算机本地直接可以查看的。坏消息是为了便与传输JavaScript一般会在发布的时候加混淆。</p>
+<p>​	通过Chrome的Sources栏查看网站附带的几个JS，发现其中一个名为app的最长。于是试着搜索了一下（虽然这里说说很简单，实际上这里看了好久找了好久才找到的。可能也是我菜吧）</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/Sources.png?x-oss-process=style/blog" alt=""></p>
+<p>​	发现了其中工作量证明的部分代码。其实我不是很懂这里的部分是在做什么，但是里面的部分差不多可以猜到。</p>
+<p>o是取unix时间，精确到分钟。（毕竟网络这部分有延迟，本地和服务器不一致计算出来的就不对了）</p>
+<p>I是去股票的代码，估计就是ERIRI</p>
+<p>r是那段可以自定义的祈祷词。</p>
+<p>s是一个随机的数，范围是0-99999999999</p>
+<p>c是r + s + o + i</p>
+<p>然后对c进行sha512运算，正则判断是否有连续的四个0.</p>
+<p>​	在尝试理解love_power的由来以后尝试在Python里吧这个过程实现一遍</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python">    <span class="n">unixtime</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&#34;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:00&#34;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)))</span>
+    <span class="n">stockcode</span> <span class="o">=</span> <span class="s1">&#39;ERIRI&#39;</span>
+    <span class="n">cheerWord</span> <span class="o">=</span> <span class="s1">&#39;TEST&#39;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">99999999999</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="s2">&#34;{}{}{}{}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cheerWord</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">unixtime</span><span class="p">,</span> <span class="n">stockcode</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha512</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;0{4}$&#39;</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span> <span class="ow">is</span>  <span class="bp">None</span><span class="p">:</span>
+        <span class="n">unixtime</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&#34;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:00&#34;</span><span class="p">,</span> 		        <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)))</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">99999999999</span><span class="p">)</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="s2">&#34;{}{}{}{}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cheerWord</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">unixtime</span><span class="p">,</span> <span class="n">stockcode</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha512</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在发送到服务器后返回的response也验证了我的猜想，证明我这工作量证明猜想是正确的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="nt">&#34;success&#34;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&#34;type&#34;</span><span class="p">:</span><span class="s2">&#34;coin&#34;</span><span class="p">,</span><span class="nt">&#34;amount&#34;</span><span class="p">:</span><span class="mi">608</span><span class="p">}</span>
+<span class="err">&lt;_sre.SRE_Match</span> <span class="err">object;</span> <span class="err">span=(</span><span class="mi">124</span><span class="err">,</span> <span class="mi">128</span><span class="err">),</span> <span class="err">match=&#39;</span><span class="mi">0000</span><span class="err">&#39;&gt;</span> <span class="mi">92230011940</span> <span class="err">b&#39;TEST</span><span class="mi">922300119401527526500</span><span class="err">ERIRI&#39;</span>
+<span class="mi">1527526500</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>有没有优化的空间呢？</p>
+<p>可能有的。因为unix时间取值进度是分钟，所以我们在计算完一个love_power后是可以在该分钟内重复发送的。</p>
+<p>但是如果今后服务器添加了已经验证过的love_power不能再验证就失效了。不过今后再说吧。</p>
+<p>事后发现今天下午就已经有大佬用脚本刷了百万代币，果然我还是太菜了。</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/%E6%AD%BB%E7%86%8A%E7%8C%AB.gif?x-oss-process=style/blog" alt=""></p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/%E5%A4%9A%E8%B4%9D%E4%BA%91%E7%9A%84%E4%B8%80%E6%AC%A1%E7%94%B5%E8%AF%9D%E9%9D%A2%E8%AF%95/" title="Previous post (older)">
+            <span>Previous</span>
+            多贝云的一次电话面试
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%B8%8D%E5%96%9C%E6%AC%A2%E5%9B%BD%E5%86%85%E7%BD%91%E6%B8%B8/" title="Next post (newer)">
+            <span>Next</span>
+            为什么我不喜欢国内网游
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

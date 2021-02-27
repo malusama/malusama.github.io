@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> 多贝云的一次电话面试 | Malu Blog</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.c1a012fbaa03c1e7c1ca2f1a0d3f8692dcb911bfc677b5432c7c06d2581f7de1.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        😎
+                    </span>
+                    
+                    Malu Blog
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>多贝云的一次电话面试</h1>
+                    <div class="post-meta">
+                        <div>
+                            By  on <time>May 19, 2018</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/%E9%9D%A2%E8%AF%95/">面试</a>
+                            
+                            <a href="/tags/%E5%A4%9A%E8%B4%9D%E4%BA%91/">多贝云</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>​	在上一次多贝云的笔试完之后，宣讲会上介绍公司都是处理上万的QPS, 每天上百G的日子，特别是CTO讲到现在特别需求的是C++的程序员后就没报太大希望了。 本以为技术栈不符合会被拒的。。。但是一天中午我微信有个好友申请说是多贝云的人。我就一下子激灵了。</p>
+<p>​	他先自我介绍了一方，讲了一下多贝云现在的技术栈，使用的语言，和Python现在在它们公司在做的事情。说是想和我先聊聊。先是问题是对Python有特别的偏好吗?是什么原因让你学Python呢?</p>
+<p>​	之前在绿盟也谈到为什么要学Python语言，有什么喜欢的地方。然后就说了因为之前写一个项目技术栈用到Flask， 感觉Python语言特别方便，语法糖很喜欢。故现在做课程作业也都在用Python写。也不是对编程语言有啥特别的偏好，如果做的事情有意思我觉得语言不是障碍。</p>
+<p>​	之前绿盟的面试官在我讲到语法糖后突然让我表达一下什么是语法糖。我就说了 for in 这样的循环，在迭代一个列表的时候特别直观。C++里就得循环一个下标列表，使用下标去从数组里取。话说 for 循环算不算 while 的一个语法糖？然后装饰器也算一个？ （那时候面对面的情况慌得不行，感觉很多情况下我想表达的东西都没能正确无误的表达出来）</p>
+<p>​	之后问了我以后是否想来北京工作，我回答我之后想去北上广。当然真实情况是那个地方有广式的烤鸭就行。。。	武汉的烤鸭和我印象里的烤鸭根本不一样！！！真的，每个人都应该了解下广式的烤鸭。真的不是武汉这样干巴巴的。</p>
+<p>​	之后就说让HR和我约下面试时间！不久一个小姐姐就打电话过来，预约了两天后的早上十点，电话面试。还特别提到需要一台电脑，可能会用到。</p>
+<p>​	预约的那天早上10点钟过一点就有一个北京的电话打进来，自我介绍了一下是多贝云的且那天在微信和我聊过之后面试就开始了。面试官那边还说了看过我的博客，了解了我的一些技术栈，然后让我介绍一下我简历上做的项目。（话说我简历上也没写上我的博客地址，估计还翻了一下我的Github，真是感激了。），然后我简单的说了一下交易所做的事情，然后问了项目是否在线上跑，问了一下地址。我说了<a href="https://Stock.malu.moe">HTTPS://Stock.malu.moe</a>, 那时候觉得里面爬的都是里番。。直接给面试官看是不是不太好。。他突然说了是不是<a href="ACGN-STOCK.com">ACGN-STOCK.com</a>，连忙解释不是这个，但是是按照这个做的，很喜欢这个网站。后面面试官也没深究是哪个网站。。。不知道是不在乎还是在博文里找到了。</p>
+<p>​	接下来便是面试官一轮一轮的提问了，期间交流了一个小时，我只尽量回忆起一些问题并记录下来。</p>
+<p>Q.然后就着项目问我项目在服务器上是怎么运行的，我说了uwsgi+nginx。问道了session是怎么管理的，</p>
+<p>A.使用的Flask里内置的。但是Falsk的session在客户端是以cookie储存的。</p>
+<p>Q.有了解过Falsk里面session储存是怎么实现的吗？</p>
+<p>A.没有，后面了解Flask里面每个请求的默认的 session 对象是 <code>SecureCookieSession</code>，这个类就是一个基本的字典，外加一些特殊的属性。</p>
+<p>Q.假如你这项目由多个后端，你觉得该怎么解决session在后端的储存，怎么保证用户的登录状态。</p>
+<p>A.先是回答没有了解过，但是面试官会鼓励你尝试的去给个解决方案，我说道使用同步保存session的数据库，或者保证处理用户的始终是一个，不变的服务器。最后面试官说确实这两种方法都会用到，也都是混合使用的。</p>
+<p>Q.你项目里用到Redis做了什么，是怎么缓存数据库的数据的。怎么保证数据的状态是最新的。</p>
+<p>A.做了爬虫的缓存，和一些查询数据库的缓存。查询到数据库数据后格式化为JSON数据储存起来，下次查询先查Redis时候由这条查询，如果由就直接返回Redis里的数据，没有就查询数据库把查询到的数据储存到Redis里再染回数据。Redis里我会设置过期时间，而缓存的数据有效性都是一天的，因为我爬虫设置每天才更新一次，这样解决数据有效性的问题。</p>
+<p>之后有问到网页怎么架设的，我说uwsgi + Nginx 但是估计我Nginx发音有问题？他没听清，我也怂了。。就说了没有，他也很困惑的结束了这个问题。估计是想问Nginx ?</p>
+<p>Q.多进程对处理多个用户是怎么处理的，有什么好处</p>
+<p>A.这个没了解。但是在鼓励下说了多个进程能够处理多个用户的同时请求。感觉不是很满意？当然不满意！</p>
+<p>那时候我感觉4个进程只能同时解决4个用户同时请求，多了就得等待？自己也感觉不对。</p>
+<p>之后了解了下Nginx现在是多进程+异步非阻塞的方式实现高并发。使用异步能大幅度的解决多个用户同时访问的问题，多个socket使用一个进程，当socket处理到出现阻塞时进程便处理其他的socket，当socket请求来了再回调进程去给他处理。</p>
+<p>类似处理网络请求的实现是在Linux上是一些IO操作，而Linux上的IO操作模式至今可分为三个阶段，分别为select，poll，epoll。poll解决了select的一些问题，但是其模式还是类似任务调度的轮询，在处理多个任务（socket）时性能会大幅下降。epoll的出现彻底实现了回调的操作，使得相较poll的方法性能有大幅度的提升。</p>
+<p>而使用多个进程能够充分利用现在CPU的多核，但是每个进程下仍是处理多个socket。使得实现了现在的高并发。</p>
+<p>但是系统的问题多个进程会有 ” 惊群“ 问题，大概意思就是又回到需要一个进程处理但是系统会唤起所有进程。又退回到轮询的状态，好在现在各有个的解决方案。</p>
+<p>之后面试官微信发给我一个链接，打开后是编辑器的页面，两边能够同时在上面码代码。</p>
+<p>写了一个函数的框架，叫我实现具体细节，类似寻找数组里的数返回其下标，期间根据要求修改了几次。在做题的时候时刻提醒自己要考虑各种输入情况，但是实战的时候还是实现功能就感觉完成了。</p>
+<p>之后问到了迭代器和生成器，那一段时间因为我页面不在打开的页面没有看到面试官的输入，也没理解面试官问的是什么问题。。。神游了一段时间，那段时间真的感觉无比漫长，感觉那时候都要挂了。</p>
+<p>提问大概是搜索数据库返回的是什么，大概是想问题迭代器的问题？然后我没有看到他的输入，估计也是对着代码对我提问，等我切回页面一看多了一大段代码。。。神游回来顿时出了冷汗。</p>
+<p>面试官看我不明白还给我解释了好多。。。</p>
+<p>我发现我对生成器和迭代器的概念弄错了。。我还以为我以前用的这个是生成器，但是这个是列表生成式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">iter</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>下面这个才是生成器，</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">iter</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>[] 返回的是一个列表，()返回一个生成器。生成器的计算是惰性的，当使用next()计算是才会返回下一个值</p>
+<p>而可以被next()函数不断调用返回下一个值的是迭代器，不同于可被迭代的概念，迭代器内部是yield实现的，</p>
+<p>会记录你的返回位置下一次从这里开始。</p>
+<p>在for 循环里是通过iter()方法将可迭代对象转化成迭代器，重复调用next()方法实现的。知道for语句捕获到<code>StopIteration</code> 异常。</p>
+<p>之后还问了我可变对象和不可变对象，除了列表和字典外都是不可变对象。问了我 is 和 == 的区别。</p>
+<p>问了我是否知道那些数据在Python底层的实现，回答不知道。大概是想问我字典那一类的数据是怎么储存的？</p>
+<p>然后借此聊到hash表？怎么解决冲突？</p>
+<p>然后问了我能否解释的结果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+<span class="n">a</span> <span class="ow">is</span> <span class="n">b</span>
+
+<span class="n">str1</span> <span class="o">==</span> <span class="s1">&#39;test&#39;</span>
+<span class="n">str2</span> <span class="o">==</span> <span class="s1">&#39;test&#39;</span>
+<span class="n">str1</span> <span class="o">==</span> <span class="n">str2</span>
+<span class="n">str1</span> <span class="ow">is</span> <span class="n">str2</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>我回答 is 是判断两个对象是否相等，== 是判断两个对象的值是相等。</p>
+<p>结果是两个结果都是True。。。我还以为我至少数字答对了呢。。结果不是</p>
+<p>Python对于小整数有对象池技术，在Python2.7中，“小整数”的定义是[-5,256]，在这个范围内的整数Python提前建立一段内存储存用于共享，</p>
+<p>Pyhon的字符串有Intern机制。它指的就是在创建一个新的字符串对象时，如果已经有了和它的值相同的字符串对象，那么就直接返回那个对象的引用，而不返回新创建的字符串对象。</p>
+<p>顺便还问了我是否知道id()这个函数，我回答知道，查看对象内存地址的值？不知道是否能够领会我的意思，反正肯定不是标准答案。</p>
+<p>之后问道了我<a href="http://www.restapitutorial.com/">REST API </a>是怎么的一个概念。回答到用URL表示资源,HTTP 请求方法对资源的操作。返回的状态表示操作的结果。（在绿盟的时候面试官说了http请求请求方法不就是这么用的么？自己突然怀疑起自己是否真的了解RESTful，和他举例会有URL里有add的字段表示对这个资源的一个get请求是一个添加的操作这个请求方法是不对应的但是感觉他也不是很赞同。但是我也看到同学会用post方法请求一个数据说法是post方法更安全且不会被缓存，可以可被请求的资源为什么要隐藏地址呢？还是需要什么字段验证身份吗？使用cookie会不会更优雅？）</p>
+<p>之后问到了VUE，赶紧解释道只是我页面需要我才学了一点，不是很精通，现在前端发展得都是各种框架。和当初认识的根本不是一个样子。面试官人也很好没问了。。。</p>
+<p>之后便是问道今后的发展规划，想去的城市，爱好之类的。</p>
+<p>其实讲到发展规划我到也没特别在意，是不是感觉给人规划好自己五年十年的道路这个人会靠谱些对自己负责？</p>
+<p>有时候确实是这种感觉，可是我高中的时候我还想当一名前端工程师呢？如今看起来感觉当初对前后端也没多了解接触更多的是前端这方面的东西，而且后端那时候对我感觉像是一团迷雾，我根本不知道在服务器后面是怎么处理一起请求并返回数据给前端的。或许我觉得我在一个又一个项目中总能你朝着自己感兴趣的方向学习就是对自己的负责了吧。现在看来我更喜欢处理后端的事物，对高并发，大量数据有种蜜汁快感。</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/%E5%A4%9A%E8%B4%9D%E4%BA%91%E7%9A%84%E4%B8%80%E6%AC%A1%E7%AC%94%E8%AF%95/" title="Previous post (older)">
+            <span>Previous</span>
+            多贝云的一次笔试
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/%E6%8F%B4%E5%8A%9B%E6%BB%A1%E6%BB%A1%E4%BA%A4%E6%98%93%E6%89%80%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AE%B8%E6%84%BF/" title="Next post (newer)">
+            <span>Next</span>
+            援力满满交易所的自动许愿
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

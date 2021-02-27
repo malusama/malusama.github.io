@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> 使用uwsgi 和 nginx 部署 Flask | Malu Blog</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.c1a012fbaa03c1e7c1ca2f1a0d3f8692dcb911bfc677b5432c7c06d2581f7de1.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        😎
+                    </span>
+                    
+                    Malu Blog
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>使用uwsgi 和 nginx 部署 Flask</h1>
+                    <div class="post-meta">
+                        <div>
+                            By  on <time>May 01, 2018</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/uwsgi/">uwsgi</a>
+                            
+                            <a href="/tags/nginx/">nginx</a>
+                            
+                            <a href="/tags/flask/">Flask</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>​	之前使用了 gunicorn 来部署 Flask 应用,但是感觉 nginx 会不会更快一些, 于是就有了尝试使用 uwsgi 配合 nginx 来部署 Flask 的想法.</p>
+<p>​	但是看了一些文章之后感觉速度应该是一样的, 后端都是 Python, 但是有人说 Nginx 更安全. 静态页面的支持也更好, 所以也配置玩一下顺便测试一下静态的并发量.</p>
+<p>​	首先安装uWSGI, 使用pip来安装</p>
+<pre><code>pip install uwsgi
+</code></pre><p>在 Flask 应用的目录下测试 uwsgi 是否工作</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">uwsgi --socket 0.0.0.0:8000 --protocol<span class="o">=</span>http -w run:app
+</code></pre></td></tr></table>
+</div>
+</div><p>这时候打开 127.0.0.1:8000 就可以看到 网站的首页了.</p>
+<p>接着我们配置真正配合 nginx 使用的 uwsgi 配置.</p>
+<p>在 Flask 应用目录下新建一个文件 config.ini 作为uwsgi 的配置文件</p>
+<pre><code>[uwsgi]
+master = true
+wsgi-file = run.py
+callable = app
+chmod-socker = 777
+socket =  127.0.0.1:3031
+processes = 4
+threads = 2
+buffer-size = 32768
+</code></pre><p>这里 run.py 是 Flask 应用的主文件, socket 是接收 nginx 转发过来的接口.</p>
+<p>使用这个配置文件启动 uwsgi</p>
+<pre><code>uwsgi config.ini
+</code></pre><p>接着配置 nginx 的配置文件</p>
+<p>nginx 默认的是 /etc/nginx/nginc.conf, 里面会载入 sites-enabled 里的所有文件.</p>
+<p>所以我们在 sites-enabled 文件夹里新建个名为 stock.conf 的文件,填入以下字段</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
+	<span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+	<span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+    	<span class="kn">include</span> <span class="s">uwsgi_params</span><span class="p">;</span>
+    	<span class="kn">uwsgi_pass</span> <span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">3031</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这里的意思是监听 80 端口的信息, 使用 uwsgi 传递给 127.0.0.1:3031 这个地址, 3031是随便取得, 取啥都可以, 没有被系统占用就行.</p>
+<p>配置完成后可以先检查一下配置文件是否正确</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo nginx -t
+</code></pre></td></tr></table>
+</div>
+</div><p>如果正确无误就可以启动 ngxin 了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo service nginx start
+</code></pre></td></tr></table>
+</div>
+</div><p>接着打开你的网址应该就可以看到网站的首页了.</p>
+<p>接着我用 webbench -c 500 -t 60 测试本地的服务器并发数, 一回车 CPU 就吃满了</p>
+<p><img src="http://malu-picture.oss-cn-beijing.aliyuncs.com/18-5-1/23344536.jpg" alt=""></p>
+<p>但是效果非常好, 比之前高了很多,</p>
+<pre><code>Benchmarking: GET http://127.0.0.1/
+500 clients, running 60 sec.
+
+Speed=135661 pages/min, 1288988 bytes/sec.
+Requests: 94304 susceed, 41357 failed.
+</code></pre><p>大约相比本地使用 Flask 自带的 http server 使用 Redis 缓存效果高五倍</p>
+<p>接着测试打在阿里云 1G1C 服务器上的效果</p>
+<pre><code>Benchmarking: GET http://106.15.205.43/index
+500 clients, running 60 sec.
+
+Speed=4011 pages/min, 113179 bytes/sec.
+Requests: 4011 susceed, 0 failed.
+</code></pre><p>效果并没有好多少&hellip;不过看了113179 bytes/sec.大约也跑满了1m的带宽了&hellip;难道真的是我的服务器带宽限制了???</p>
+<p>在付了两块钱临时升级3个小时到10M带宽后再进行测试一下.</p>
+<p>先测速一下</p>
+<pre><code>Retrieving speedtest.net configuration...
+Testing from CNISP-Union Technology (Beijing) Co. (106.15.205.43)...
+Retrieving speedtest.net server list...
+Selecting best server based on ping...
+Hosted by China Telecom ZheJiang Branch (Hangzhou) [4.87 km]: 6.874 ms
+Testing download speed................................................................................
+Download: 324.60 Mbit/s
+Testing upload speed................................................................................................
+Upload: 9.36 Mbit/s
+</code></pre><p>不错, 阿里云好像是带宽限制的是上传的, 下载能飙到 300 M. 测试前打开top查看cpu占用</p>
+<pre><code>top - 23:04:20 up 3 days,  4:32,  2 users,  load average: 1.81, 0.44, 0.14
+Tasks:  96 total,   4 running,  92 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 77.7 us, 14.3 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.0 hi,  8.0 si,  0.0 st
+KiB Mem :  2052568 total,  1291168 free,   161252 used,   600148 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.  1693260 avail Mem 
+</code></pre><p>小鸡 CPU 跑到 70多&hellip;</p>
+<pre><code>Benchmarking: GET http://106.15.205.43/index
+500 clients, running 60 sec.
+
+Speed=43731 pages/min, 1123486 bytes/sec.
+Requests: 42446 susceed, 1285 failed.
+</code></pre><p>好了, 数据确实多了10倍&hellip;看来确实是带宽限制了. 小鸡 CPU 也不怎么受得了.</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/%E7%BB%99%E5%90%8E%E7%AB%AF%E6%B7%BB%E5%8A%A0redis%E7%BC%93%E5%AD%98/" title="Previous post (older)">
+            <span>Previous</span>
+            给后端添加redis缓存
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/%E7%BB%99%E7%BD%91%E7%AB%99%E6%B7%BB%E5%8A%A0https/" title="Next post (newer)">
+            <span>Next</span>
+            给网站添加https
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

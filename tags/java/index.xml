@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on Malu Blog</title>
+    <link>https://malu.ome/tags/java/</link>
+    <description>Recent content in java on Malu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 17 Oct 2017 18:18:55 +0000</lastBuildDate><atom:link href="https://malu.ome/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RSA加密</title>
+      <link>https://malu.ome/post/rsa%E5%8A%A0%E5%AF%86/</link>
+      <pubDate>Tue, 17 Oct 2017 18:18:55 +0000</pubDate>
+      
+      <guid>https://malu.ome/post/rsa%E5%8A%A0%E5%AF%86/</guid>
+      <description>2017年五月13日早些时候群里就流传了一些学校机房里的机器中了一种蠕虫病毒的图，那时候都是怀着一种调侃的心情看这些图，因为机房没法使用我们学生们就不用上一些实习了233。
+比这的更早些时候也有一些勒索程序，windows平台下的，也有Android平台下的。不过他们更像是一些脚本小子是使用出售的模版改些东西就传播的东西，因为当时确实也因为各种勒索软件爆发论坛上有一些抱怨，互联网更深的地方还有人出售易语言勒索程序的模版。但是五月13日后画风就越来越不一样了。先是群里这种机房被感染的图片越来越多，它不是单独的一个勒索软件，他还是一个蠕虫病毒，他会自我复制传播感染其他机器，更要命的是他还利用了一个windows平台下的0DAY（永恒之蓝）漏洞。。。
+五月12日晚微博上山东大学、南昌大学、广西师范大学、桂林电子科技大学、大连海事大学、东北财经大学等十几家高校发布通知，提醒师生注意防范。这个时候就能看出WannaCry这个蠕虫病毒开始搞大新闻了。除了教育网、校园网以外，新浪微博上不少用户反馈，北京、上海、江苏、天津等多地的出入境、派出所等公安网和政企专网也遭遇了病毒袭击，许多公安机关和政府部门由于勒索软件的影响被迫停止工作。中国国家互联网应急中心发布关于防范WannaCry的情况通报，称全球约101.1万个IP地址遭受“永恒之蓝”SMB漏洞攻击工具的攻击尝试，发起攻击尝试的IP地址数量9300余个。重要的是，英国的医院还被感染了。这下感觉彻底没救了，作者公布解密方案都没法挽回了。
+WannaCry会加密硬盘上的所有文件，它还会提示你，如果你想解密，需要给一个比特币地址支付比特币。那么它怎么确认是谁交了比特币呢？它得确保每个被感染的机器都有唯一的标识，不能用一个统一的比特币钱包地址，因为这样没法确认是谁交了比特币。WannaCry确实会通过tor网络给每一个感染机器分配一个比特币地址，这样作者只需要给检测单独比特币钱包是否有足够的比特币就可以给那些机器解密密钥。但是在中国的GFW是屏蔽了tor网络的。所以在中国地区感染的机器只会显示三个固定的比特币地址
+115p7UMMngoj1pMvkpHijcRdfJNXj6LrLn
+12t9YDPgwueZ9NyMgw519p7AA8isjr6SMw
+13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94
+所以中国地区被感染的机器想要解密是没门的，但是确实有不少人给上面那三个比特币地址支付比特币。不知道那些受害者在支付后石沉大海会是什么感觉。
+这时候我想到了那些交了钱的人拿到解密密钥后把密钥公布那样岂不是其他人就不用交钱了么？
+那如果交了比特币，作者会以什么样的方式给受害者解密呢我想。
+感染加密的时候使用对称加密，加密完上传加密密钥和机器号到作者服务器
+那么这样得确保被感染的机器能联网，而且windows默认是不给联网权限的，pass
+感染的时候使用随机的对称加密密钥，这样不会解密一个其他人都知道了密钥。
+但是这样你怎么知道随机生成的密钥是啥呢？发送给作者？不可能，默认是没联网权限的。pass
+使用不对称加密的其中一个密钥 加密 对称加密的 密钥！
+这样子就变成了加密的时候随机生成一个对称加密的密钥，加密本地的数据，加密完成后使用硬编码的不对称加密的其中一个密钥（这样子就成为公钥）加密对称加密的密钥。
+解密的时候就把被加密过后的密钥发送给作者，作者用自己的私钥解密后发给你。
+这里用到了不对称加密的一个特性，用其中一个密钥加密的消息只能被另一个密钥解密。
+实际上WannaCry的加密过程会复杂点，WannaCry会本地生成一对RSA的一对密钥（我一直不明白这是为什么）。WannaCry 会给每个文件都单独生成一个AES的密钥加密后用本地生成的公钥加密，私钥由硬编码在程序里的另一对RSA密钥中的公钥加密（作者在他本地生成的RSA密钥对）实际上WannaCry是硬编码了主公钥，还有一对RSA密钥对，用作演示解密使用。。。（作者真贴心啊） 暑假闲着没事，就尝试用java实现RSA密钥对的生成。
+按照wiki说明，得先选择两个大的质数p和q，生成N = pq。
+这里使用了java的BigInteger对象，BigInteger有probablePrime的方法可以直接生成指定的素数（java就是好，库各种齐全）
+1 2 3  BigInteger q = BigInteger.probablePrime(100, new Random()); // 取 2^100-1 范围内的随机素数 	BigInteger p = BigInteger.probablePrime(100, new Random()); BigInteger N = q.multiply(p); // q * p   接着求一个r，r = (p-1)(q-1)
+1 2  BigInteger r = q.subtract(BigInteger.ONE).multiply(p.subtract(BigInteger.ONE)); //(q - 1)*(p - 1)   选择一个小于r的整数e，使e与r互质。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Falsk on Malu Blog</title>
+    <link>https://malu.ome/tags/falsk/</link>
+    <description>Recent content in Falsk on Malu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 23 Apr 2018 23:22:54 +0000</lastBuildDate><atom:link href="https://malu.ome/tags/falsk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>配置 VPS 运行 Flask </title>
+      <link>https://malu.ome/post/%E9%85%8D%E7%BD%AE-vps-%E8%BF%90%E8%A1%8C-flask/</link>
+      <pubDate>Mon, 23 Apr 2018 23:22:54 +0000</pubDate>
+      
+      <guid>https://malu.ome/post/%E9%85%8D%E7%BD%AE-vps-%E8%BF%90%E8%A1%8C-flask/</guid>
+      <description>​	话说之前因为自己很喜欢 ACGN_STOCK 这个网站，但是因为不喜欢上面 ”金管会“ 的一些规定，加上 自己非常喜欢类似 EVE 里面那个自由市场，很喜欢这种万物都可以自由交易的游戏。所以打算自己实现一个类似的网站。
+​	因为自己之前的一个项目是 Falsk 框架的原因，所以打算用 Flask 框架和 Postgresql 数据库来实现这个网站。在看着教程一步一步架起一个后端后，就直接按照想法添加数据库中的表和字段了。由于这是自己第一个从头撸到尾的工程，所以踩了很多坑，类似数据库字段因为自己之前设计的不周到没考虑到，所以很多时候是写着写着数据库就又多了一个字段。但是摸爬滚打也实现了基本的样子，用户的注册登录，在市场浏览股票，股票页面的买卖交易。其中后端逻辑肯定有很多不完善的地方。但似乎感觉自己撸后端还是非常有成就感的。
+​	在项目初步跑起来后就面临另一个问题，网站得跑在远程的服务器上，毕竟自己在本地写代码用的是 Falsk 自己的 server 。之前还完全没有尝试过在 VPS 上搭建跑起来过，于是在这里记录一下架设过程。
+​	在 VPS 上通过 Gihub clone 整个项目，就得到了后端的所有代码，之后的安装 Python 所需要的库，Python 的插件可以通过
+pip install -r requirements.txt 安装 requirements.txt 文件中项目说需要的所有库，非常方便。
+不过我们这个项目需要 Python3 ，Debian 上会自带 Python2 和 Python3 两个版本的 Python，但是默认的 pip 是 Python2 的，于是打算安装 pyenv 来实现多版本 Python 的管理。
+通过下面这个脚本实现 pyenv 的安装。
+1  curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash   安装完 pyenv 后，shell 并不能识别 pyenv，因为系统的根目录里没有包含 pyenv 的目录。我们需要将pyenv 的目录添加进当前所使用的 bash 配置里。这里以 bash 为例子，zsh的配置配置文件为～/.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>树莓派 on Malu Blog</title>
+    <link>https://malu.ome/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</link>
+    <description>Recent content in 树莓派 on Malu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 28 Mar 2020 20:21:20 +0000</lastBuildDate><atom:link href="https://malu.ome/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>树莓派4</title>
+      <link>https://malu.ome/post/%E6%A0%91%E8%8E%93%E6%B4%BE4/</link>
+      <pubDate>Sat, 28 Mar 2020 20:21:20 +0000</pubDate>
+      
+      <guid>https://malu.ome/post/%E6%A0%91%E8%8E%93%E6%B4%BE4/</guid>
+      <description>之前写了一个bilibili的爬虫, 根据bilibili 的一个api获取 视频的一些信息. (记得我大一的时候也写了一个爬虫, 那时候bilibili似乎没有对api限制qps? 我记得几天就用这自己的笔记本爬了前一百万的av号?).
+爬虫的架构基本上是要爬取的av号先 生成在redis的一个队里, 爬虫从redis去出要爬的av, 获取信息后储存到mongo里. 这样子爬虫完全就是一个消费者. 消费redis里的av号. 可以随时横向扩展. 但是还有一个api对一个ip频率限制的问题.
+于是又起了一个抓取互联网上公开http代理的一个应用. 这样子爬虫就可以轮流使用代理池里的http代理. 不间断的请求api.(因为代理的问题还给一些提供http代理的服务氪过金..结果算了一下50块钱还不够一天用的)
+我在自己的笔记本上起了8个爬虫, 每个爬虫 32 的协程持续请求..跑了几个小时就有25w的数据入库, 但是在笔记本跑的最大一个问题就是如果合上盖子爬虫就停了..如果只是测试可以在本地跑, 长期运行还是得在一个不关机的机器上. 而且在自己笔记本上跑还有一个问题就是他娘的mongo写入太费cpu了把.. 爬虫跑起来mongo的进程长期400%的使用率&amp;hellip;不一会风扇就转起来了&amp;hellip;
+于是我打算把需要用到的服务mongo, redis, 代理池都由docker提供. 整个应用写个docker-compose.yaml 文件拉起来.但是有个问题. 我5刀一个月的vps内存是1g的&amp;hellip;起个redis, mongo vps内存就满了. 连ssh上去操作的时候延迟简直不能忍受. 于是又想要一个高内存的vps了&amp;hellip;.
+转了一圈国内最好的价格是2c4g的机器一年400, 三年1200.但是这个是新用户或者企业用户的优惠. 现在没有那么优惠的价格了&amp;hellip;.于是便打起了树莓派的主意(绕了那么大一圈才谈到树莓派..)
+逛了淘宝一圈以近500的价格买了一个4g内存的树莓派4, 带散热片套装.
+这玩意买回来后我尝试下载一个系统写进去..按照教程在根目录创建了一个名ssh的文件.以期待在系统起起来以后能够把ssh服务给来了. 这样我就直接能够连进去了
+但是实际上并不是那么顺利. 首先是在插入写好系统的tf卡后启动树莓派. 在路由器的页面里没看到类似Raspberry名字的机器(这里是第一个坑, 不知道为啥这里看到树莓派机器的名字是*). 于是我把所有不确定机器的ip都ssh了一遍..都直接拒绝了. ..
+但是这时候我没有显示器 ..只知道树莓派开机了. ssh连接不上去. 是不知道树莓派现在什么状态了..可愁死我了.
+于是我在京东下单了hmdi的线.想等线到接上电视看看是什么状态&amp;hellip;之后就是漫长的等待.
+等到hdmi的线到了以后. 一样的操作. 接上hdmi的线, 没输入..日了够了. 这样子是完全没有进到系统里?
+于是我把官网上的系统试了好几个..各种方式写了好几遍&amp;hellip;完全没有紧张.甚至到都问淘宝店家了.
+之后发现一个异状, 我的树莓派上电后绿色的灯不闪, 理论上读取tf卡绿色灯是会闪烁的. 这是系统有问题? 于是又写了好几遍tf卡&amp;hellip;没进展
+然后发现官网上又说树莓派4会有电源功率够的时候可能开机的时候不能顺利启动..于是我试了试就插上电源的网线的树莓派启动..成功了..
+于是复盘..可能之前写的系统是成功启动的, 但是在根目录下创建ssh文件并没有开启ssh服务.
+在hdmi线到了以后因为一直都是插着hdmi线启动的, 启动电流不够, 带不起开机时候的功率, 于是进入到了不断重启的状态&amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>

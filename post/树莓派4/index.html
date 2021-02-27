@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> 树莓派4 | Malu Blog</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.c1a012fbaa03c1e7c1ca2f1a0d3f8692dcb911bfc677b5432c7c06d2581f7de1.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        😎
+                    </span>
+                    
+                    Malu Blog
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>树莓派4</h1>
+                    <div class="post-meta">
+                        <div>
+                            By  on <time>March 28, 2020</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>之前写了一个bilibili的爬虫, 根据bilibili 的一个<a href="http://api.bilibili.com/x/web-interface/view?aid=">api</a>获取 视频的一些信息. (记得我大一的时候也写了一个爬虫, 那时候bilibili似乎没有对api限制qps? 我记得几天就用这自己的笔记本爬了前一百万的av号?).</p>
+<p>爬虫的架构基本上是要爬取的av号先 生成在redis的一个队里, 爬虫从redis去出要爬的av, 获取信息后储存到mongo里. 这样子爬虫完全就是一个消费者. 消费redis里的av号. 可以随时横向扩展. 但是还有一个api对一个ip频率限制的问题.</p>
+<p>于是又起了一个抓取互联网上公开http代理的一个<a href="https://github.com/phpgao/proxy_pool">应用</a>. 这样子爬虫就可以轮流使用代理池里的http代理. 不间断的请求api.(因为代理的问题还给一些提供http代理的服务氪过金..结果算了一下50块钱还不够一天用的)</p>
+<p>我在自己的笔记本上起了8个爬虫, 每个爬虫 32 的协程持续请求..跑了几个小时就有25w的数据入库, 但是在笔记本跑的最大一个问题就是如果合上盖子爬虫就停了..如果只是测试可以在本地跑, 长期运行还是得在一个不关机的机器上. 而且在自己笔记本上跑还有一个问题就是他娘的mongo写入太费cpu了把.. 爬虫跑起来mongo的进程长期400%的使用率&hellip;不一会风扇就转起来了&hellip;</p>
+<p>于是我打算把需要用到的服务mongo, redis, 代理池都由docker提供. 整个应用写个docker-compose.yaml 文件拉起来.但是有个问题. 我5刀一个月的vps内存是1g的&hellip;起个redis, mongo vps内存就满了. 连ssh上去操作的时候延迟简直不能忍受.  于是又想要一个高内存的vps了&hellip;.</p>
+<p>转了一圈国内最好的价格是2c4g的机器一年400, 三年1200.但是这个是新用户或者企业用户的优惠. 现在没有那么优惠的价格了&hellip;.于是便打起了树莓派的主意(绕了那么大一圈才谈到树莓派..)</p>
+<p>逛了淘宝一圈以近500的价格买了一个4g内存的树莓派4, 带散热片套装.</p>
+<p><img src="http://blog-malu.oss-accelerate.aliyuncs.com/uPic/F1B33EB8-9879-44B5-A558-2D0065A8780C_1_105_c-20200328204200707.jpeg" alt="F1B33EB8-9879-44B5-A558-2D0065A8780C_1_105_c"></p>
+<p>这玩意买回来后我尝试下载一个系统写进去..按照教程在根目录创建了一个名ssh的文件.以期待在系统起起来以后能够把ssh服务给来了. 这样我就直接能够连进去了</p>
+<p>但是实际上并不是那么顺利. 首先是在插入写好系统的tf卡后启动树莓派. 在路由器的页面里没看到类似Raspberry名字的机器(这里是第一个坑, 不知道为啥这里看到树莓派机器的名字是*). 于是我把所有不确定机器的ip都ssh了一遍..都直接拒绝了. ..</p>
+<p>但是这时候我没有显示器 ..只知道树莓派开机了. ssh连接不上去. 是不知道树莓派现在什么状态了..可愁死我了.</p>
+<p>于是我在京东下单了hmdi的线.想等线到接上电视看看是什么状态&hellip;之后就是漫长的等待.</p>
+<p>等到hdmi的线到了以后. 一样的操作. 接上hdmi的线, 没输入..日了够了. 这样子是完全没有进到系统里?</p>
+<p>于是我把官网上的系统试了好几个..各种方式写了好几遍&hellip;完全没有紧张.甚至到都问淘宝店家了.</p>
+<p>之后发现一个异状, 我的树莓派上电后绿色的灯不闪, 理论上读取tf卡绿色灯是会闪烁的. 这是系统有问题? 于是又写了好几遍tf卡&hellip;没进展</p>
+<p><strong>然后发现官网上又说树莓派4会有电源功率够的时候可能开机的时候不能顺利启动..于是我试了试就插上电源的网线的树莓派启动..成功了</strong>..</p>
+<p>于是复盘..可能之前写的系统是成功启动的, 但是在根目录下创建ssh文件并没有开启ssh服务.</p>
+<p>在hdmi线到了以后因为一直都是插着hdmi线启动的, 启动电流不够, 带不起开机时候的功率, 于是进入到了不断重启的状态&hellip;</p>
+<p>进入树莓派的环境发现apt还有各种依赖的问题..执行apt -f install 修复之后还把我apt给卸载了&hellip;于是还手动安装apt了几次&hellip;真是一言难尽</p>
+<p>最后还是想说硬件这东西真难调试&hellip;出错了都不知道哪里出了问题..想起当初组原实习的时候也是在一个板子上插线..用各种芯片实现小功能..弄了半天发现是板子的线接触有问题.难受死了</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/%E5%8C%97%E4%BA%AC%E5%8C%97%E4%BA%AC/" title="Previous post (older)">
+            <span>Previous</span>
+            北京北京
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/dmm%E5%BD%B1%E7%89%87%E7%A0%B4%E8%A7%A3/" title="Next post (newer)">
+            <span>Next</span>
+            DMM影片破解
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

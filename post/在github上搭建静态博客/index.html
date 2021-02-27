@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> “在github上搭建静态博客” | Malu Blog</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.c1a012fbaa03c1e7c1ca2f1a0d3f8692dcb911bfc677b5432c7c06d2581f7de1.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        😎
+                    </span>
+                    
+                    Malu Blog
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>“在github上搭建静态博客”</h1>
+                    <div class="post-meta">
+                        <div>
+                            By  on <time>June 04, 2017</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/%E8%8B%B1%E6%89%8D%E5%B7%A5%E7%A8%8B/">英才工程</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>​	GitHub 是一个通过 Git 进行版本控制的代码托管平台，它提供一个二级域名解析其域名下仓库的master分支下的html页面。那么我们就可以通过这个服务假设一个自己的博客。</p>
+<p>​	但是自己写 html 无疑是重复照轮子，而且自己诚实的来讲，实在是懒。而且人家写的脚本生成出来的页面设计好看得多嘛。于是我这里使用 hexo 框架生成静态的博客页面，当然也有其他的框架比如 jekyll。这里使用hexo纯粹就是我个人选择问题了。</p>
+<p>​	首先你得注册一个 github 的帐号，这里默认你已经有github账号了。然后申请一个名字为 user.github.io （user为你的用户名）的仓库，访问 user.github.io 会默认解析你master分支下的index.html页面。</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/%E4%B8%BB%E9%A1%B5.png?x-oss-process=style/blog" alt=""></p>
+<p>​	安装 hexo， hexo 是用node编写的，所以你得安装node环境。</p>
+<p>下载Node.js安装文件：</p>
+<ul>
+<li><a href="https://nodejs.org/dist/v4.2.3/node-v4.2.3-x86.msi">Windows Installer 32-bit</a></li>
+<li><a href="https://nodejs.org/dist/v4.2.3/node-v4.2.3-x64.msi">Windows Installer 64-bit</a></li>
+</ul>
+<p>下载Git安装文件：</p>
+<ul>
+<li><a href="https://github.com/git-for-windows/git/releases/download/v2.6.3.windows.1/Git-2.6.3-64-bit.exe">Git-2.6.3-64-bit.exe</a></li>
+</ul>
+<p>​	必要的环境安装完成后就可以安装hexo了。在命令行下进入你需要安装的目录然后</p>
+<p>​	在命令行中输入：</p>
+<pre><code>npm install hexo-cli -g
+</code></pre><p>然后你将会看到:</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/npm-install-hexo-cli.png?x-oss-process=style/blog" alt=""></p>
+<p>可能你会看到一个<code>WARN</code>，但是不用担心，这不会影响你的正常使用。 然后输入</p>
+<pre><code>npm install hexo --save
+
+</code></pre><p>然后你会看到命令行窗口刷了一大堆白字，下面我们来看一看Hexo是不是已经安装好了。 在命令行中输入：</p>
+<pre><code>hexo -v
+
+</code></pre><p>如果你看到了如图文字，则说明已经安装成功了。</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/hexo-v.png?x-oss-process=style/blog" alt=""></p>
+<h2 id="初始化hexo">初始化Hexo</h2>
+<p>接着上面的操作，输入：</p>
+<pre><code>hexo init
+</code></pre><p>然后输入：</p>
+<pre><code>npm install
+
+
+</code></pre><p>之后npm将会自动安装你需要的组件，只需要等待npm操作即可。</p>
+<h2 id="首次体验hexo">首次体验Hexo</h2>
+<p>继续操作，同样是在命令行中，输入：</p>
+<pre><code>hexo g
+</code></pre><p>然后输入：</p>
+<pre><code>hexo s
+
+</code></pre><p>然后会提示：</p>
+<pre><code>INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
+
+</code></pre><p>在浏览器中打开<code>http://localhost:4000/</code>，你将会看到：</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/hexo-first-time.png?x-oss-process=style/blog" alt=""></p>
+<p>到目前为止，Hexo在本地的配置已经全都结束了。</p>
+<h2 id="修改全局配置文件">修改全局配置文件</h2>
+<p><em>此段落引用自Hexo官方文档</em></p>
+<p>您可以在 <code>_config.yml</code> 中修改大部份的配置。</p>
+<h3 id="网站">网站</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>网站标题</td>
+</tr>
+<tr>
+<td><code>subtitle</code></td>
+<td>网站副标题</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>网站描述</td>
+</tr>
+<tr>
+<td><code>author</code></td>
+<td>您的名字</td>
+</tr>
+<tr>
+<td><code>language</code></td>
+<td>网站使用的语言</td>
+</tr>
+<tr>
+<td><code>timezone</code></td>
+<td>网站时区。Hexo 默认使用您电脑的时区。<a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">时区列表</a>。比如说：<code>America/New_York</code>, <code>Japan</code>, 和 <code>UTC</code> 。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="网址">网址</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>url</code></td>
+<td>网址</td>
+<td></td>
+</tr>
+<tr>
+<td><code>root</code></td>
+<td>网站根目录</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permalink</code></td>
+<td>文章的 <a href="https://xuanwo.org/2015/03/26/hexo-intor/permalinks.html">永久链接</a> 格式</td>
+<td><code>:year/:month/:day/:title/</code></td>
+</tr>
+<tr>
+<td><code>permalink_default</code></td>
+<td>永久链接中各部分的默认值</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>如果您的网站存放在子目录中，例如 <code>http://yoursite.com/blog</code>，则请将您的 <code>url</code> 设为 <code>http://yoursite.com/blog</code> 并把 <code>root</code> 设为 <code>/blog/</code>。</p>
+</blockquote>
+<h3 id="目录">目录</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source_dir</code></td>
+<td>资源文件夹，这个文件夹用来存放内容。</td>
+<td><code>source</code></td>
+</tr>
+<tr>
+<td><code>public_dir</code></td>
+<td>公共文件夹，这个文件夹用于存放生成的站点文件。</td>
+<td><code>public</code></td>
+</tr>
+<tr>
+<td><code>tag_dir</code></td>
+<td>标签文件夹</td>
+<td><code>tags</code></td>
+</tr>
+<tr>
+<td><code>archive_dir</code></td>
+<td>归档文件夹</td>
+<td><code>archives</code></td>
+</tr>
+<tr>
+<td><code>category_dir</code></td>
+<td>分类文件夹</td>
+<td><code>categories</code></td>
+</tr>
+<tr>
+<td><code>code_dir</code></td>
+<td>Include code 文件夹</td>
+<td>`downloads/code |</td>
+</tr>
+<tr>
+<td><code>i18n_dir</code></td>
+<td>国际化（i18n）文件夹</td>
+<td><code>:lang</code></td>
+</tr>
+<tr>
+<td><code>skip_render</code></td>
+<td>跳过指定文件的渲染，您可使用 <a href="https://github.com/isaacs/node-glob">glob 表达式</a>来匹配路径。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="文章">文章</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>new_post_name</code></td>
+<td>新文章的文件名称</td>
+<td>:title.md</td>
+</tr>
+<tr>
+<td><code>default_layout</code></td>
+<td>预设布局</td>
+<td>post</td>
+</tr>
+<tr>
+<td><code>auto_spacing</code></td>
+<td>在中文和英文之间加入空格</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code>titlecase</code></td>
+<td>把标题转换为 title case</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code>external_link</code></td>
+<td>在新标签中打开链接</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code>filename_case</code></td>
+<td>把文件名称转换为 (1) 小写或 (2) 大写</td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>render_drafts</code></td>
+<td>显示草稿</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code>post_asset_folder</code></td>
+<td>启动 <a href="https://xuanwo.org/2015/03/26/hexo-intor/asset-folders.html">Asset 文件夹</a></td>
+<td>false</td>
+</tr>
+<tr>
+<td><code>relative_link</code></td>
+<td>把链接改为与根目录的相对位址</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code>future</code></td>
+<td>显示未来的文章</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code>highlight</code></td>
+<td>代码块的设置</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="分类--标签">分类 &amp; 标签</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>default_category</code></td>
+<td>默认分类</td>
+<td><code>uncategorized</code></td>
+</tr>
+<tr>
+<td><code>category_map</code></td>
+<td>分类别名</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tag_map</code></td>
+<td>标签别名</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="日期--时间格式">日期 / 时间格式</h3>
+<p>Hexo 使用 <a href="http://momentjs.com/">Moment.js</a> 来解析和显示时间。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date_format</code></td>
+<td>日期格式</td>
+<td><code>MMM D YYYY</code></td>
+</tr>
+<tr>
+<td><code>time_format</code></td>
+<td>时间格式</td>
+<td><code>H:mm:ss</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="分页">分页</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>per_page</code></td>
+<td>每页显示的文章量 (0 = 关闭分页功能)</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><code>pagination_dir</code></td>
+<td>分页目录</td>
+<td><code>page</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="扩展">扩展</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>theme</code></td>
+<td>当前主题名称。值为<code>false</code>时禁用主题</td>
+</tr>
+<tr>
+<td><code>deploy</code></td>
+<td>部署部分的设置</td>
+</tr>
+</tbody>
+</table>
+<h2 id="配置deployment">配置Deployment</h2>
+<p>首先，你需要为自己配置身份信息，打开命令行，然后输入：</p>
+<pre><code>git config --global user.name &quot;yourname&quot;
+git config --global user.email &quot;youremail&quot;
+
+</code></pre><p>同样在<code>_config.yml</code>文件中，找到<code>Deployment</code>，然后按照如下修改：</p>
+<pre><code>deploy:
+  type: git
+  repo: git@github.com:yourname/yourname.github.io.git
+  branch: master
+
+</code></pre><blockquote>
+<p>如果使用git方式进行部署，执行<code>npm install hexo-deployer-git --save</code>来安装所需的插件</p>
+</blockquote>
+<p>然后在当前目录打开命令行，输入：</p>
+<pre><code>hexo d
+
+</code></pre><p>随后按照提示，分别输入自己的Github账号用户名和密码，开始上传。 然后通过http://yourname.github.io/来访问自己刚刚上传的网站。</p>
+<h2 id="添加新文章">添加新文章</h2>
+<p>打开Hexo目录下的<code>source</code>文件夹，所有的文章都会以md形式保存在<code>_post</code>文件夹中，只要在<code>_post</code>文件夹中新建md类型的文档，就能在执行<code>hexo g</code>的时候被渲染。 新建的文章头需要添加一些yml信息，如下所示：</p>
+<pre><code>---
+title: hello-world   //在此处添加你的标题。
+date: 2014-11-7 08:55:29   //在此处输入你编辑这篇文章的时间。
+categories: Exercise   //在此处输入这篇文章的分类。
+toc: true  //在此处设定是否开启目录，需要主题支持。
+---
+
+</code></pre><h1 id="进阶">进阶</h1>
+<p>如果成功完成了上述的全部步骤，恭喜你，你已经搭建了一个最为简单且基础的博客。但是这个博客还非常简单， 没有个人的定制，操作也比较复杂，下面的进阶技巧将会让你获得对Hexo更为深入的了解。</p>
+<h2 id="更换主题">更换主题</h2>
+<p><em>可以在此处寻找自己喜欢的主题</em> 下载所有的主题文件，保存到Hexo目录下的<code>themes</code>文件夹下。然后在<code>_config.yml</code>文件中修改：</p>
+<pre><code># Extensions
+## Plugins: http://hexo.io/plugins/
+## Themes: http://hexo.io/themes/
+theme: landscape //themes文件夹中对应文件夹的名称
+
+</code></pre><p>然后先执行<code>hexo clean</code>，然后重新<code>hexo g</code>，并且<code>hexo d</code>，很快就能看到新主题的效果了~</p>
+<h2 id="更换域名">更换域名</h2>
+<p>首先，需要注册一个域名。在中国的话，<code>.cn</code>全都需要进行备案，如果不想备案的话，请注册别的顶级域名，可以使用<a href="https://www.godaddy.com/">godaddy</a>或<a href="http://www.xinnet.com/">新网</a>或<a href="http://www.xinnet.com/">万网</a>中的任意一家，自己权衡价格即可。</p>
+<p>这里我是从是主机壳买的域名，主要这里卖moe的域名而已。在域名DNS解析管理里把CNAME类型的解析值映射到你的GitHub.io就行。</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/DNS%E8%A7%A3%E6%9E%90.png?x-oss-process=style/blog" alt=""></p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/%E8%8B%B1%E6%89%8D%E5%B7%A5%E7%A8%8B/" title="Previous post (older)">
+            <span>Previous</span>
+            英才工程
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/%E4%B8%9C%E6%B9%96%E7%BB%BF%E9%81%93/" title="Next post (newer)">
+            <span>Next</span>
+            东湖绿道
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

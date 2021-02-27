@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> 压制组在做什么 | Malu Blog</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.c1a012fbaa03c1e7c1ca2f1a0d3f8692dcb911bfc677b5432c7c06d2581f7de1.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        😎
+                    </span>
+                    
+                    Malu Blog
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>压制组在做什么</h1>
+                    <div class="post-meta">
+                        <div>
+                            By  on <time>July 25, 2018</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/%E5%8E%8B%E5%88%B6/">压制</a>
+                            
+                            <a href="/tags/%E8%A7%86%E9%A2%91/">视频</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p><strong>当压制组在压制视频时,他们做了什么</strong></p>
+<p>​	当我们打算压缩一个文件的时候,通常可考虑的有无损压缩和有损压缩两种方法.无损压缩类似于我们通常的打包一个压缩包,我们压缩一个文件解压后和我们原来的文件时一模一样的.这是无损压缩.与此同时,还有有损压缩.即压缩后的文件解压后与源文件对比是不同的,这之间损失了一部分的信息.</p>
+<p><strong>为什么我们需要有损压缩?</strong></p>
+<p>​	因为类似图片和音频之类的数据对我们而言损失一部分信息是可接受的,人类可能察觉不到这之间丢失的信息,舍去这部分对人类观感影响不大的信息对压缩率提高却是巨大的.节省下来的储存容量是可观的.</p>
+<p><strong>所以现在的视频编码器在怎么做?</strong></p>
+<p>​	视频就是一连串的图片顺序播放,所以我们可以使用图片中有损压缩的方法DCT(离散余弦变换)之后进行量化编码.这便是帧内编码.类似于把图片分割成一块一块的小格子,之后进行量化,这部分允许你选择保存信息的大小容量,若你选择的大小不够,那么就会丢失一些信息.我们在这里进行DCT是因为一张图片中的信息若把它分割成小块,那么有些信息是可复用的.所以一张纯色的图片经过压缩后会比复杂的图片小</p>
+<p>​	既然视频是一连串的图片,图片与图片之间相似的话能不能够复用一部分信息呢?答案是可以的.并且现在的编码器已经实现了.这是帧间编码.现在的视频编码器会把一连串的图片分成I,P以及B帧,其中I帧为独立帧,P是会向前参考,只记录于之不同的信息,而B帧会前后都参考并记录不同的信息.这样达到压缩的目的.</p>
+<p><strong>为什么压制组要压缩视频,原来的视频不就经过编码吗</strong>?</p>
+<p>​	因为目前以BD为载体的高清视频原编码使用的标准可能还会有H.262,即使上了H.264也会兼容一部分上古机器编码参数不会开得太高.经过压制后的视频文件大小更容易通过网络传播.</p>
+<p><strong>所以目前压制组做了什么你还是没说啊?</strong></p>
+<p>​	压制组的目标很明确,尽可能保证高观感的前提下压缩视频.所有做的所有事情都尽可能的以这前提为目标.</p>
+<p>​	压制组会选择合适的视频编码参数进行视频编码,尽可能在小体积的前提下获得高质量的观感,同时由于日本特别奇怪的制作流程和不负责任的视频处理,一些DVD或者蓝光的影碟抓取的源会有视频转制过程中的错误处理.造成不必要的视频质量损失.所以压制组会在可推断处理错误的情况下使用滤镜正确还原原有的影片信息.</p>
+<p><strong>压制组是怎么推断出这是制作方的错误处理过程呢?你怎么知道这不是艺术效果.</strong></p>
+<p>​	有些视频是瑕疵是在编码过程中产生的,这类很容易判断.类似因为量化精度不足产生的banding,</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/image-3.png?x-oss-process=style/blog" alt="banding"></p>
+<p>抑或是采用固定码率这类不能够适应影片的码率变化产生的马赛克,当然,某些影片的马赛克是人工添加的,那就真的是艺术效果,压制也没办法给你“去马”.</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/image-2.png?x-oss-process=style/blog" alt="block"></p>
+<p>(现代编码器会在亮度低的区域偏向于降低码率,因为人眼对暗部并不敏感,所以也容易在暗部出现马赛克)</p>
+<p>​	这都是在编码过程中引入的瑕疵,在使用新的编码标准或者提高编码参数且使用适当的滤镜能够有效提高观感.</p>
+<p>​	有些瑕疵的引入纯粹就是制作方不负责任,在制作过程中引入的.比如在隔行扫描的视频上直接当成逐行扫描的视频处理,造成两张不同时域的帧出现在同一时间里.这种怪异的东西根本就不是啥艺术效果.</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/image-1.png?x-oss-process=style/blog" alt="交错"></p>
+<p>​	还有在隔行扫描的视频上当成逐行扫描来处理,造成的缟缟(一种在隔行扫描的视频里使用拉伸算法产生的画面效果)</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/image.png?x-oss-process=style/blog" alt="缟缟"></p>
+<p>​	所以压制组会使用各种方法去除这种因为处理错误造成的视频瑕疵.当然制作过程的错误大部分是历史原因(大雾——),现在的BD原盘也少了些DVD时代的IVTC错误.不像上古时代某些EP大神的rip可遇不可求.各种视频网站的兴起也使得压制组这一名词快要被人遗忘.同时也希望各个制作方别再用心做剧情,用脚出碟片.让人能够放心的收藏塑料盘.</p>
+<p>参考:https://vcb-s.com/archives/4738</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%B8%8D%E5%96%9C%E6%AC%A2%E5%9B%BD%E5%86%85%E7%BD%91%E6%B8%B8/" title="Previous post (older)">
+            <span>Previous</span>
+            为什么我不喜欢国内网游
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/%E4%B8%80%E5%87%BA%E5%A5%BD%E6%88%8F/" title="Next post (newer)">
+            <span>Next</span>
+            一出好戏
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> 流式计算 | Malu Blog</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.c1a012fbaa03c1e7c1ca2f1a0d3f8692dcb911bfc677b5432c7c06d2581f7de1.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        😎
+                    </span>
+                    
+                    Malu Blog
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>流式计算</h1>
+                    <div class="post-meta">
+                        <div>
+                            By  on <time>March 11, 2019</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/storm/">storm</a>
+                            
+                            <a href="/tags/heron/">heron</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p><strong>为什么会出现流式计算？</strong></p>
+<p>在现实的业务中，会有需要统计计算的需求，一部分的日志需要计算统计信息。这时候会有两个思路。</p>
+<p>一是当需求来的时候系统实时的计算一遍给出结果。</p>
+<p>二是当日志信息收集上来的时候就进行一遍计算，把结果保存好。这时候需求过来的时候直接取结果就好了。</p>
+<p>这两个方法分别是批量计算和流式计算。</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/d56bd09ab2d99bf25bf15ea5c78813d6d458776e.png?x-oss-process=style/blog" alt=""></p>
+<p>​	批量计算是一种用户主动发起，高时延（相对流式计算）的计算。他需要加载数据再开始计算流程。在使用一个数据流做输入的情况下他有batch的概念。需要等到数据量满足一个batch的大小后开始计算。</p>
+<p>​	而流式计算更强调数据流的概念。数据到达处理和向后传递是不间断的。</p>
+<p>​	总感觉，流式计算像是batch粒度为一个信息大小的批量计算。而且Spark streaming就是采用小批量（batch）的方式来实现流式计算。</p>
+<p><strong>现在的流式计算框架之间有什么差别</strong></p>
+<p>现在的流计算框架有 Twitter 的 Storm 和 Heron 还有 spark， finlk。</p>
+<p><strong>Storm</strong></p>
+<p>Storm 使用有向图的方式定义计算流程。称之为 Topology。其中 Tuple 是 Storm 的主要数据结构。</p>
+<p>Spout 是有向图的数据源。它定义了数据的来源和去向，从来源接受数据发送给需要的节点。</p>
+<p>Bolts 是有向图中的逻辑处理单元。从 Spout 中接受数据并处理。处理后的数据根据需要指向下一个节点或者储存。</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/image001.jpg?x-oss-process=style/blog" alt=""></p>
+<p>当定义好 Topology 便可提交到集群运行。Storm 集群主要由 Master node， Worker node 和 Coordinate node 构成。</p>
+<ul>
+<li>Master node 上的 Nimbus 负责将应用代码分发给 Worker 节点 , 指派任务，并监控任务的执行。</li>
+<li>Worker node 上的 Supervisor 负责监听从 Master node 分配来的任务，启动工作进程来运行相应的任务。</li>
+<li>Coordinate node运行着 Zookeeper， 负责 Nimbus  和 Supervisor之间的通信。</li>
+</ul>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/820234-20160110203625137-886332099.jpg?x-oss-process=style/blog" alt=""></p>
+<ul>
+<li>Worker （JVM虚拟机） 节点中每个 workers 是服务器上相互独立运行的JVM进程。  每一个node可以配置运行一个或者多个worker。一个topology会分配到一个或者多个worker上运行。</li>
+<li>Executor(线程)：是指一个worker的JVM进程中运行的Java线程。多个task可以指派给同一个executor来执行。除非是明确指定，Storm默认会给每一个executor分配一个task。</li>
+<li>Task(bolt/spout实例)：task是spout和bolt的实例，nextTuple() 和 execute() 方法会被 executors 线程调用执行。</li>
+</ul>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/20170904195320733%20%281%29.png?x-oss-process=style/blog" alt=""></p>
+<p><strong>Heron</strong></p>
+<p>​	随着 Twitter 的数据越来越多，单个 storm 集群规模也越来越大。storm 原有的架构不可避免的碰到了之前没有过的问题。包括：每分钟数十亿的事件；大规模处理具有次秒级延迟和可预见的行为；在故障情况下，具有很高的数据准确性；具有很好的弹性，可以应对临时流量峰值和管道阻塞；易于调试；易于在共享基础设施中部署。</p>
+<p>​	Twitter 开始尝试对 strom做了一些改进，主要针对拓展性和稳定性。成果包括：使得Storm单集群可以容纳之前5倍的机器。但如果要继续改进，需要更改底层的设计和实现，代价很高，不亚于重新设计实现一个实时计算框架。</p>
+<p>​	在这个需求指引下，第二代的流式计算引擎 Heron 便诞生了。</p>
+<p>​	Heron 的设计目标包括</p>
+<ul>
+<li>资源隔离 – 实时计算任务中的每一个节点和计算单元，应该确保能够使用且只使用它们分配的那些资源。这使得Heron在共享的基础设施上也保证资源分配以及资源隔离。</li>
+<li>兼容性 – Heron与Apache Storm的API和数据模型是完全兼容的，降低在两个系统的迁移成本。</li>
+<li>场景保证–Heron支持at-most-once，at-least-once，exactly-once等场景。并且在各种语义下，也可以通过不同的配置实现不同的取舍，如在exactly-once的场景下，可以通过配置选择低开销但恢复时间长、高开销但恢复时间短以及混合模式。</li>
+<li>性能 – 许多Heron的设计选择使得Heron获得了比Storm更高的吞吐量和更低的延迟，同时还提供了增强的可配置性来微调可能的延迟/吞吐量的折中。</li>
+<li>效率 – Heron的构建目标是以最小的资源使用量达到上述所有目标。</li>
+<li>提供新的功能，如反压机制 – 在Heron这类分布式系统中，不能保证所有的系统组件以相同的速度执行。Heron有内置的反压机制来确保拓扑在组件缓慢的情况下可以自适应。</li>
+</ul>
+<p>​</p>
+<p>​	heron改进了一些strom框架下容易 形成系统瓶颈的地方。比如Storm的很多逻辑上相互独立的单元在实际实现中会共享资源。同时，这些资源在实践中发现是很容易成为瓶颈的。这一方面会影响系统的scalability和performance predictability，另外一方面，也很调试和进行异常处理。比如说，一个storm最小运行单元task出错的时候，可能会导致与之没有任何逻辑相关的其他task一起退出（因为系统实现的原因。）</p>
+<p>​	总而言之。heron相比storm 在底层RPC， worker之间的模块做了变更。带来性能上的提升则是副产品（至少官方是这么说的）</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/%E5%8F%A4%E5%BE%B7%E5%AF%BA/" title="Previous post (older)">
+            <span>Previous</span>
+            古德寺
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/%E5%8C%97%E4%BA%AC%E5%8C%97%E4%BA%AC/" title="Next post (newer)">
+            <span>Next</span>
+            北京北京
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

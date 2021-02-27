@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> 给后端添加redis缓存 | Malu Blog</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.c1a012fbaa03c1e7c1ca2f1a0d3f8692dcb911bfc677b5432c7c06d2581f7de1.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        😎
+                    </span>
+                    
+                    Malu Blog
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>给后端添加redis缓存</h1>
+                    <div class="post-meta">
+                        <div>
+                            By  on <time>April 29, 2018</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/%E5%90%8E%E7%AB%AF/">后端</a>
+                            
+                            <a href="/tags/redis/">redis</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>​	在 VPS 上架设好 Flask 后，我测试并发是经常发现 ORM 框架会发生错误，查询之后是 连接时设置的 pool_size 太小， 使用 SQLCHEMY 时默认的 pool_size = 5， 我改为100后就可以了。</p>
+<p>​	但是如果大并发的时候一些热点数据应该还是会频繁的查询数据库，但是这些数据是不会经常更新的。所以我就想着这么用 redis 缓存那些经常被查询但是不会更新的数据， 比如公告， STOCK 的基本信息.</p>
+<p>​	 我试了测试没有使用redis进行缓存时候打开首页查询公告时候的web服务器性能，使用 webbench 进行 500 线程 60 秒的测试。</p>
+<pre><code>Benchmarking: GET http://127.0.0.1:5000/
+500 clients, running 60 sec.
+
+Speed=1924 pages/min, 54160 bytes/sec.
+Requests: 1924 susceed, 0 failed.
+
+</code></pre><p>在添加 Reids 缓存后再以同样的参数进行测试</p>
+<pre><code>Benchmarking: GET http://127.0.0.1:5000/
+500 clients, running 60 sec.
+
+Speed=16735 pages/min, 468472 bytes/sec.
+Requests: 16642 susceed, 93 failed.
+</code></pre><p>发送速率直接上了一个数量级，舒服。</p>
+<p>直接测试一下在 VPS 上跑的后端并发数，在没有添加 Redis 的后端测试的时候本地打开网页是不是回500</p>
+<pre><code>Benchmarking: GET http://106.15.205.43/index
+500 clients, running 60 sec.
+
+Speed=3990 pages/min, 106517 bytes/sec.
+Requests: 3990 susceed, 0 failed.
+</code></pre><p>添加后</p>
+<pre><code>Benchmarking: GET http://106.15.205.43/index
+500 clients, running 60 sec.
+
+Speed=3810 pages/min, 108984 bytes/sec.
+Requests: 3810 susceed, 0 failed.
+</code></pre><p>没想到却是一样的，为啥啊?</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/%E9%85%8D%E7%BD%AE-vps-%E8%BF%90%E8%A1%8C-flask/" title="Previous post (older)">
+            <span>Previous</span>
+            配置 VPS 运行 Flask 
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/%E4%BD%BF%E7%94%A8uwsgi-%E5%92%8C-nginx-%E9%83%A8%E7%BD%B2-flask/" title="Next post (newer)">
+            <span>Next</span>
+            使用uwsgi 和 nginx 部署 Flask
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> 配置 VPS 运行 Flask  | Malu Blog</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.c1a012fbaa03c1e7c1ca2f1a0d3f8692dcb911bfc677b5432c7c06d2581f7de1.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        😎
+                    </span>
+                    
+                    Malu Blog
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>配置 VPS 运行 Flask </h1>
+                    <div class="post-meta">
+                        <div>
+                            By  on <time>April 23, 2018</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/falsk/">Falsk</a>
+                            
+                            <a href="/tags/vps/">VPS</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>​	话说之前因为自己很喜欢 <a href="https://acgn-stock.com/">ACGN_STOCK</a> 这个网站，但是因为不喜欢上面 ”金管会“ 的一些规定，加上 自己非常喜欢类似 EVE 里面那个自由市场，很喜欢这种万物都可以自由交易的游戏。所以打算自己实现一个类似的网站。</p>
+<p>​	因为自己之前的一个项目是 Falsk 框架的原因，所以打算用 Flask 框架和 Postgresql 数据库来实现这个网站。在看着教程一步一步架起一个后端后，就直接按照想法添加数据库中的表和字段了。由于这是自己第一个从头撸到尾的工程，所以踩了很多坑，类似数据库字段因为自己之前设计的不周到没考虑到，所以很多时候是写着写着数据库就又多了一个字段。但是摸爬滚打也实现了基本的样子，用户的注册登录，在市场浏览股票，股票页面的买卖交易。其中后端逻辑肯定有很多不完善的地方。但似乎感觉自己撸后端还是非常有成就感的。</p>
+<p>​	在项目初步跑起来后就面临另一个问题，网站得跑在远程的服务器上，毕竟自己在本地写代码用的是 Falsk 自己的 server 。之前还完全没有尝试过在 VPS 上搭建跑起来过，于是在这里记录一下架设过程。</p>
+<p>​	在 VPS 上通过 Gihub clone 整个项目，就得到了后端的所有代码，之后的安装 Python 所需要的库，Python 的插件可以通过</p>
+<pre><code>pip install -r  requirements.txt 
+</code></pre><p>安装 requirements.txt 文件中项目说需要的所有库，非常方便。</p>
+<p>不过我们这个项目需要 Python3 ，Debian 上会自带 Python2 和 Python3 两个版本的 Python，但是默认的 pip 是 Python2 的，于是打算安装 pyenv 来实现多版本 Python 的管理。</p>
+<p>通过下面这个脚本实现 pyenv 的安装。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer <span class="p">|</span> bash
+</code></pre></td></tr></table>
+</div>
+</div><p>安装完 pyenv 后，shell 并不能识别 pyenv，因为系统的根目录里没有包含 pyenv 的目录。我们需要将pyenv 的目录添加进当前所使用的 bash 配置里。这里以 bash 为例子，zsh的配置配置文件为～/.zshrc</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s1">&#39;export PYENV_ROOT=&#34;$HOME/.pyenv&#34;&#39;</span> &gt;&gt; ~/.bashrc
+<span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;$PYENV_ROOT/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+<span class="nb">echo</span> <span class="s1">&#39;eval &#34;$(pyenv init -)&#34;&#39;</span> &gt;&gt; ~/.bashrc‘’‘
+</code></pre></td></tr></table>
+</div>
+</div><p>之后用 source 命令使用新配置重启 base</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> ~/.bashrc
+</code></pre></td></tr></table>
+</div>
+</div><p>之后使用 pyenv 安装 3.5.4 的 Python，并将其设置为全局 Python 版本。</p>
+<ul>
+<li><code>pyenv install version</code> 安装，version 为对应的 Python 版本号，如 2.7.9；</li>
+<li><code>pyenv virtualenv 3.5.2 webapp-3.5.2</code> 以 3.5.2 版本创建虚拟环境；</li>
+<li><code>pyenv uninstall version</code> 删除 version 版本的 Python；</li>
+<li><code>pyenv commands</code> 列出所有命令；</li>
+<li><code>pyenv versions</code> 查看 pyenv 当前可检测到的所有版本，处于激活状态的版本前以 * 标示；</li>
+<li><code>pyenv local 2.7.9</code> 设置局部版本</li>
+<li><code>pyenv which python</code> 查看当前 python 命令的路径；</li>
+<li><code>pyenv which pip</code> 查看当前 pip 命令的路径；</li>
+</ul>
+<p>执行 pyenv install 3.5.4 后，安装失败 。提示没有 openssl， zlib。执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">apt install openssl zlib*
+</code></pre></td></tr></table>
+</div>
+</div><p>安装完毕～ 撒花❀❀❀❀</p>
+<p>升级 pip 不然有些库安装不了</p>
+<pre><code>pip install --upgrade pip
+</code></pre><p>安装所需要的所有库</p>
+<pre><code>pip install -r requirements.txt
+</code></pre><p>在使用 gunicorn 部署 Falsk 应用前，得先安装 postgresql 和 redis。分别是关系式数据库和 nosql 数据库。用来储存网站所需要的信息和做爬虫缓存。</p>
+<p>postgresql 的安装就不多言了，安装完成后需要创建一个用户和数据库。这里可以用写好的 sql 文件直接执行创建数据库</p>
+<p><code>psql stock -c &quot;\i sql/schema.sql&quot;</code></p>
+<p>确定创建的用户拥有数据库的所有权限。</p>
+<p>安装 redis-server。之后就可以用 gunicorn 部署 Flask 应用了。</p>
+<pre><code>gunicorn -b 0.0.0.0:80 run:app
+</code></pre><p>run.py</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!flask/bin/python</span>
+<span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>运行后很多字符错误。。。才发现每个文件开头的那句声明使用utf8的重要性。。。</p>
+<pre><code># -*- coding: utf-8 -*
+</code></pre><p>至此一个运行Python 后端的服务器就好了。访问 http://106.15.205.43/ 就可以看到。</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/%E8%BD%BB%E6%96%87%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/" title="Previous post (older)">
+            <span>Previous</span>
+            轻文面试经历
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/%E7%BB%99%E5%90%8E%E7%AB%AF%E6%B7%BB%E5%8A%A0redis%E7%BC%93%E5%AD%98/" title="Next post (newer)">
+            <span>Next</span>
+            给后端添加redis缓存
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

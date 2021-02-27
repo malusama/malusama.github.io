@@ -1,207 +1,90 @@
-<!doctype html>
-<html lang="chinese">
-  <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!DOCTYPE html>
+<html lang="zh">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> hexo | Malu Blog</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.c1a012fbaa03c1e7c1ca2f1a0d3f8692dcb911bfc677b5432c7c06d2581f7de1.css">
+</head>
 
-  
-  <meta http-equiv="Cache-Control" content="no-transform">
-  <meta http-equiv="Cache-Control" content="no-siteapp">
-
-  
-  
-  
-
-  <link rel="stylesheet" href="/css/mobi.css-3.0.4/dist/mobi.min.css">
-<link rel="stylesheet" href="/css/caomei1.2.1/style.css">
-<link rel="stylesheet" href="/css/theme.css">
-
-  
-
-  
-    <link rel="alternate" href="/atom.xml" title="Malu blog" type="application/atom+xml">
-  
-
-  
-    <link rel="shortcut icon" href="/favicon.ico">
-  
-
-  <title>Malu blog</title>
-  <script data-ad-client="ca-pub-4390654727225048" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?196bdd0c9837159f8e291ef5a93aef95";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-4390654727225048",
-        enable_page_level_ads: true
-      });
-    </script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  
-      ga('create', 'UA-28923877-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
-
-  <body class="theme-body">
-    <div class="flex-center theme-header-wrapper">
-  <div class="container flex-left units-gap theme-header-container">
-    <a href="/" class="unit-0 theme-header-icon theme-icon-link" title="首页">
-      <i class="czs-home-l"></i>
-    </a>
-    <div class="flex-center text-center flex-middle unit theme-header-title theme-header-title-no-transition">
-      Malu blog
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        😎
+                    </span>
+                    
+                    Malu Blog
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
     </div>
-    <a class="unit-0 theme-header-icon theme-icon-link theme-header-sidebar-icon" href="javascript:void(0);" title="更多">
-      <i class="czs-menu-l"></i>
-    </a>
-  </div>
-</div>
-<div class="theme-header-placeholder"></div>
-
-    <div class="flex-center">
-      <div class="container">
-        <h1 class="text-center">hexo</h1>
-<ul class="top-gap-big">
-  
-    <li>
-      <a href="/2017/03/14/第一次安装hexo/">
-        第一次安装hexo
-      </a>
-    </li>
-  
-</ul>
-        <hr class="top-gap-big"></hr>
-<p class="text-center">
-  <small class="text-muted">
-    &copy;
-    
-      2015 -
-    
-    <span itemprop="copyrightYear">2020</span>
-    <i class="czs-heart" style="color:red;"></i>
-    <span itemprop="copyrightHolder">malu</span>
-
-    <br/>
-
-    由 <a class="text-muted" href="https://hexo.io" title="Hexo">Hexo</a> 强力驱动
-    <span class="theme-separator">·</span>
-    主题
-    <a class="text-muted" href="https://github.com/xcatliu/hexo-theme-milk">Milk</a>
-  </small>
-</p>
-
-      </div>
-      <div class="theme-sidebar-mask theme-hide"></div>
-<aside class="theme-sidebar-wrapper">
-  <div class="container flex-left units-gap theme-header-container">
-    
-    <a class="unit-0 theme-icon-link" href="/archives" title="归档">
-      <i class="czs-folder-l"></i>
-    </a>
-  
-    <a class="unit-0 theme-icon-link" href="/categories" title="分类">
-      <i class="czs-bookmark-l"></i>
-    </a>
-  
-    <a class="unit-0 theme-icon-link" href="/tags" title="标签">
-      <i class="czs-tag-l"></i>
-    </a>
-  
-    <div class="unit"></div>
-  
-    <a class="unit-0 theme-icon-link" href="http://malu.moe" title="关于我">
-      <i class="czs-user-l"></i>
-    </a>
-  
-
-  </div>
-  <div class="container">
-    
-          <h2>Malu blog</h2>
-          
-          <p class="top-gap-0 text-muted"></p>
-          
-          <div class="flex-left flex-middle top-gap">
-            <img alt="Avatar" height="24" src="/assets/about/favicon.ico"/>
-            <span class="theme-sidebar-author">malu</span>
-          </div>
-          
-          <p>欢迎访问Malusama的博客，这里搜集了我的技术文章和生活感悟，希望能够与您一起交流，共同成长。</p>
-          
-          <p class="theme-sidebar-social">
+</nav>
+        <main>
             
-    <a class="unit-0 theme-icon-link" href="https://github.com/malusama" title="GitHub">
-      <i class="czs-github"></i>
-    </a>
-  
-    <a class="unit-0 theme-icon-link" href="https://www.v2ex.com/member/malusama" title="V2EX">
-      <i class="czs-v2ex"></i>
-    </a>
-  
-    <a class="unit-0 theme-icon-link" href="https://twitter.com/791644947" title="Twitter">
-      <i class="czs-twitter"></i>
-    </a>
-  
-    <a class="unit-0 theme-icon-link" href="mailto:chensichengmalu@gmail.com" title="Gmail">
-      <i class="czs-message-l"></i>
-    </a>
-  
 
-          </p>
-          
-          <h5>友情链接</h5>
-          <p class="text-muted">
-            <small>
-              <ul class="theme-list-style-none">
-                <li><a class="text-muted" href="https://github.com/malusama">github</a></li>
-              </ul>
-            </small>
-          </p>
-          
-  </div>
-</aside>
 
+
+
+<header>
+    <div class="container">
+        <h1>hexo</h1>
+        <p class="subtitle">
+            <span class="count">1</span> posts found.
+        </p>
     </div>
-    <script src="/js/theme.js"></script>
+</header>
+
+<section>
+    <div class="container">
+        <section>
+            <section>
+                <div class="posts">
+                    
+                    <div class="post">
+                        <a href="/post/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%AE%89%E8%A3%85hexo/">
+                            <div class="post-row">
+                                <time>Mar 14</time>
+                                <h3>第一次安装hexo</h3>
+                            </div>
+                            
+                        </a>
+                    </div>
+                    
+                </div>
+            </section>
+        </section>
+    </div>
+</section>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
     
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-28923877-1', 'auto');
-    ga('send', 'pageview');
-  </script>
-
-
-    
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?196bdd0c9837159f8e291ef5a93aef95";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
-
-
-    
-  </body>
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
 </html>

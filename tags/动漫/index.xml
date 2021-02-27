@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>动漫 on Malu Blog</title>
+    <link>https://malu.ome/tags/%E5%8A%A8%E6%BC%AB/</link>
+    <description>Recent content in 动漫 on Malu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 06 Oct 2018 23:02:43 +0000</lastBuildDate><atom:link href="https://malu.ome/tags/%E5%8A%A8%E6%BC%AB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>动漫人物数据集</title>
+      <link>https://malu.ome/post/%E5%8A%A8%E6%BC%AB%E4%BA%BA%E7%89%A9%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
+      <pubDate>Sat, 06 Oct 2018 23:02:43 +0000</pubDate>
+      
+      <guid>https://malu.ome/post/%E5%8A%A8%E6%BC%AB%E4%BA%BA%E7%89%A9%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <description>之前因为自己希望做一个识别动漫人物的应用…方便自己刷 twitter .做了个 abyss.
+但是网页版的还是不怎么方便…顺便做了个 chrome 的应用..
+现在状况是在贴吧宣传了下,感觉需求还是太小众.没有什么人愿意一起实现..至少分享数据的都没有.
+自己一个人标注数据标了一万多张.喜欢的角色应该大部分都标注了,剩下的 pixiv 热度也不高.
+目前打算公开这部分数据集.如果感兴趣的可以下载看看…当成 pixiv 图包也没问题
+图片都是角色单人出现的场景,有些许图片可能背景会复杂点
+奶牛快传:
+https://c-t.work/s/42e78449f51c4c MEGA:
+https://mega.nz/#!H34XDYZR!r1t2X_EyfD_F9jG4MBs6ZCzI0ncjdOHcSQSWxAuvsog https://mega.nz/#!G7oFVaBZ!iYvACVl0OZjE-43RnUw9d3Nv33cLBaSdD_CfViFI1vA https://mega.nz/#!nq4RVA5R!h-8MzocOQB5PR7RsOFQDnSnDYZN4rSJwd3_qpUSavK8 https://mega.nz/#!mrgnEQpJ!Ie5M0IEz7mboQu--ysSVpqAe9PQKJa0gxn-1yrvj5gQ https://mega.nz/#!Xz5z1CbB!x1KnmL7Iu4bgEomyEVSuy1C7bmh7tezVv_9qsTGEpKE https://mega.nz/#!7zpTXCrb!wAHBUdPYdu0-YOFdd0ndPgBOsMoI2U9PY37ShZWT4YA https://mega.nz/#!iixxUSxI!ex6fK7F0TcOO3fwpJXgk2ojpOfqNQM7Ky0Dj63_3lTo https://mega.nz/#!jiw3mIKB!kXmKeKM_JYHP_Vlk8H9VfL4WiskpoV4NORupQNfjAUY https://mega.nz/#!SrpBQYRC!I1QJMN5NFfywRB3CsNJlb9-7Gf9N5G7S22cv7njzHoA https://mega.nz/#!DmpjRYxb!MZtwnI7bPd_BWtaZdp1WEuWgeODusvf8VNRfUyGTboE 目录:
+image ├── 002 ├── AbigailWilliams ├── AkiyamaMio ├── AobaSuzukaze ├── AragakiAyase ├── AyanamiRei ├── Bondorudo ├── ChitandaEru ├── Dva ├── EMT ├── EbisuzawaKurumi ├── FlandreScarlet ├── GokouRuri ├── HachikujiMayoi ├── HakureiReimu ├── IkaMusume ├── IllyasvielvonEinzbern ├── IzumiKonata ├── IzumiSagiri ├── KafuuChino ├── KaguyaLuna ├── KanameMadoka ├── KasuganoSora ├── KatoMegumi ├── KinomotoSakura ├── KirisameMarisa ├── KizunaAI ├── KomichiAya ├── Kousakakirino ├── KuriyamaMirai ├── Megumin ├── MikasaAckerman ├── MisakaMikoto ├── NaganoharaMio ├── NagatoYuki ├── NakanoAzusa ├── Nanachi ├── Reg ├── Rem ├── Riko ├── RyougiShiki ├── SakuraSaber ├── SawamuraSpencerEriri ├── SenjougaharaHitagi ├── ShiinaMashiro ├── Shimakaze ├── SoryuAsukaLangley ├── SuzumiyaHaruhi ├── TamuraManami ├── TedezaRize ├── TosakaRin ├── aisakataiga ├── amatsukaze ├── houshou ├── kuppahime └── miku 56 directories </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hexo on Malu Blog</title>
+    <link>https://malu.ome/tags/hexo/</link>
+    <description>Recent content in hexo on Malu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 14 Mar 2017 20:06:24 +0000</lastBuildDate><atom:link href="https://malu.ome/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>第一次安装hexo</title>
+      <link>https://malu.ome/post/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%AE%89%E8%A3%85hexo/</link>
+      <pubDate>Tue, 14 Mar 2017 20:06:24 +0000</pubDate>
+      
+      <guid>https://malu.ome/post/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%AE%89%E8%A3%85hexo/</guid>
+      <description>​	话说我之前的vps到期了，苦于囊中羞涩，暂时不想购买新的 vps 。而且主要没什么需求(ss 有师傅的服务器，blog 我想尝试架在 github 上)。由于之前的 wordpress 并没有备份，所以这里算是新的开始，我努力做到日常能写些东西 po 上来把。 ​	我 google 了以下在 github 上搭建博客的教程，在jekyll 和 hexo 之间选择了 hexo。安装过程并不顺利， 安装 hexo 时候下载速度非常慢就不提了，hexo 服务启动后（hexo server）端口占用既然不提醒？？？我又检查重新安装了好几遍，google 了以下发现可能是端口被占用的问题,换了个端口果然解决（hexo server -p 8000）。 ​	安装完hexo后还得执行（npm iinstall），安装node。 ​	暂时不明白为什么。之后还得 push 到 github 的仓库上，一直没弄清楚。现在是不明不白的可以跑了，但是问题还是存在。 hexo 用的是 Markdown 写东西，暂时用的还不是很习惯，所以排版什么的可能有点问题（好像你用其他什么能写得好一样）。暂时还需要学习。 ​	以上只是我的一些碎碎念，虽然想写一篇怎么安装 hexo 的教程，可是发现我在安装的时候并没有截图什么的。所以这里只是一些发泄的碎碎念罢了。如果有人完全看不明白也只是我的写作能力太差想到什么写什么完全没有结构所导致的结果。很多东西需要学习啊。 更多碎碎念期待下一篇。。。</description>
+    </item>
+    
+  </channel>
+</rss>

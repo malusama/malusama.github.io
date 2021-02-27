@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>水卡 on Malu Blog</title>
+    <link>https://malu.ome/tags/%E6%B0%B4%E5%8D%A1/</link>
+    <description>Recent content in 水卡 on Malu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Wed, 05 Dec 2018 23:06:18 +0000</lastBuildDate><atom:link href="https://malu.ome/tags/%E6%B0%B4%E5%8D%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>学校水卡破解</title>
+      <link>https://malu.ome/post/%E5%AD%A6%E6%A0%A1%E6%B0%B4%E5%8D%A1%E7%A0%B4%E8%A7%A3/</link>
+      <pubDate>Wed, 05 Dec 2018 23:06:18 +0000</pubDate>
+      
+      <guid>https://malu.ome/post/%E5%AD%A6%E6%A0%A1%E6%B0%B4%E5%8D%A1%E7%A0%B4%E8%A7%A3/</guid>
+      <description>前言 今天淘宝买的pn523 终于到了，话不多说，鼓捣起来。
+先下载pn523的驱动，然后配套的软件也都有界面，方便很多
+放上店家赠送的白卡读取看下是否正常，一切正常
+背景知识 目前使用非接触式卡有ID (Identification Card) 和IC(Integrated Circuit Card)的区别。
+ID卡明文记录信息，大部分是出厂就设置好的卡号。
+ID卡目前差不多都绝迹了，因为特别容易复制。把卡号读取出来在写入新卡就行了。
+目前最广泛接受的是 Mifare 卡。下文称M1 卡。
+ M1卡分为16个扇区，每个扇区对应4块（块0-块3）,共64块，编号为0-63.第0扇区的第0块用于存放厂商代码，已经固化无法更改。其余区的第0-2块用于存放数据，块3为控制块用于存放密码A、存取控制、密码B，结构如下：
+  A0 A1 A2 A3 A4 A5 FF 07 80 69 B0 B1 B2 B3 B4 B5 (密码A 6字节) (存储控制 4字节) (密码B 6字节)  并且每个扇区块3中的密码和存储控制全部都是独立的，独立控制本扇区的各种操作，每个扇区都能实现不同的功能，所以广泛用作一卡通。存储控制里面4字节的具体含义我也不是很清楚(不影响我们破解)，所以就不说出来误导大家了。
+ 卡中每个块包含16字节，所以M1卡的容量=16扇区4块16字节=1024字节=1k (M1卡的由来)。
+鼓捣过程 先是拿宿舍楼的饮水卡尝试复制一下。直接读取UID卡信息，读取完后会储存为dump文件。
+用写入功能写到一张空白卡里。这里我用到一张CUID卡，这张卡甚至可以写0扇区。
+有些机器会验证0扇区的信息是不是自己厂家的卡，这时候CUID就起到作用了。
+不过这种卡理论上是不应该流出的。不过目前淘宝还能买到，且玩且珍惜把。
+如果要尝试修改扇区信息，得破解 M1 卡的各个扇区的KEY A和KEY B。
+这部分软件自动完成。大抵是穷举或者重放攻击，只有算出扇区的KEY A和KEY B才能修改。
+在机器上查询到卡内余额后，尝试修改余额信息。这张水卡只有第八扇区有信息。我们只需要看这部分就行 17.77 发现卡内0和2块内信息是相同的。且N2和N3就是余额信息
+因为卡内的数据都是二进制储存的，软件为了便于显示转换为16进制
+DEC 1777 == HEX 06FF.</description>
+    </item>
+    
+  </channel>
+</rss>

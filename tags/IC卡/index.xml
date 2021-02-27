@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IC卡 on Malu Blog</title>
+    <link>https://malu.ome/tags/ic%E5%8D%A1/</link>
+    <description>Recent content in IC卡 on Malu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 19 Jun 2017 22:10:38 +0000</lastBuildDate><atom:link href="https://malu.ome/tags/ic%E5%8D%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>acr122</title>
+      <link>https://malu.ome/post/acr122/</link>
+      <pubDate>Mon, 19 Jun 2017 22:10:38 +0000</pubDate>
+      
+      <guid>https://malu.ome/post/acr122/</guid>
+      <description>​	话说之前看到有人破解水卡手里就痒痒,于是在淘宝买了个ACR122.今天中午快递到了,下午才和京东的快递一起拿.回来试了一下,水卡读不出来,店家说是屏蔽卡&amp;hellip;.
+我也不知道是什么,搜索读出来的内容发现吾爱破解论坛说是屏蔽了效验位.很麻烦,也不知道怎么弄.
+随手那饭卡试了一下,破解成功.写入没问题,拿下楼刷了门禁,开了.但是我肯定是不敢拿去刷钱的,饭卡里金额肯定是存在数据库里的.如果卡里也有修改也没用,和数据库校对不上肯定得去喝茶了.话说卡里没有的话复制别人的卡岂不也是很危险?所以一般都是卡里的金额和数据库金额效验把?
+复制修改不了也没啥意思.退货了&amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flask on Malu Blog</title>
+    <link>https://malu.ome/tags/flask/</link>
+    <description>Recent content in Flask on Malu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 01 May 2018 19:09:22 +0000</lastBuildDate><atom:link href="https://malu.ome/tags/flask/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用uwsgi 和 nginx 部署 Flask</title>
+      <link>https://malu.ome/post/%E4%BD%BF%E7%94%A8uwsgi-%E5%92%8C-nginx-%E9%83%A8%E7%BD%B2-flask/</link>
+      <pubDate>Tue, 01 May 2018 19:09:22 +0000</pubDate>
+      
+      <guid>https://malu.ome/post/%E4%BD%BF%E7%94%A8uwsgi-%E5%92%8C-nginx-%E9%83%A8%E7%BD%B2-flask/</guid>
+      <description>​	之前使用了 gunicorn 来部署 Flask 应用,但是感觉 nginx 会不会更快一些, 于是就有了尝试使用 uwsgi 配合 nginx 来部署 Flask 的想法.
+​	但是看了一些文章之后感觉速度应该是一样的, 后端都是 Python, 但是有人说 Nginx 更安全. 静态页面的支持也更好, 所以也配置玩一下顺便测试一下静态的并发量.
+​	首先安装uWSGI, 使用pip来安装
+pip install uwsgi 在 Flask 应用的目录下测试 uwsgi 是否工作
+1  uwsgi --socket 0.0.0.0:8000 --protocol=http -w run:app   这时候打开 127.0.0.1:8000 就可以看到 网站的首页了.
+接着我们配置真正配合 nginx 使用的 uwsgi 配置.
+在 Flask 应用目录下新建一个文件 config.ini 作为uwsgi 的配置文件
+[uwsgi] master = true wsgi-file = run.py callable = app chmod-socker = 777 socket = 127.</description>
+    </item>
+    
+    <item>
+      <title>flask后端</title>
+      <link>https://malu.ome/post/flask%E5%90%8E%E7%AB%AF/</link>
+      <pubDate>Sat, 01 Jul 2017 19:23:35 +0000</pubDate>
+      
+      <guid>https://malu.ome/post/flask%E5%90%8E%E7%AB%AF/</guid>
+      <description>闲着无事便想着把之前没做的做完，我呈想过独立实现一个个人博客的前端后端，现在准备开始写。之前我曾经用Django写过两天，但是后面因为自己懒加上还有课程实习各种实习就搁置了。。。ORZ
+粗略看了一下flask发现是py的一个后端框架，正好对py兴趣正浓便用上了。这次打算重头造一次轮子，把过程弄清楚咯
+我想先把登录的后端验证写了，我对这方面很感兴趣。看了一下HTTP是无状态协议，每次请求是不知道你现在的权限的，但是我又不能每个页面操作都输入一次密码，所以得借助一些东西帮助服务端验证你的身份。那么我能想到的便是使用本地储存的cookie了，每次访问需要权限的页面把cookie发送给服务器验证，相当于自动验证密码不用手动输入了。
+我先尝试使用cookie做验证然后太讨论安全问题。
+中途出去了以下，妈个鸡的放假了校园还是那么多情侣。走到哪个幽暗角落都有抱在一起的情侣，贼尴尬。
+突然失去了梦想，想做一条咸鱼。</description>
+    </item>
+    
+  </channel>
+</rss>

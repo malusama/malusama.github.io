@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> 学校水卡破解 | Malu Blog</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.c1a012fbaa03c1e7c1ca2f1a0d3f8692dcb911bfc677b5432c7c06d2581f7de1.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        😎
+                    </span>
+                    
+                    Malu Blog
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>学校水卡破解</h1>
+                    <div class="post-meta">
+                        <div>
+                            By  on <time>December 05, 2018</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/pn532/">pn532</a>
+                            
+                            <a href="/tags/%E6%B0%B4%E5%8D%A1/">水卡</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <h3 id="前言">前言</h3>
+<p>今天淘宝买的pn523 终于到了，话不多说，鼓捣起来。</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/pn532.jpg?x-oss-process=style/blog" alt=""></p>
+<p>先下载pn523的驱动，然后配套的软件也都有界面，方便很多</p>
+<p>放上店家赠送的白卡读取看下是否正常，一切正常</p>
+<h3 id="背景知识">背景知识</h3>
+<p>目前使用非接触式卡有ID (Identification Card) 和IC(Integrated Circuit Card)的区别。</p>
+<p>ID卡明文记录信息，大部分是出厂就设置好的卡号。</p>
+<p>ID卡目前差不多都绝迹了，因为特别容易复制。把卡号读取出来在写入新卡就行了。</p>
+<p>目前最广泛接受的是 Mifare 卡。下文称M1 卡。</p>
+<blockquote>
+<p>M1卡分为16个扇区，每个扇区对应4块（块0-块3）,共64块，编号为0-63.第0扇区的第0块用于存放厂商代码，已经固化无法更改。其余区的第0-2块用于存放数据，块3为控制块用于存放密码A、存取控制、密码B，结构如下：</p>
+</blockquote>
+<pre><code>  A0 A1 A2 A3 A4 A5     FF 07 80 69      B0 B1 B2 B3 B4 B5
+
+ (密码A 6字节)           (存储控制 4字节)   (密码B 6字节)
+</code></pre><blockquote>
+<p>并且每个扇区块3中的密码和存储控制全部都是独立的，独立控制本扇区的各种操作，每个扇区都能实现不同的功能，所以广泛用作一卡通。存储控制里面4字节的具体含义我也不是很清楚(不影响我们破解)，所以就不说出来误导大家了。</p>
+</blockquote>
+<p>卡中每个块包含16字节，所以M1卡的容量=16扇区<em>4块</em>16字节=1024字节=1k  (M1卡的由来)。</p>
+<h3 id="鼓捣过程">鼓捣过程</h3>
+<p>先是拿宿舍楼的饮水卡尝试复制一下。直接读取UID卡信息，读取完后会储存为dump文件。</p>
+<p>用写入功能写到一张空白卡里。这里我用到一张CUID卡，这张卡甚至可以写0扇区。</p>
+<p>有些机器会验证0扇区的信息是不是自己厂家的卡，这时候CUID就起到作用了。</p>
+<p>不过这种卡理论上是不应该流出的。不过目前淘宝还能买到，且玩且珍惜把。</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/cuid.jpg?x-oss-process=style/blog" alt=""></p>
+<p>如果要尝试修改扇区信息，得破解 M1 卡的各个扇区的KEY A和KEY B。</p>
+<p>这部分软件自动完成。大抵是穷举或者重放攻击，只有算出扇区的KEY A和KEY B才能修改。</p>
+<p>在机器上查询到卡内余额后，尝试修改余额信息。这张水卡只有第八扇区有信息。我们只需要看这部分就行
+17.77
+<img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/17.77.png?x-oss-process=style/blog" alt=""></p>
+<p>发现卡内0和2块内信息是相同的。且N2和N3就是余额信息</p>
+<p>因为卡内的数据都是二进制储存的，软件为了便于显示转换为16进制</p>
+<p>DEC 1777 == HEX  06FF.
+在0 区块下  我除了 N2和N3其他都不知道是什么。</p>
+<blockquote>
+<p>0B FA <strong>F1 06</strong> 03 03 00 00 0 00 02 00 00 02 00 02</p>
+</blockquote>
+<p>在尝试只修改N2和N3块后发现并不能通过验证。应该是有效验位。</p>
+<p>于是我尝试读取不同余额下的第八扇区信息查看修改了什么内容。</p>
+<p>17.74
+<img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/17.74.png?x-oss-process=style/blog" alt=""></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>N0</th>
+<th>N1</th>
+<th>N2</th>
+<th>N3</th>
+<th>N4</th>
+<th>N5</th>
+<th>N6</th>
+<th>N7</th>
+<th>N8</th>
+<th>N9</th>
+<th>N10</th>
+<th>N11</th>
+<th>N12</th>
+<th>N13</th>
+<th>N14</th>
+<th>N15</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>修改前</td>
+<td>0B</td>
+<td>FA</td>
+<td>F1</td>
+<td>06</td>
+<td>03</td>
+<td>05</td>
+<td>00</td>
+<td>00</td>
+<td>00</td>
+<td>00</td>
+<td>02</td>
+<td>00</td>
+<td>00</td>
+<td>02</td>
+<td>00</td>
+<td>02</td>
+</tr>
+<tr>
+<td>修改后</td>
+<td>14</td>
+<td>F7</td>
+<td>EE</td>
+<td>06</td>
+<td>03</td>
+<td>08</td>
+<td>00</td>
+<td>00</td>
+<td>00</td>
+<td>00</td>
+<td>02</td>
+<td>00</td>
+<td>00</td>
+<td>02</td>
+<td>00</td>
+<td>05</td>
+</tr>
+</tbody>
+</table>
+<p>到这里发现N4 和N10, N13  在余额变更之后它们是不变的。</p>
+<p>N1， N5， N15都和余额的差值有关。
+M1卡在记录金额时现在厂家都添加效验位，防止我这样心怀不轨的人修改余额。</p>
+<p>但是大部分的验证都是XOR，和截断，或者取反。</p>
+<p>再多增加几个样本看看之前的推断是否一至</p>
+<p>17.68
+<img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/17.68.png?x-oss-process=style/blog" alt=""></p>
+<p>找了一张别的卡。
+<img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/card.png?x-oss-process=style/blog" alt=""></p>
+<p>经过一段时间的尝试，</p>
+<blockquote>
+<p>N5 = ~(N2 + N3 + N4)</p>
+</blockquote>
+<blockquote>
+<p>N1 = ~N5</p>
+</blockquote>
+<blockquote>
+<p>N0 = N1 xor N2 xor N2 xor N4 xor N5</p>
+</blockquote>
+<blockquote>
+<p>N15  = N5 - N4</p>
+</blockquote>
+<p>这尝试的过程太心酸，别问，掉头发。</p>
+<p>在机器上测试，也验证通过</p>
+<p><img src="https://blog-malu.oss-cn-beijing.aliyuncs.com/99.99%E5%85%83.jpg?x-oss-process=style/blog" alt=""></p>
+<p>好了，至此这张卡完全破解完成了。。</p>
+<p>顺带说一句。目前学校里都在使用这种卡，洗澡卡，洗衣卡，水卡，还有学生卡。
+因为一张卡有15个扇区可写，如果这些卡的记录数据的扇区不同是可以用一张白卡把信息写上去
+然后就可以多卡合一了。</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/%E6%95%85%E5%AE%AB/" title="Previous post (older)">
+            <span>Previous</span>
+            故宫
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/%E5%8F%A4%E5%BE%B7%E5%AF%BA/" title="Next post (newer)">
+            <span>Next</span>
+            古德寺
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>
