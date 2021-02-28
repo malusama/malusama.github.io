@@ -5,9 +5,20 @@
     <description>Recent content on Malu Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 27 Feb 2021 23:37:27 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Feb 2021 21:48:20 +0800</lastBuildDate>
     <atom:link href="https://malu.ome/" rel="self" type="application/rss+xml" />
 
+    
+      <item>
+        <title>Posts</title>
+        <link>https://malu.ome/post/</link>
+        <pubDate>Sun, 28 Feb 2021 21:48:20 +0800</pubDate>
+        
+        <guid>https://malu.ome/post/</guid>
+        <description>
+          
+        </description>
+      </item>
     
       <item>
         <title>Projects</title>
@@ -26,17 +37,6 @@
         <pubDate>Thu, 26 Nov 2020 00:00:00 +0000</pubDate>
         
         <guid>https://malu.ome/articles/</guid>
-        <description>
-          
-        </description>
-      </item>
-    
-      <item>
-        <title>Posts</title>
-        <link>https://malu.ome/post/</link>
-        <pubDate>Mon, 04 May 2020 10:14:34 +0000</pubDate>
-        
-        <guid>https://malu.ome/post/</guid>
         <description>
           
         </description>

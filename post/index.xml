@@ -6,7 +6,68 @@
     <description>Recent content in Posts on Malu Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 04 May 2020 10:14:34 +0000</lastBuildDate><atom:link href="https://malu.ome/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Feb 2021 21:48:20 +0800</lastBuildDate><atom:link href="https://malu.ome/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>咕咕鸟形象设定</title>
+      <link>https://malu.ome/post/%E5%92%95%E5%92%95%E9%B8%9F%E5%BD%A2%E8%B1%A1%E8%AE%BE%E5%AE%9A/</link>
+      <pubDate>Sun, 28 Feb 2021 21:48:20 +0800</pubDate>
+      
+      <guid>https://malu.ome/post/%E5%92%95%E5%92%95%E9%B8%9F%E5%BD%A2%E8%B1%A1%E8%AE%BE%E5%AE%9A/</guid>
+      <description>之前一直想给咕咕鸟设定一个形象, 在我的设定中咕咕鸟一直是初音未来 sega 布偶的样子. 也没有为什么
+就是感觉非常可爱, 在年初遇到了一个非常可爱的画师@雨文. 于是就想着把设定确定下来.
+咕咕鸟目前的一个实现是一个 chatbot, 实现负责人是@吴艺
+在当初的立项中, codename 取了 clover, 于是整个形象中一个重要元素是四叶草
+在可爱的雨文同学设定中咕咕鸟有了第一版的设定图
+因为第一版的咕咕鸟 chatbot 训练语料用的是古诗词的语料, 所以还会有训练过程和工作过程的拟人化
+训练过程拟人
+工作过程拟人
+雨文同学设定(根据自己形象)
+  外表是个可爱单纯的少女而内心是闷骚型的大叔
+  同理心比较强但也懂得玩弄人心
+  碰到某个开关会变得非常鬼畜
+  深知自己是聊天机器人的事 总是试着打破第四面墙
+  咕咕鸟 chatbot 里程碑纪念物
+在和吴艺的一次饭局中, 聊到目前聊天机器人的实现方式, 非常有意思
+想起了之前 Ingress 群里的一只噗噗鸟的复读机器人. 说实话即使实现方式很简单. 但确实是蛮有意思的
+群成员可以通过指令添加 噗噗鸟 添加监听的关键词.
+群聊内容中如果包含该关键词则会选择数据库中的一段语料回复.
+而语料是每个群友自己添加的. 一个关键词可以添加多个回复, 咕咕鸟会随机选择一个
+现在群中每日的回复内容都是各种算卦. 和各种Ingress中的梗
+ 之后咕咕鸟还待实现的功能
+  收集群中的聊天记录作为训练语料
+  对群中不同的人有好感度的设定. 不同好感度解锁不同的回复
+  文字RGP 的实现(只是个人无聊的想法.</description>
+    </item>
+    
+    <item>
+      <title>咕咕鸟项目架构与实现</title>
+      <link>https://malu.ome/post/%E5%92%95%E5%92%95%E9%B8%9F%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Sun, 28 Feb 2021 21:48:10 +0800</pubDate>
+      
+      <guid>https://malu.ome/post/%E5%92%95%E5%92%95%E9%B8%9F%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%AE%9E%E7%8E%B0/</guid>
+      <description>这一切都要从我们的初始目的说起. 因为各种各样的目的. 需要一个qq机器人
+于是当初出现了各种实现qq协议的软件. 酷q就是其中一个.
+酷q通过逆向实现了qq登陆和发送消息的各种接口. 使得其他开发者可以通过接口开发自己的插件
+这些插件中一个cqhttp 可以让酷q的接口以http接口的方式暴露出来.
+ 这里的cq当然是酷q的拼音缩写了
+ 并且可以让酷q收到qq消息主动回调一个http接口.
+这样子就可以通过实现一个后端应用的方式来实现qq机器人了.
+但是 在2020年8月2 号的时候腾讯直接通过南山区法院直接或者间接关停了酷q机器人
+于是cqhttp 这个插件就成为一段历史了.
+但是基于cqhttp 插件实现的各种机器人应用还是有着需求.
+各种兼容cqhttp 插件协议的项目也浮山水面, 其中一个就是 go-cqhttp
+go-cqhttp 在github 上 go-cqhttp的第一个提交是2020年7月22号
+通过MiraiGo 实现模拟qq登陆, 消息的收发
+通过 gin 实现http和websocket 消息的接收.
+而咕咕鸟就是通过go-cqhttp实现模拟登陆和消息的收发.
+nonebot2 通过go-cqhttp我们可以实现咕咕鸟的登陆. 并且24小时高强度的监控群聊和回复消息了.
+但是具体的业务代码我们希望通过Python 来实现.
+通过nonebot2 方便的实现业务代码. 使得回复部分的代码逻辑和具体平台的具体接口独立.
+最主要是. 它是Python的. 使用Python写业务代码比Go的体验要好太多了
+同样. noneBot2 本质也是一个后端的服务器.
+GTP-2 待续</description>
+    </item>
+    
     <item>
       <title>民国时期海南的军事地图</title>
       <link>https://malu.ome/post/%E6%B0%91%E5%9B%BD%E6%97%B6%E6%9C%9F%E6%B5%B7%E5%8D%97%E7%9A%84%E5%86%9B%E4%BA%8B%E5%9C%B0%E5%9B%BE/</link>

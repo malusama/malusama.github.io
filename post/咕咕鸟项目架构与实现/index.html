@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> 咕咕鸟项目架构与实现 | Malu Blog</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.c1a012fbaa03c1e7c1ca2f1a0d3f8692dcb911bfc677b5432c7c06d2581f7de1.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        😎
+                    </span>
+                    
+                    Malu Blog
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>咕咕鸟项目架构与实现</h1>
+                    <div class="post-meta">
+                        <div>
+                            By  on <time>February 28, 2021</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/%E5%92%95%E5%92%95%E9%B8%9F/">咕咕鸟</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>这一切都要从我们的初始目的说起. 因为各种各样的目的.  需要一个qq机器人</p>
+<p>于是当初出现了各种实现qq协议的软件. 酷q就是其中一个.</p>
+<p>酷q通过逆向实现了qq登陆和发送消息的各种接口. 使得其他开发者可以通过接口开发自己的插件</p>
+<p>这些插件中一个cqhttp 可以让酷q的接口以http接口的方式暴露出来.</p>
+<blockquote>
+<p>这里的cq当然是酷q的拼音缩写了</p>
+</blockquote>
+<p>并且可以让酷q收到qq消息主动回调一个http接口.</p>
+<p>这样子就可以通过实现一个后端应用的方式来实现qq机器人了.</p>
+<p>但是 在2020年8月2 号的时候腾讯直接通过南山区法院直接或者间接关停了酷q机器人</p>
+<p>于是cqhttp 这个插件就成为一段历史了.</p>
+<p>但是基于cqhttp 插件实现的各种机器人应用还是有着需求.</p>
+<p>各种兼容<a href="https://github.com/howmanybots/onebot/blob/master/v11/specs/README.md">cqhttp 插件协议</a>的项目也浮山水面, 其中一个就是 <a href="https://github.com/Mrs4s/go-cqhttp">go-cqhttp</a></p>
+<h1 id="go-cqhttp">go-cqhttp</h1>
+<p>在github 上 go-cqhttp的第一个提交是2020年7月22号</p>
+<p>通过<a href="https://github.com/Mrs4s/MiraiGo/">MiraiGo</a> 实现模拟qq登陆, 消息的收发</p>
+<p>通过 <a href="https://github.com/gin-gonic/gin">gin</a> 实现http和websocket 消息的接收.</p>
+<p>而咕咕鸟就是通过go-cqhttp实现模拟登陆和消息的收发.</p>
+<h1 id="nonebot2">nonebot2</h1>
+<p>通过go-cqhttp我们可以实现咕咕鸟的登陆. 并且24小时高强度的监控群聊和回复消息了.</p>
+<p>但是具体的业务代码我们希望通过Python 来实现.</p>
+<p>通过<a href="https://github.com/nonebot/nonebot2">nonebot2</a> 方便的实现业务代码. 使得回复部分的代码逻辑和具体平台的具体接口独立.</p>
+<p>最主要是. 它是Python的. 使用Python写业务代码比Go的体验要好太多了</p>
+<p>同样. noneBot2 本质也是一个后端的服务器.</p>
+<h1 id="gtp-2">GTP-2</h1>
+<p>待续</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/%E6%B0%91%E5%9B%BD%E6%97%B6%E6%9C%9F%E6%B5%B7%E5%8D%97%E7%9A%84%E5%86%9B%E4%BA%8B%E5%9C%B0%E5%9B%BE/" title="Previous post (older)">
+            <span>Previous</span>
+            民国时期海南的军事地图
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/%E5%92%95%E5%92%95%E9%B8%9F%E5%BD%A2%E8%B1%A1%E8%AE%BE%E5%AE%9A/" title="Next post (newer)">
+            <span>Next</span>
+            咕咕鸟形象设定
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>
