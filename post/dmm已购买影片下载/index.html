@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> DMM已购买影片下载 | Malu Blog</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.c1a012fbaa03c1e7c1ca2f1a0d3f8692dcb911bfc677b5432c7c06d2581f7de1.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        😎
+                    </span>
+                    
+                    Malu Blog
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>DMM已购买影片下载</h1>
+                    <div class="post-meta">
+                        <div>
+                            By  on <time>March 13, 2021</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/dmm/">DMM</a>
+                            
+                            <a href="/tags/%E7%A0%B4%E8%A7%A3/">破解</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>​	之前写了篇DMM破解的文章. 好多人挺有兴趣..但是只是有把已购买影片下载到本地观看的需求而已.</p>
+<p>感觉还是写得详细一点吧.</p>
+<p>​	首先首先你要有一个日本的IP, 能够正常访问DMM, 并且已经购买了一部影片. 永久或者七天的都可以.</p>
+<p>购买完成后你可以在已购买的页面找到你的影片.</p>
+<p>其中可以看到请求的 requests 中的一些参数. 这些参数是M3U8下载请求中需要的.依次填入config.yaml配置文件中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">cookie</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;string&#34;</span><span class="w"> </span><span class="l">// cookie, 网页验证的凭证</span><span class="w">
+</span><span class="w"></span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;digital&#34;</span><span class="w"> </span><span class="l">// </span><span class="w">
+</span><span class="w"></span><span class="nt">ShopName</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;videoa&#34;</span><span class="w"> </span><span class="l">// </span><span class="w">
+</span><span class="w"></span><span class="nt">ProductId</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;h_1526pm00007&#34;</span><span class="w"> </span><span class="l">// </span><span class="w">
+</span><span class="w"></span><span class="nt">ParentProductId</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;h_1526pm00007&#34;</span><span class="w"> </span><span class="l">//</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>程序会抓取配置中 productId 的m3u8 文件放入 M3U8 文件夹中.</p>
+<p>下载程序会将 M3U8 文件夹中的所有m3u8 下载, 其中ts分片会在download文件中, 如果在Path 目录可以发现ffmpeg 还会自动将下载完成的ts分片合并.</p>
+<p><a href="https://github.com/malusama/DMM_m3u8_down">https://github.com/malusama/DMM_m3u8_down</a></p>
+<p>附上GO语言的一版实现. 具体细节上可能有很多问题. 但是大体流程可用</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/%E5%92%95%E5%92%95%E9%B8%9F%E5%BD%A2%E8%B1%A1%E8%AE%BE%E5%AE%9A/" title="Previous post (older)">
+            <span>Previous</span>
+            咕咕鸟形象设定
+            </a>
+        
+        
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

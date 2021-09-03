@@ -6,7 +6,24 @@
     <description>Recent content in DMM on Malu Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 28 Mar 2020 21:29:43 +0000</lastBuildDate><atom:link href="https://malu.ome/tags/dmm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Mar 2021 14:38:32 +0800</lastBuildDate><atom:link href="https://malu.ome/tags/dmm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DMM已购买影片下载</title>
+      <link>https://malu.ome/post/dmm%E5%B7%B2%E8%B4%AD%E4%B9%B0%E5%BD%B1%E7%89%87%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Sat, 13 Mar 2021 14:38:32 +0800</pubDate>
+      
+      <guid>https://malu.ome/post/dmm%E5%B7%B2%E8%B4%AD%E4%B9%B0%E5%BD%B1%E7%89%87%E4%B8%8B%E8%BD%BD/</guid>
+      <description>​	之前写了篇DMM破解的文章. 好多人挺有兴趣..但是只是有把已购买影片下载到本地观看的需求而已.
+感觉还是写得详细一点吧.
+​	首先首先你要有一个日本的IP, 能够正常访问DMM, 并且已经购买了一部影片. 永久或者七天的都可以.
+购买完成后你可以在已购买的页面找到你的影片.
+其中可以看到请求的 requests 中的一些参数. 这些参数是M3U8下载请求中需要的.依次填入config.yaml配置文件中
+1 2 3 4 5  cookie:&amp;#34;string&amp;#34;// cookie, 网页验证的凭证service:&amp;#34;digital&amp;#34;// ShopName:&amp;#34;videoa&amp;#34;// ProductId:&amp;#34;h_1526pm00007&amp;#34;// ParentProductId:&amp;#34;h_1526pm00007&amp;#34;//  程序会抓取配置中 productId 的m3u8 文件放入 M3U8 文件夹中.
+下载程序会将 M3U8 文件夹中的所有m3u8 下载, 其中ts分片会在download文件中, 如果在Path 目录可以发现ffmpeg 还会自动将下载完成的ts分片合并.
+https://github.com/malusama/DMM_m3u8_down
+附上GO语言的一版实现. 具体细节上可能有很多问题. 但是大体流程可用</description>
+    </item>
+    
     <item>
       <title>DMM影片破解</title>
       <link>https://malu.ome/post/dmm%E5%BD%B1%E7%89%87%E7%A0%B4%E8%A7%A3/</link>
@@ -32,7 +49,7 @@
 但是那些放流的论坛实际 上会直接购买dmm的月额会员. 可以在一个月的时间内拥有月额范围内影片的播放权. 价格区间在1000日元到9000日元之间. 最贵的9000日元档位有进24w的影片. 这样子每个月的费用540元而已&amp;hellip;(但是这活有被赠送银手镯的风险..还是留给敢吃这口饭的人把)
 实际上DMM对M3U8 的风控非常的低. 没有请求qps的限制. 下载ts没有权限认证. 导致了实际上24w的M3U8是可以全部抓下来的.(我就抓完了, 早些时候还有24w影片备份计划. 满打满算需要1pb的空间备份..实际上也没有进行下去). 只是少有人乐意分享出来(毕竟这是砸人饭碗啊, 阿乐还是挺好的)
 写到最后还是感觉现在分流的一些渠道还是蛮良心的. 以前一段时间内的影片都有澳门赌场的广告. 影片中各种水印. 渣画质. 以至于线上的最大赌场开业了还是之前一段时间的热门哽. 现在分流的团队也就打打论坛的广告.
-如果有问题可以加下qq群 617581485, 但是不保证能够解答</description>
+https://github.com/malusama/DMM_m3u8_down 之前实现的一个GO语言 获取M3U8和下载的实例</description>
     </item>
     
   </channel>
