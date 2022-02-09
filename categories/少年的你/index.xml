@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Life on Malu Blog</title>
-    <link>https://malu.ome/tags/life/</link>
-    <description>Recent content in Life on Malu Blog</description>
+    <title>少年的你 on Malu Blog</title>
+    <link>https://malu.ome/categories/%E5%B0%91%E5%B9%B4%E7%9A%84%E4%BD%A0/</link>
+    <description>Recent content in 少年的你 on Malu Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 09 Feb 2022 11:13:23 +0000</lastBuildDate><atom:link href="https://malu.ome/tags/life/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Feb 2022 11:13:23 +0000</lastBuildDate><atom:link href="https://malu.ome/categories/%E5%B0%91%E5%B9%B4%E7%9A%84%E4%BD%A0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>重庆少年的你取景地打卡</title>
       <link>https://malu.ome/post/%E9%87%8D%E5%BA%86%E6%89%93%E5%8D%A1/</link>
@@ -38,35 +38,6 @@
 白象居旁长台阶 我们沿江走着走着发现到了白象居.就钻进去看了看&amp;hellip;发现似乎山上有个步道. 但是需要上楼. 还挺有意思的&amp;hellip;
 上了九楼发现到了一个山腰的地方.附近转了转才找到这个地方.
 从这下山的路上还撸了一只家猫, 大猫撸小猫</description>
-    </item>
-    
-    <item>
-      <title>民国时期海南的军事地图</title>
-      <link>https://malu.ome/post/%E6%B0%91%E5%9B%BD%E6%97%B6%E6%9C%9F%E6%B5%B7%E5%8D%97%E7%9A%84%E5%86%9B%E4%BA%8B%E5%9C%B0%E5%9B%BE/</link>
-      <pubDate>Mon, 04 May 2020 10:14:34 +0000</pubDate>
-      
-      <guid>https://malu.ome/post/%E6%B0%91%E5%9B%BD%E6%97%B6%E6%9C%9F%E6%B5%B7%E5%8D%97%E7%9A%84%E5%86%9B%E4%BA%8B%E5%9C%B0%E5%9B%BE/</guid>
-      <description>最近在翻箱倒柜, 发现以前收藏的一份民国时期的军事地图. 挺有意思的</description>
-    </item>
-    
-    <item>
-      <title>目前的一些想法</title>
-      <link>https://malu.ome/post/%E7%9B%AE%E5%89%8D%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</link>
-      <pubDate>Sat, 02 May 2020 23:35:06 +0000</pubDate>
-      
-      <guid>https://malu.ome/post/%E7%9B%AE%E5%89%8D%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</guid>
-      <description>最近几个月总是有一些需求在脑内蹦出, 不如在blog里罗列一下, 也算是对自己的一个提醒
-  abyss 动漫人物识别的一个网站.
-  jav 一个类似jav的网站. 因为自己存了不少DMM 6000k的M3U8, 还是想完成当初的分流计划的. 附带合购的功能
-  python 的DHT网络爬虫, 现在github 上有现成的DHT爬虫, 但是我想更近一步获取种子文件, 解析文件信息. 甚至画出这个种子的DHT网络结构..当然 这个可以是jav网站的一部分
-  分享地方志和的一个社区
-  blog的更新提醒
-  其中 abyss 是在实习的时候就开始的一个项目, 当初因为在twitter上每天都能看到不少画师二次创作的色图. 但是想使用都不知道是哪位角色. 于是就想弄一个人物识别的工具, 整好当时觉得深度学习挺符合这个需求了.
-一开始企图用google image 搜索关键词来获取标注的数据. 但是爬了几百G的图片后发现可用的实在太少了. 便在pixiv 手工标注图片了.
-最开始依照网络的教程用keras搭建模型. 薅google cloud 300刀试用的羊毛, 开24核心训练数据.
-后来发现百度有easydl这样的平台上传图片用他们的模型和计算资源. 部署也很简单. 后端对接接口前端负责查询展示就好了. 目前用的也是百度的api. 效果蛮不错的.
-但是! 一个应用最重要的还是维护啊. 在回校的一段时间里 abyss 就没有维护了. 网站也是经历了半年不可用的状态..源代码也没上传github, 用python重构了一遍 serverless 部署了后端. 前端放在我vu的日本服务器上.
-目前经过补充有一百多位人物的数据, (但是数据也丢了一部分&amp;hellip;只有之前的80多位了..), 感觉这种事情还是要有一个社区持续不断的补充数据. 但是花钱是不可能的. 只有白嫖才能过的了日子的样子.</description>
     </item>
     
   </channel>
