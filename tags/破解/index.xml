@@ -1,19 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>破解 on Malu Blog</title>
-    <link>https://malu.ome/tags/%E7%A0%B4%E8%A7%A3/</link>
-    <description>Recent content in 破解 on Malu Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Sat, 28 Mar 2020 21:29:43 +0000</lastBuildDate><atom:link href="https://malu.ome/tags/%E7%A0%B4%E8%A7%A3/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>DMM影片破解</title>
-      <link>https://malu.ome/post/dmm%E5%BD%B1%E7%89%87%E7%A0%B4%E8%A7%A3/</link>
-      <pubDate>Sat, 28 Mar 2020 21:29:43 +0000</pubDate>
-      
-      <guid>https://malu.ome/post/dmm%E5%BD%B1%E7%89%87%E7%A0%B4%E8%A7%A3/</guid>
-      <description>之前因为在一个jav论坛上发现有大佬(一个叫阿乐的奇怪大叔)发福利. 提交dmm上的月额影片然后她分享M3U8文件给你, 你下载M3U8文件的里视频分片合并就是完整的视频了.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>破解 on Malu Blog</title><link>https://malu.ome/tags/%E7%A0%B4%E8%A7%A3/</link><description>Recent content in 破解 on Malu Blog</description><generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Sat, 28 Mar 2020 21:29:43 +0000</lastBuildDate><atom:link href="https://malu.ome/tags/%E7%A0%B4%E8%A7%A3/index.xml" rel="self" type="application/rss+xml"/><item><title>DMM影片破解</title><link>https://malu.ome/post/dmm%E5%BD%B1%E7%89%87%E7%A0%B4%E8%A7%A3/</link><pubDate>Sat, 28 Mar 2020 21:29:43 +0000</pubDate><guid>https://malu.ome/post/dmm%E5%BD%B1%E7%89%87%E7%A0%B4%E8%A7%A3/</guid><description>之前因为在一个jav论坛上发现有大佬(一个叫阿乐的奇怪大叔)发福利. 提交dmm上的月额影片然后她分享M3U8文件给你, 你下载M3U8文件的里视频分片合并就是完整的视频了.
 之后发现现在的日本jav流出方式都是这种方式流出的. 怪不得国内各种代购..
 简单来讲就是日本的DMM网站现在购买影片之后你是可以在线的方式看串流的. 然后在线的方式就是网页端播放M3U8文件.然后即使是加密的密钥也是通过http的协议请求的&amp;hellip;你在本地完全可以看到密钥的内容.
 于是你就可以通过直接下载整个M3U8文件之后通过密钥解密下载后的视频文件. 达到获取影片的目的.
@@ -32,8 +17,4 @@
 但是那些放流的论坛实际 上会直接购买dmm的月额会员. 可以在一个月的时间内拥有月额范围内影片的播放权. 价格区间在1000日元到9000日元之间. 最贵的9000日元档位有进24w的影片. 这样子每个月的费用540元而已&amp;hellip;(但是这活有被赠送银手镯的风险..还是留给敢吃这口饭的人把)
 实际上DMM对M3U8 的风控非常的低. 没有请求qps的限制. 下载ts没有权限认证. 导致了实际上24w的M3U8是可以全部抓下来的.(我就抓完了, 早些时候还有24w影片备份计划. 满打满算需要1pb的空间备份..实际上也没有进行下去). 只是少有人乐意分享出来(毕竟这是砸人饭碗啊, 阿乐还是挺好的)
 写到最后还是感觉现在分流的一些渠道还是蛮良心的. 以前一段时间内的影片都有澳门赌场的广告. 影片中各种水印. 渣画质. 以至于线上的最大赌场开业了还是之前一段时间的热门哽. 现在分流的团队也就打打论坛的广告.
-https://github.com/malusama/DMM_m3u8_down 之前实现的一个GO语言 获取M3U8和下载的实例</description>
-    </item>
-    
-  </channel>
-</rss>
+https://github.com/malusama/DMM_m3u8_down 之前实现的一个GO语言 获取M3U8和下载的实例</description></item></channel></rss>
