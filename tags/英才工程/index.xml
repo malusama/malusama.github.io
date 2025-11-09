@@ -15,6 +15,4 @@ hexo -v 如果你看到了如图文字，则说明已经安装成功了。
 初始化Hexo 接着上面的操作，输入：
 hexo init 然后输入：
 npm install 之后npm将会自动安装你需要的组件，只需要等待npm操作即可。
-首次体验Hexo 继续操作，同样是在命令行中，输入：
-hexo g 然后输入：
-hexo s 然后会提示：</description></item></channel></rss>
+首次体验Hexo 继续操作，同样是在命令行中，输入：</description></item></channel></rss>
