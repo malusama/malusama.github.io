@@ -99,10 +99,10 @@ for (const [path, $] of pages) {
   $('.footer').replaceWith('<footer class="footer"><div class="container footer-inner"><span>Malu Blog · 记录与分享</span><nav aria-label="页脚"><a href="/index.xml">RSS 订阅</a><a href="https://github.com/malusama">GitHub ↗</a></nav></div></footer>');
   if (path === 'index.html') {
     $('title').text('Malu Blog · 技术、旅行与日常');
-    $('main').html(`<div class="container home"><section class="intro"><p class="eyebrow">MALU / 随手记录</p><h1>折腾技术，<br>也看看世界<span class="accent">。</span></h1><p class="intro-description">记录技术折腾、旅行与日常。<br>把走过的地方，和弄明白的事情，慢慢写下来。</p><div class="intro-links"><a href="/about/">关于我 <span aria-hidden="true">↗</span></a><a href="https://github.com/malusama">GitHub <span aria-hidden="true">↗</span></a><a href="/index.xml">RSS <span aria-hidden="true">↗</span></a></div></section><section class="recent"><div class="section-heading"><h2>最近文章</h2><a href="/articles/">全部 ${posts.size} 篇 <span aria-hidden="true">→</span></a></div><div class="posts">${sorted.slice(0, 10).map(p => card(p, true)).join('')}</div></section></div>`);
+    $('main').html(`<div class="container home"><section class="intro"><h1>Malu 的博客</h1><p class="intro-description">技术笔记、旅行记录和生活随笔。</p><div class="intro-links"><a href="/about/">关于我 <span aria-hidden="true">↗</span></a><a href="https://github.com/malusama">GitHub <span aria-hidden="true">↗</span></a><a href="/index.xml">RSS <span aria-hidden="true">↗</span></a></div></section><section class="recent"><div class="section-heading"><h2>最近文章</h2><a href="/articles/">全部 ${posts.size} 篇 <span aria-hidden="true">→</span></a></div><div class="posts">${sorted.slice(0, 10).map(p => card(p, true)).join('')}</div></section></div>`);
   } else if (path === 'about/index.html') {
     $('title').text('关于 | Malu Blog');
-    $('main').html('<div class="container about-page"><p class="eyebrow">ABOUT / 关于</p><h1>你好，我是 Malu<span class="accent">。</span></h1><div class="article-post"><p>这里是我的个人博客，记录技术折腾、旅行与日常。</p><p>从代码与工具，到城市里的街巷和电影取景地，把感兴趣的事情慢慢整理在这里。</p><p><a href="/articles/">翻翻文章归档 →</a></p><p><a href="https://github.com/malusama">在 GitHub 找到我 ↗</a></p><p><a href="/index.xml">通过 RSS 订阅更新 →</a></p></div></div>');
+    $('main').html('<div class="container about-page"><p class="eyebrow">ABOUT / 关于</p><h1>你好，我是 Malu<span class="accent">。</span></h1><div class="article-post"><p>这里是我的个人博客，分享技术笔记、旅行记录和生活随笔。</p><p><a href="/articles/">文章归档 →</a></p><p><a href="https://github.com/malusama">在 GitHub 找到我 ↗</a></p><p><a href="/index.xml">通过 RSS 订阅更新 →</a></p></div></div>');
   } else if (post) {
     const content = $('.article-post').first();
     content.find('.image-link').each((_, a) => $(a).replaceWith($(a).contents()));
@@ -155,7 +155,7 @@ for (const [path, $] of pages) {
     if (path === '404.html') $('main').html('<p class="eyebrow">404 / 迷路了</p><h1>这一页不在这里。</h1><p>可以回到首页，或者在归档里找找。</p><p><a href="/">回到首页 →</a>　<a href="/articles/">文章归档 →</a></p>');
     $('h1').each((_, el) => { const t=$(el).text().trim(); if(['Tags','Categories','Posts'].includes(t)) $(el).text({Tags:'标签',Categories:'分类',Posts:'文章'}[t]); });
   }
-  const description = post?.summary || 'Malu 的个人博客，记录技术折腾、旅行与日常。';
+  const description = post?.summary || 'Malu 的个人博客：技术笔记、旅行记录和生活随笔。';
   $('meta[name="description"],meta[name="twitter:description"],meta[property="og:description"],meta[itemprop="description"]').attr('content', description);
   $('meta[property="og:site_name"]').attr('content', 'Malu Blog');
   $('meta[property="og:title"],meta[name="twitter:title"],meta[itemprop="name"],meta[name="application-name"]').attr('content', $('title').text());
