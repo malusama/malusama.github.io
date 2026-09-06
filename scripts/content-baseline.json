@@ -1,0 +1,364 @@
+{
+  "post/acr122/index.html": {
+    "text": "ec9f19bcf3348695a089fdb1af239c43361f571e46bc9b68bce995033e277601",
+    "images": 0,
+    "code": [],
+    "anchors": []
+  },
+  "post/dmm影片破解/index.html": {
+    "text": "85954c48e09186e65325d0ace76f182ab8f8421bcfd0e104068f6e107df8fa20",
+    "images": 2,
+    "code": [
+      "#EXT-X-KEY:METHOD=AES-128,URI=\"\"\n",
+      "#EXT-X-KEY:METHOD=AES-128,URI=\"base64:xxx\" // xxx是编码过后的base64字符串\n"
+    ],
+    "anchors": []
+  },
+  "post/flask后端/index.html": {
+    "text": "8b709c0d4a48cc141bfdb1b424d88a1c7777c088492ae7d034e90217c2d27e7e",
+    "images": 0,
+    "code": [],
+    "anchors": []
+  },
+  "post/rsa加密/index.html": {
+    "text": "6c4e88925f8ab6222c6eeb23240904a96f344e3226fbbaca6d7c29bc5b1a0dd3",
+    "images": 7,
+    "code": [
+      "1\n2\n3\n",
+      "\t  BigInteger q = BigInteger.probablePrime(100, new Random()); // 取 2^100-1 范围内的随机素数\n\t  BigInteger p = BigInteger.probablePrime(100, new Random());\n\t  BigInteger N = q.multiply(p);  // q * p\n",
+      "1\n2\n",
+      "BigInteger r = q.subtract(BigInteger.ONE).multiply(p.subtract(BigInteger.ONE));\n//(q - 1)*(p - 1)\n",
+      " 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n",
+      "static BigInteger x,y,o = BigInteger.valueOf(0),o1 = BigInteger.valueOf(1);\npublic static BigInteger exgcd(BigInteger a,BigInteger b){\n\tif(b.compareTo(o)==0){\n        x = o1; y = o; return a;\n    }else{\n    \tBigInteger d = exgcd(b,a.mod(b));\n        BigInteger temp = x;\n        x = y;\n        y = temp.subtract(a.divide(b).multiply(y))  ;\n        return d;\n    }\n\n}\n",
+      "1\n",
+      "BigInteger n = new BigInteger(\"65535\");\n",
+      "1\n2\n3\n",
+      "\t  BigInteger n = new BigInteger(\"65535\");\n\t  System.out.println(\"n= \" + n);\n\t  BigInteger c = n.modPow(e, N);\n",
+      "1\n2\n3\n",
+      "\t  System.out.println(\"c= \" + c);\n\t  BigInteger nc = c.modPow(d, N);\n\t  System.out.println(\"nc= \" + nc);\n",
+      " 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n",
+      "package math;\nimport java.math.*;\nimport java.util.Random;\npublic class Encode {\nstatic BigInteger x,y,o = BigInteger.valueOf(0),o1 = BigInteger.valueOf(1);\npublic static void main(String[] args) {\n\t// TODO 自动生成的方法存根\n\n\t  BigInteger q = BigInteger.probablePrime(100, new Random()); // 取 2^100-1 范围内的随机素数\n\t  BigInteger p = BigInteger.probablePrime(100, new Random());\n\t  BigInteger N = q.multiply(p);  // q * p\n\t  BigInteger r = q.subtract(BigInteger.ONE).multiply(p.subtract(BigInteger.ONE)); //(q - 1)*(p - 1)\n\t  System.out.println(\"q= \" + q);\n\t  System.out.println(\"p= \" + p);\n\t  System.out.println(\"N= \" + N);\n\t  System.out.println(\"r= \" + r);\n\t  BigInteger e = new BigInteger(\"65537\" );//new BigInteger(10,new Random());\n\t  //while(r.gcd(e).equals(BigInteger.ONE)){\n\t\t  //System.out.println(e);\n\t\t  //e =new BigInteger(10,new Random());\n\t // }\n\t  System.out.println(\"e= \" + e);\n\t  exgcd(e, r);\n\t  BigInteger d = x;//new BigInteger(\"2753\" );\n\t  System.out.println(\"d= \" + d);\n\t  //BigInteger n = BigInteger.probablePrime(11, new Random());\n\t  BigInteger n = new BigInteger(\"65535\");\n\t  System.out.println(\"n= \" + n);\n\t  BigInteger c = n.modPow(e, N);\n\t  System.out.println(\"c= \" + c);\n\t  BigInteger nc = c.modPow(d, N);\n\t  System.out.println(\"nc= \" + nc);\n\n}\n\npublic static BigInteger exgcd(BigInteger a,BigInteger b){\n\tif(b.compareTo(o)==0){\n        x = o1; y = o; return a;\n    }else{\n    \tBigInteger d = exgcd(b,a.mod(b));\n        BigInteger temp = x;\n        x = y;\n        y = temp.subtract(a.divide(b).multiply(y))  ;\n        return d;\n    }\n\n}\n}\n"
+    ],
+    "anchors": []
+  },
+  "post/一出好戏/index.html": {
+    "text": "64fe35ecfb195987cd0660f93df64d909abd024dee667faa0693f12f3865fe27",
+    "images": 4,
+    "code": [],
+    "anchors": []
+  },
+  "post/东湖绿道/index.html": {
+    "text": "651a3f7d48796f33c41abc2ffe820b0ddc959a1530842d31b9efa0a645c0d2d8",
+    "images": 9,
+    "code": [],
+    "anchors": []
+  },
+  "post/为什么我不喜欢国内网游/index.html": {
+    "text": "b5fe983a8c724dc1151dd665305a8244c3bb8752098faca1c5f653f30fe5596f",
+    "images": 2,
+    "code": [],
+    "anchors": []
+  },
+  "post/使用uwsgi-和-nginx-部署-flask/index.html": {
+    "text": "57c509308da7834303a11e21da027bed523215f8de5ca3c8ca591582819bde3b",
+    "images": 1,
+    "code": [
+      "pip install uwsgi\n",
+      "1\n",
+      "uwsgi --socket 0.0.0.0:8000 --protocol=http -w run:app\n",
+      "[uwsgi]\nmaster = true\nwsgi-file = run.py\ncallable = app\nchmod-socker = 777\nsocket =  127.0.0.1:3031\nprocesses = 4\nthreads = 2\nbuffer-size = 32768\n",
+      "uwsgi config.ini\n",
+      "1\n2\n3\n4\n5\n6\n7\n",
+      "server {\n\tlisten 80;\n\tlocation / {\n    \tinclude uwsgi_params;\n    \tuwsgi_pass 127.0.0.1:3031;\n\t}\n}\n",
+      "1\n",
+      "sudo nginx -t\n",
+      "1\n",
+      "sudo service nginx start\n",
+      "Benchmarking: GET http://127.0.0.1/\n500 clients, running 60 sec.\n\nSpeed=135661 pages/min, 1288988 bytes/sec.\nRequests: 94304 susceed, 41357 failed.\n",
+      "Benchmarking: GET http://106.15.205.43/index\n500 clients, running 60 sec.\n\nSpeed=4011 pages/min, 113179 bytes/sec.\nRequests: 4011 susceed, 0 failed.\n",
+      "Retrieving speedtest.net configuration...\nTesting from CNISP-Union Technology (Beijing) Co. (106.15.205.43)...\nRetrieving speedtest.net server list...\nSelecting best server based on ping...\nHosted by China Telecom ZheJiang Branch (Hangzhou) [4.87 km]: 6.874 ms\nTesting download speed................................................................................\nDownload: 324.60 Mbit/s\nTesting upload speed................................................................................................\nUpload: 9.36 Mbit/s\n",
+      "top - 23:04:20 up 3 days,  4:32,  2 users,  load average: 1.81, 0.44, 0.14\nTasks:  96 total,   4 running,  92 sleeping,   0 stopped,   0 zombie\n%Cpu(s): 77.7 us, 14.3 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.0 hi,  8.0 si,  0.0 st\nKiB Mem :  2052568 total,  1291168 free,   161252 used,   600148 buff/cache\nKiB Swap:        0 total,        0 free,        0 used.  1693260 avail Mem\n",
+      "Benchmarking: GET http://106.15.205.43/index\n500 clients, running 60 sec.\n\nSpeed=43731 pages/min, 1123486 bytes/sec.\nRequests: 42446 susceed, 1285 failed.\n"
+    ],
+    "anchors": []
+  },
+  "post/关于一些网站的传说/index.html": {
+    "text": "59d6fba73d392870591f393b865b1a50256be98828b33ef4d3510af6dd4ad075",
+    "images": 0,
+    "code": [],
+    "anchors": []
+  },
+  "post/关于重装系统后的二三事/index.html": {
+    "text": "ae0f8df3a3a2961086047b14a366fd68e6dbdfe9267db32cbc60926575ea6746",
+    "images": 0,
+    "code": [],
+    "anchors": []
+  },
+  "post/动漫人物数据集/index.html": {
+    "text": "566c501ea81ac6936d0e82a934af7c1d2ec0272ab976ab9772405e3f46b87e83",
+    "images": 2,
+    "code": [
+      "https://c-t.work/s/42e78449f51c4c\n",
+      "https://mega.nz/#!H34XDYZR!r1t2X_EyfD_F9jG4MBs6ZCzI0ncjdOHcSQSWxAuvsog\nhttps://mega.nz/#!G7oFVaBZ!iYvACVl0OZjE-43RnUw9d3Nv33cLBaSdD_CfViFI1vA\nhttps://mega.nz/#!nq4RVA5R!h-8MzocOQB5PR7RsOFQDnSnDYZN4rSJwd3_qpUSavK8\nhttps://mega.nz/#!mrgnEQpJ!Ie5M0IEz7mboQu--ysSVpqAe9PQKJa0gxn-1yrvj5gQ\nhttps://mega.nz/#!Xz5z1CbB!x1KnmL7Iu4bgEomyEVSuy1C7bmh7tezVv_9qsTGEpKE\nhttps://mega.nz/#!7zpTXCrb!wAHBUdPYdu0-YOFdd0ndPgBOsMoI2U9PY37ShZWT4YA\nhttps://mega.nz/#!iixxUSxI!ex6fK7F0TcOO3fwpJXgk2ojpOfqNQM7Ky0Dj63_3lTo\nhttps://mega.nz/#!jiw3mIKB!kXmKeKM_JYHP_Vlk8H9VfL4WiskpoV4NORupQNfjAUY\nhttps://mega.nz/#!SrpBQYRC!I1QJMN5NFfywRB3CsNJlb9-7Gf9N5G7S22cv7njzHoA\nhttps://mega.nz/#!DmpjRYxb!MZtwnI7bPd_BWtaZdp1WEuWgeODusvf8VNRfUyGTboE\n",
+      "image\n├── 002\n├── AbigailWilliams\n├── AkiyamaMio\n├── AobaSuzukaze\n├── AragakiAyase\n├── AyanamiRei\n├── Bondorudo\n├── ChitandaEru\n├── Dva\n├── EMT\n├── EbisuzawaKurumi\n├── FlandreScarlet\n├── GokouRuri\n├── HachikujiMayoi\n├── HakureiReimu\n├── IkaMusume\n├── IllyasvielvonEinzbern\n├── IzumiKonata\n├── IzumiSagiri\n├── KafuuChino\n├── KaguyaLuna\n├── KanameMadoka\n├── KasuganoSora\n├── KatoMegumi\n├── KinomotoSakura\n├── KirisameMarisa\n├── KizunaAI\n├── KomichiAya\n├── Kousakakirino\n├── KuriyamaMirai\n├── Megumin\n├── MikasaAckerman\n├── MisakaMikoto\n├── NaganoharaMio\n├── NagatoYuki\n├── NakanoAzusa\n├── Nanachi\n├── Reg\n├── Rem\n├── Riko\n├── RyougiShiki\n├── SakuraSaber\n├── SawamuraSpencerEriri\n├── SenjougaharaHitagi\n├── ShiinaMashiro\n├── Shimakaze\n├── SoryuAsukaLangley\n├── SuzumiyaHaruhi\n├── TamuraManami\n├── TedezaRize\n├── TosakaRin\n├── aisakataiga\n├── amatsukaze\n├── houshou\n├── kuppahime\n└── miku\n\n56 directories\n"
+    ],
+    "anchors": []
+  },
+  "post/北京北京/index.html": {
+    "text": "840f9f446b3130ab292fda4b83aa2ba9f350866479c413ddc9953a4d413b7493",
+    "images": 5,
+    "code": [],
+    "anchors": []
+  },
+  "post/压制组在做什么/index.html": {
+    "text": "6025d1c2050dbc4809d873024fa081e4fb5bc2ae2602612771916a01696a4795",
+    "images": 4,
+    "code": [],
+    "anchors": []
+  },
+  "post/古德寺/index.html": {
+    "text": "7ac41f11fa8794f960f3ffc8db423640e8d3e13a87e8ba029396c74acdf2ba8b",
+    "images": 10,
+    "code": [],
+    "anchors": []
+  },
+  "post/在github上搭建静态博客/index.html": {
+    "text": "0622950e942ed79677bfcf8ab44343d0cfb2db9aba649b9d0c974018dac4b723",
+    "images": 5,
+    "code": [
+      "npm install hexo-cli -g\n",
+      "npm install hexo --save\n\n",
+      "hexo -v\n\n",
+      "hexo init\n",
+      "npm install\n\n\n",
+      "hexo g\n",
+      "hexo s\n\n",
+      "INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.\n\n",
+      "git config --global user.name \"yourname\"\ngit config --global user.email \"youremail\"\n\n",
+      "deploy:\n  type: git\n  repo: git@github.com:yourname/yourname.github.io.git\n  branch: master\n\n",
+      "hexo d\n\n",
+      "---\ntitle: hello-world   //在此处添加你的标题。\ndate: 2014-11-7 08:55:29   //在此处输入你编辑这篇文章的时间。\ncategories: Exercise   //在此处输入这篇文章的分类。\ntoc: true  //在此处设定是否开启目录，需要主题支持。\n---\n\n",
+      "# Extensions\n## Plugins: http://hexo.io/plugins/\n## Themes: http://hexo.io/themes/\ntheme: landscape //themes文件夹中对应文件夹的名称\n\n"
+    ],
+    "anchors": [
+      "初始化hexo",
+      "首次体验hexo",
+      "修改全局配置文件",
+      "网站",
+      "网址",
+      "目录",
+      "文章",
+      "分类--标签",
+      "日期--时间格式",
+      "分页",
+      "扩展",
+      "配置deployment",
+      "添加新文章",
+      "进阶",
+      "更换主题",
+      "更换域名"
+    ]
+  },
+  "post/多贝云的一次电话面试/index.html": {
+    "text": "c688b2695b61ec535fd9f385bc104465f1e18e897740216b913bd49e17797668",
+    "images": 0,
+    "code": [
+      "1\n",
+      "iter = [i for i in range(0, 5)]\n",
+      "1\n",
+      "iter = (i for i in range(0, 5))\n",
+      "1\n2\n3\n4\n5\n6\n7\n8\n9\n",
+      "a = 3\nb = 3\na == b\na is b\n\nstr1 == 'test'\nstr2 == 'test'\nstr1 == str2\nstr1 is str2\n"
+    ],
+    "anchors": []
+  },
+  "post/多贝云的一次笔试/index.html": {
+    "text": "035812d9cbe332baa399bc04bac974e81888a596df15d695f0ab54a4c562a4d6",
+    "images": 0,
+    "code": [],
+    "anchors": []
+  },
+  "post/学校水卡破解/index.html": {
+    "text": "fbf9a7bbc94d3c705933fbb3d30fc3e59954afd80f2f8c2d5871f6f77273e0ab",
+    "images": 7,
+    "code": [
+      "  A0 A1 A2 A3 A4 A5     FF 07 80 69      B0 B1 B2 B3 B4 B5\n\n (密码A 6字节)           (存储控制 4字节)   (密码B 6字节)\n"
+    ],
+    "anchors": [
+      "前言",
+      "背景知识",
+      "鼓捣过程"
+    ]
+  },
+  "post/援力满满交易所的自动许愿/index.html": {
+    "text": "67c5a89225f0e5f416748037e84cf90c9c33d1e61b1c7597ad565676b1cd96b8",
+    "images": 5,
+    "code": [
+      "cheer_word:\"TEST\"\ncode: \"ERIRI\"\nlove_power:63895713284\n",
+      " 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n",
+      "    unixtime = int(time.mktime(time.strptime(time.strftime(\"%Y-%m-%d %H:%M:00\", time.localtime()), '%Y-%m-%d %H:%M:%S')))\n    stockcode = 'ERIRI'\n    cheerWord = 'TEST'\n    s = random.randint(0,99999999999)\n    c = \"{}{}{}{}\".format(cheerWord, s, unixtime, stockcode).encode()\n    res = hashlib.sha512(c).hexdigest()\n    while re.search(r'0{4}$', res) is  None:\n        unixtime = int(\n            time.mktime(time.strptime(time.strftime(\"%Y-%m-%d %H:%M:00\", \t\t        time.localtime()), '%Y-%m-%d %H:%M:%S')))\n        s = random.randint(0, 99999999999)\n        c = \"{}{}{}{}\".format(cheerWord, s, unixtime, stockcode).encode()\n        res = hashlib.sha512(c).hexdigest()\n",
+      "1\n2\n3\n",
+      "{\"success\":true,\"type\":\"coin\",\"amount\":608}\n<_sre.SRE_Match object; span=(124, 128), match='0000'> 92230011940 b'TEST922300119401527526500ERIRI'\n1527526500\n"
+    ],
+    "anchors": []
+  },
+  "post/撸招行抽奖活动积分/index.html": {
+    "text": "d38ed20f0d75cf5b1d682b176a855c580de19e84382524f38950a65e3cc385a4",
+    "images": 2,
+    "code": [
+      " 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n",
+      "{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12973, 'awardName': '9积分', 'awardType': 5, 'memo': None}}\n耗费9积分, 获得9积分, 回报率1.0\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12973, 'awardName': '9积分', 'awardType': 5, 'memo': None}}\n耗费18积分, 获得18积分, 回报率1.0\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12971, 'awardName': '19积分', 'awardType': 5, 'memo': None}}\n耗费27积分, 获得37积分, 回报率1.3703703703703705\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12972, 'awardName': '1积分', 'awardType': 5, 'memo': None}}\n耗费36积分, 获得38积分, 回报率1.0555555555555556\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12971, 'awardName': '19积分', 'awardType': 5, 'memo': None}}\n耗费45积分, 获得57积分, 回报率1.2666666666666666\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12973, 'awardName': '9积分', 'awardType': 5, 'memo': None}}\n耗费54积分, 获得66积分, 回报率1.2222222222222223\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12972, 'awardName': '1积分', 'awardType': 5, 'memo': None}}\n耗费63积分, 获得67积分, 回报率1.0634920634920635\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12972, 'awardName': '1积分', 'awardType': 5, 'memo': None}}\n耗费72积分, 获得68积分, 回报率0.9444444444444444\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12973, 'awardName': '9积分', 'awardType': 5, 'memo': None}}\n耗费81积分, 获得77积分, 回报率0.9506172839506173\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12973, 'awardName': '9积分', 'awardType': 5, 'memo': None}}\n耗费90积分, 获得86积分, 回报率0.9555555555555556\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12972, 'awardName': '1积分', 'awardType': 5, 'memo': None}}\n耗费99积分, 获得87积分, 回报率0.8787878787878788\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12972, 'awardName': '1积分', 'awardType': 5, 'memo': None}}\n耗费108积分, 获得88积分, 回报率0.8148148148148148\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12971, 'awardName': '19积分', 'awardType': 5, 'memo': None}}\n耗费117积分, 获得107积分, 回报率0.9145299145299145\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12972, 'awardName': '1积分', 'awardType': 5, 'memo': None}}\n耗费126积分, 获得108积分, 回报率0.8571428571428571\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12972, 'awardName': '1积分', 'awardType': 5, 'memo': None}}\n耗费135积分, 获得109积分, 回报率0.8074074074074075\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12973, 'awardName': '9积分', 'awardType': 5, 'memo': None}}\n耗费144积分, 获得118积分, 回报率0.8194444444444444\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12973, 'awardName': '9积分', 'awardType': 5, 'memo': None}}\n耗费153积分, 获得127积分, 回报率0.8300653594771242\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12972, 'awardName': '1积分', 'awardType': 5, 'memo': None}}\n耗费162积分, 获得128积分, 回报率0.7901234567901234\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12972, 'awardName': '1积分', 'awardType': 5, 'memo': None}}\n耗费171积分, 获得129积分, 回报率0.7543859649122807\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12973, 'awardName': '9积分', 'awardType': 5, 'memo': None}}\n耗费180积分, 获得138积分, 回报率0.7666666666666667\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12972, 'awardName': '1积分', 'awardType': 5, 'memo': None}}\n耗费189积分, 获得139积分, 回报率0.7354497354497355\n{'respCode': '1000', 'respMsg': '成功', 'data': {'awardId': 12973, 'awardName': '9积分', 'awardType': 5, 'memo': None}}\n耗费198积分, 获得148积分, 回报率0.7474747474747475\n"
+    ],
+    "anchors": []
+  },
+  "post/故宫/index.html": {
+    "text": "7b98072d23e6507fe1b2516e1582867356aed5e01660ae890c73d820d25b9467",
+    "images": 5,
+    "code": [],
+    "anchors": []
+  },
+  "post/最近关于大规模下架vpn业务一事有感/index.html": {
+    "text": "3836181aafaa4d740f109e52121ab68250b394235eeb54832c56a9daa9c83d3f",
+    "images": 0,
+    "code": [],
+    "anchors": []
+  },
+  "post/最近的一些想法/index.html": {
+    "text": "7db759c3a7a3b5da3d225413daeab8741ee04bc26bdf4b1b367db1cf242f6475",
+    "images": 1,
+    "code": [
+      "    最近沉迷小说《临高启明》，真的是非常好看。起初看到知乎有人问有没有人去临高圣地巡礼。点进去看后发现是一本叫《临高启明》的小说。因为临高是海南的一个地方，顿时兴趣就来了。看到有关故乡的小说非常不容易啊，还有圣地巡礼（感觉一群神经病，笑死了）。\n",
+      "    后来知道《临高启明》是sc论坛坛友的讨论之作。之后主力转移到了[北朝论坛架空区]。小说具体细节还是满考究的。很多机械，工程的问题都有很详细的讨论（毕竟一群显得蛋疼的网友，什么身份的都有，小说里则是500元老院）。小说的视角也很明显是一群荷尔蒙迸发的男性们写出来的,因为伟业之一就是养小Loli。\n\n    最近花了很多时间在\t看《临高启明》，几天下来追了十分之一不到。现在大概是100w字。所以大概看了有10w字，然而穿越者还没在广州站稳脚跟，还没完成初步的工业化（怎么可能啊！）。\n\n    突发奇想如果有个穿越游戏应该很好玩，带着现代人和物质穿越到过去。启动工业化。可是过头想想玩法也不过是模拟城市那样子。但是还是觉得会很有意思。用着现在的地图和资料（游戏使用这个世界真实的资料，甚至地形都可以用谷歌地图上的等高线建模）去开发资源，靠掌握的历史事件获利等等。可是感觉作为单机一个人的操作量太大了（即使现在的模拟城市操作量也很大，各种交通问题，感觉大部分是AI太智障了没能好好利用道路）。在我看来这非常有意思，如果给P社做的话。\n"
+    ],
+    "anchors": []
+  },
+  "post/树莓派4/index.html": {
+    "text": "16fc86a4d11ac7d753747b0109bc462c8bb7daa1bcfb9505739e255195f62d38",
+    "images": 1,
+    "code": [],
+    "anchors": []
+  },
+  "post/民国时期海南的军事地图/index.html": {
+    "text": "b9b6c0146362b6f33d74834927b7eb5dca4ec84dade702fcaafe44b34f8b3d81",
+    "images": 5,
+    "code": [],
+    "anchors": []
+  },
+  "post/流式计算/index.html": {
+    "text": "6aa418226b539da9144e75496c86c0cbc20bf4bea9bfd21280fd347069e9359b",
+    "images": 4,
+    "code": [],
+    "anchors": []
+  },
+  "post/海南地方志下载/index.html": {
+    "text": "e919ef8fc7a7991bf20ffeb0bbc8bef55c8b8bacb3c056d89269f22dd34ea153",
+    "images": 3,
+    "code": [],
+    "anchors": []
+  },
+  "post/目前的一些想法/index.html": {
+    "text": "d95460ce3da3f2ce2f6a9a49d74c121484c2a0207a17f2fbf1a6157bac92e232",
+    "images": 0,
+    "code": [],
+    "anchors": []
+  },
+  "post/第一次安装hexo/index.html": {
+    "text": "94f2db114bab29677cdd28c21594143528415d5dbf1d649b5bd66167e00ed4e9",
+    "images": 0,
+    "code": [],
+    "anchors": []
+  },
+  "post/给后端添加redis缓存/index.html": {
+    "text": "8dd311c3fce989ffb8433fda9e3b184eeee9deb499a896bf7785a3bd3ad491af",
+    "images": 0,
+    "code": [
+      "Benchmarking: GET http://127.0.0.1:5000/\n500 clients, running 60 sec.\n\nSpeed=1924 pages/min, 54160 bytes/sec.\nRequests: 1924 susceed, 0 failed.\n\n",
+      "Benchmarking: GET http://127.0.0.1:5000/\n500 clients, running 60 sec.\n\nSpeed=16735 pages/min, 468472 bytes/sec.\nRequests: 16642 susceed, 93 failed.\n",
+      "Benchmarking: GET http://106.15.205.43/index\n500 clients, running 60 sec.\n\nSpeed=3990 pages/min, 106517 bytes/sec.\nRequests: 3990 susceed, 0 failed.\n",
+      "Benchmarking: GET http://106.15.205.43/index\n500 clients, running 60 sec.\n\nSpeed=3810 pages/min, 108984 bytes/sec.\nRequests: 3810 susceed, 0 failed.\n"
+    ],
+    "anchors": []
+  },
+  "post/给网站添加https/index.html": {
+    "text": "795caf009ed4ba479212c4d94f1fe266f0c0e501cae78d7e95976cfc656cb3c8",
+    "images": 0,
+    "code": [
+      "1\n2\n3\n4\n5\n",
+      "\tlisten 443;\n\tssl on;\n\tssl_certificate /etc/nginx/ssl/1_www.malu.moe_bundle.crt;\n    ssl_certificate_key /etc/nginx/ssl/2_www.malu.moe.key;\n    ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # 使用的协议\n"
+    ],
+    "anchors": []
+  },
+  "post/英才工程/index.html": {
+    "text": "aa40d7571bd386db914f3c6693a05842ed300aabe9409d2f876a6148f14c2158",
+    "images": 0,
+    "code": [],
+    "anchors": []
+  },
+  "post/记录新发现的事物高会中转站/index.html": {
+    "text": "e70c2a7ee1264ccc1ee0a3dccd78704446f885f524f206062c7a22cbc72b81b0",
+    "images": 4,
+    "code": [],
+    "anchors": []
+  },
+  "post/轻文面试经历/index.html": {
+    "text": "479968c60bbd017699885f02c2e152acc9f9116b7b687195ffc4e40ec64b9a2e",
+    "images": 0,
+    "code": [],
+    "anchors": [
+      "快排实现原理",
+      "链表插入操作的实现",
+      "反向迭代一个列表",
+      "知道浅拷贝和深拷贝吗",
+      "知道可变对象和不可变对象吗",
+      "迭代的几种方法",
+      "你了解元类吗",
+      "数据库底层是怎么实现的",
+      "红黑树了解吗",
+      "说一下二叉树的遍历和三种遍历的优点",
+      "了解restful吗谈一下你的看法",
+      "谈下你对单元测试的理解和看法",
+      "知道设计模式吗"
+    ]
+  },
+  "post/配置-vps-运行-flask/index.html": {
+    "text": "f0e75e42e801e89f27ab6402db6777e795c6e1b59d77f070b88a4b04e05ab153",
+    "images": 0,
+    "code": [
+      "pip install -r  requirements.txt\n",
+      "1\n",
+      "curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash\n",
+      "1\n2\n3\n",
+      "echo 'export PYENV_ROOT=\"$HOME/.pyenv\"' >> ~/.bashrc\necho 'export PATH=\"$PYENV_ROOT/bin:$PATH\"' >> ~/.bashrc\necho 'eval \"$(pyenv init -)\"' >> ~/.bashrc\n",
+      "1\n",
+      "source ~/.bashrc\n",
+      "1\n",
+      "apt install openssl zlib*\n",
+      "pip install --upgrade pip\n",
+      "pip install -r requirements.txt\n",
+      "gunicorn -b 0.0.0.0:80 run:app\n",
+      "1\n2\n3\n4\n5\n6\n7\n",
+      "#!flask/bin/python\nfrom app import app\n\n\nif __name__ == '__main__':\n    app.run(debug=True)\n\n",
+      "# -*- coding: utf-8 -*\n"
+    ],
+    "anchors": []
+  },
+  "post/重庆打卡/index.html": {
+    "text": "f3d7ec230577504dcf1ee46e771a1a383b8747acb673eb0f327b60052f672d2f",
+    "images": 30,
+    "code": [],
+    "anchors": [
+      "酒店篇",
+      "电影拍摄地打卡",
+      "千厮门山城步道",
+      "渝中区水族贸易中心",
+      "银星商城",
+      "白象居旁长台阶",
+      "二厂文创公园",
+      "铜元局地铁站",
+      "魁星楼天梯",
+      "中山四路",
+      "海棠溪筒子楼",
+      "后记"
+    ]
+  }
+}
