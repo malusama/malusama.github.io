@@ -1,0 +1,24 @@
+baseURL = 'https://malu.moe/'
+title = 'Malu Blog'
+locale = 'zh-CN'
+defaultContentLanguage = 'zh-cn'
+timeZone = 'Asia/Shanghai'
+enableRobotsTXT = true
+
+[outputs]
+home = ['HTML', 'RSS', 'JSON']
+
+[pagination]
+pagerSize = 10
+
+[taxonomies]
+tag = 'tags'
+category = 'categories'
+
+[security]
+# Only the author's checked-in legacy article bodies use HTML content.
+allowContent = ['^text/(html|markdown)$']
+
+[markup.highlight]
+style = 'monokai'
+lineNos = true

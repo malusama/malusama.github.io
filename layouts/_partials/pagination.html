@@ -1,0 +1,1 @@
+{{ if gt .TotalPages 1 }}<section><div class="container"><nav class="pagination">{{ with .Prev }}<div class="prev-page"><a href="{{ .URL }}">Previous Page</a></div>{{ end }}{{ with .Next }}<div class="next-page"><a href="{{ .URL }}">Next Page</a></div>{{ end }}</nav></div></section>{{ end }}

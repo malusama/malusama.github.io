@@ -68,8 +68,8 @@ const card = (p, rich = false) => `<div class="post"><a href="${esc(p.permalink)
 const nav = `<nav class="navbar" aria-label="主导航"><div class="container nav-inner"><a class="brand" href="/"><span aria-hidden="true">😎</span> Malu Blog</a><div class="nav-links"><a href="/articles/">文章</a><a href="/about/">关于</a><button id="dark-mode-button" type="button" aria-label="切换配色" title="切换配色"><span aria-hidden="true">◐</span></button></div></div></nav>`;
 if (!pages.has('about/index.html')) pages.set('about/index.html', load(pages.get('index.html').html()));
 await mkdir('assets/vendor', { recursive: true });
-await copyFile('node_modules/fuse.js/dist/fuse.mjs', 'assets/vendor/fuse.mjs');
-await copyFile('node_modules/fuse.js/LICENSE', 'assets/vendor/FUSE-LICENSE');
+await copyFile(join(import.meta.dirname, '../node_modules/fuse.js/dist/fuse.mjs'), 'assets/vendor/fuse.mjs');
+await copyFile(join(import.meta.dirname, '../node_modules/fuse.js/LICENSE'), 'assets/vendor/FUSE-LICENSE');
 const version = createHash('sha256').update(await readFile('assets/blog.css')).update(await readFile('assets/blog.js')).update(await readFile('assets/theme.js')).digest('hex').slice(0, 12);
 for (const [path, $] of pages) {
   const canonical = 'https://malu.moe/' + path.replace(/index\.html$/, '');
@@ -132,6 +132,14 @@ for (const [path, $] of pages) {
     const cover = post.image ? `<figure class="article-cover"><a class="image-link" href="${esc(post.image.replace('http:', 'https:'))}" aria-label="放大封面"><img src="${esc(imageURL(post.image, 960))}" srcset="${[480,768,960,1440].map(w => `${esc(imageURL(post.image,w))} ${w}w`).join(', ')}" sizes="(max-width: 767px) calc(100vw - 48px), 720px" alt="${esc(post.title)}" width="720" height="405" fetchpriority="high" decoding="async"></a></figure>` : '';
     $('main').html(`<div class="reading-layout${toc ? ' with-toc' : ''}"><article class="reading-main"><header class="article-header"><a class="back-link" href="/articles/">← 全部文章</a><h1>${esc(post.title)}</h1><div class="post-meta"><time datetime="${post.date}">${post.date.replaceAll('-', '.')}</time><span>约 ${post.minutes} 分钟阅读</span></div><div class="tags">${tagHTML}</div></header>${cover}<div class="article-post">${content.html()}</div>${suggested.length ? $.html(suggested) : ''}<section class="comments" aria-label="文章评论"><h2>聊两句</h2><p>评论使用 GitHub 账号，点击后加载。</p><button type="button" id="load-comments">加载评论</button><div id="comments-mount"></div></section></article>${toc}</div>`);
   } else {
+    // Keep the original Unicode ordering, independent of Hugo's locale collation.
+    $('.terms').each((_, container) => {
+      const terms = $(container).children('a').toArray().sort((a, b) => {
+        const x = $(a).text().toLowerCase(), y = $(b).text().toLowerCase();
+        return x < y ? -1 : x > y ? 1 : 0;
+      });
+      $(container).empty().append(terms);
+    });
     $('.post').each((_, el) => {
       const href = $(el).find('a').first().attr('href');
       if (!href) return;

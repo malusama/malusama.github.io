@@ -1,0 +1,4 @@
+{{ define "main" }}<header class="article-header"><h1>{{ .Title }}</h1></header><div class="article-post">{{ .Content }}</div><nav class="flex container suggested">{{ with .PrevInSection }}<a rel="prev" href="{{ .RelPermalink }}" title="上一篇"><span>上一篇</span>
+{{ .Title }}</a>{{ end }}{{ with .NextInSection }}
+<a rel="next" href="{{ .RelPermalink }}" title="下一篇"><span>下一篇</span>
+{{ .Title }}</a>{{ end }}</nav>{{ end }}

@@ -14,9 +14,25 @@ async function files(dir='.'){
   }
   return result;
 }
-const paths=await files(), existing=new Set(paths);
+const projectRoot=process.cwd();
 const baseline=JSON.parse(await readFile('scripts/content-baseline.json','utf8'));
+const presentation=JSON.parse(await readFile('scripts/presentation-baseline.json','utf8'));
+process.chdir('public');
+const paths=await files(), existing=new Set(paths);
 const html=new Map(await Promise.all(paths.filter(p=>p.endsWith('.html')).map(async p=>[p,load(await readFile(p,'utf8'))])));
+test('every historical route survives; presentation assets are unchanged',async()=>{
+  for(const p of presentation.routes)assert.ok(existing.has(p),p);
+  for(const [p,h]of Object.entries(presentation.assets))assert.equal(hash(await readFile(p)),h,p);
+});
+test('restored pages retain the original body DOM when the original content set is unchanged',()=>{
+  // Adding/editing articles legitimately changes lists and neighbouring links.
+  if([...html].filter(([p,$])=>p.startsWith('post/')&&$('.article-post').length).length!==Object.keys(baseline).length)return;
+  for(const [p,h]of Object.entries(presentation.pages)){
+    const $=load(html.get(p).html());
+    $('body *').contents().filter((_,n)=>n.type==='text'&&!n.data.trim()&&!$(n).closest('pre,code').length).remove();
+    assert.equal(hash($('body').html()),h,p);
+  }
+});
 test('all original article text, code blocks, images and heading anchors are preserved',()=>{
   for(const [p,b]of Object.entries(baseline)){
     const $=html.get(p);assert.ok($,p);
@@ -59,6 +75,7 @@ test('search index contains every article once, with usable dates and canonical 
 test('repeat build is byte-for-byte stable',async()=>{
   const selected=paths.filter(p=>/\.(html|xml|json)$/.test(p));
   const before=new Map(await Promise.all(selected.map(async p=>[p,hash(await readFile(p))])));
-  execFileSync(process.execPath,['scripts/enhance.mjs'],{stdio:'pipe'});
+  execFileSync(process.execPath,[projectRoot+'/scripts/build.mjs'],{cwd:projectRoot,stdio:'pipe'});
+  process.chdir(projectRoot+'/public');
   for(const[p,h]of before)assert.equal(hash(await readFile(p)),h,p);
 });
