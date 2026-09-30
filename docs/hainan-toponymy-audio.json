@@ -27,7 +27,7 @@
       275,
       300
     ],
-    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech. Mandarin syllables are separately cut and joined; not an unedited place-name utterance.",
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech.",
     "sha256": "77651869646243b86a4df154ea25f4c99b99e1d3114cd4fbe2355a18be4b49ad"
   },
   {
@@ -58,7 +58,7 @@
       275,
       300
     ],
-    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech. Mandarin syllables are separately cut and joined; not an unedited place-name utterance.",
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech.",
     "sha256": "c6a2eb18c5afffb61e8cc98ec0ae7f8d72b2d31f459beed68a24e00ee6b7feac"
   },
   {
@@ -89,7 +89,7 @@
       275,
       300
     ],
-    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech. Mandarin syllables are separately cut and joined; not an unedited place-name utterance.",
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech.",
     "sha256": "eacfe5096240d8f7f7def0ea7afd507c33369bd5b96376f1f6ff27cdafd3b5a1"
   },
   {
@@ -120,7 +120,7 @@
       275,
       300
     ],
-    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech. Mandarin syllables are separately cut and joined; not an unedited place-name utterance.",
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech.",
     "sha256": "4381b5bfce1ef8a3dedf09083bbdfb34771a9ccf1bc34185d4cf4f2cd26d11d2"
   },
   {
@@ -151,7 +151,7 @@
       275,
       300
     ],
-    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech. Mandarin syllables are separately cut and joined; not an unedited place-name utterance.",
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech.",
     "sha256": "62b5e067f81128b8c767ea83986541ddab45db6f11d88be545e599c425f26be9"
   },
   {
@@ -182,51 +182,26 @@
       275,
       300
     ],
-    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech. Mandarin syllables are separately cut and joined; not an unedited place-name utterance.",
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech.",
     "sha256": "4e77592b0a6eaa3ce2e720e6791cc03a6753bcd2179388eb52e04c2a13170262"
   },
   {
-    "file": "tongshi-mandarin-gemini.wav",
+    "file": "tongshi-mandarin-natural.wav",
     "targetIPA": "[tʰuŋ˥˥ tsa˧˥]",
-    "tone": "55 35",
-    "kind": "synthetic-contour-demonstration",
-    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda; Praat via praat-parselmouth 0.4.7",
-    "segments": [
-      {
-        "source": "mandarin.wav",
-        "sourceSHA256": "5e3aaca6f54b086bbc2e53b8ded1a0e4eb18ecaa4d32e43bedfc90ef468e749b",
-        "sourceCutSeconds": [
-          4.9,
-          5.47
-        ],
-        "tone": "55",
-        "voicedSegmentSeconds": [
-          0.06999999999999974,
-          0.5199999999999998
-        ]
-      },
-      {
-        "source": "mandarin.wav",
-        "sourceSHA256": "5e3aaca6f54b086bbc2e53b8ded1a0e4eb18ecaa4d32e43bedfc90ef468e749b",
-        "sourceCutSeconds": [
-          5.82,
-          6.25
-        ],
-        "tone": "35",
-        "voicedSegmentSeconds": [
-          0.09499999999999979,
-          0.4049999999999998
-        ]
-      }
+    "kind": "synthetic-mandarin-utterance",
+    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda",
+    "source": "tongshi-natural.wav",
+    "sourceSHA256": "3877067bedf1f6c1dae2072187ab137f072f6e7e5806384fc4459c88ca0487de",
+    "sourceCutSeconds": [
+      0.18,
+      0.97
     ],
-    "pitchLevelsHz": [
-      200,
-      225,
-      250,
-      275,
-      300
+    "sourceFrameRange": [
+      4320,
+      23280
     ],
-    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech. Mandarin syllables are separately cut and joined; not an unedited place-name utterance.",
-    "sha256": "8aa4a45762167d1e36d9444199edbc829efea8b2b256a5eca729d8582470940f"
+    "processing": "One contiguous whole-name crop retaining original PCM samples; no syllable concatenation, pitch manipulation, time stretching, normalization or resynthesis.",
+    "limitations": "Synthetic Mandarin reading of the written place name; not Hlai or Hainanese field evidence. Model-assisted transcription checks are not human listening validation.",
+    "sha256": "f1fe2b12b524a184fc46062652581dbdbf0068ee00f7e31995c31172fd5aa922"
   }
 ]

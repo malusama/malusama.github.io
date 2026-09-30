@@ -100,14 +100,13 @@ def main():
         ('big-tongzha', '[loŋ˧˧]', [('big-o', '33')]),
         ('sand-zhongsha', '[pʰaw˥˥]', [('sand', '55')]),
         ('sand-tongzha', '[pʰaw˥˩]', [('sand', '51')]),
-        ('tongshi-mandarin', '[tʰuŋ˥˥ tsa˧˥]', [('mandarin-tong', '55'), ('mandarin-za', '35')]),
     ]
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     manifest = []
     for slug, ipa, segments in specifications:
         audio_parts, details = [], []
         for segment, tone in segments:
-            source_name = 'mandarin' if segment.startswith('mandarin-') else segment
+            source_name = segment
             source = sources[source_name]
             cut = source['cuts'][segment]
             audio, sample_rate, voiced = render_segment(args.base_dir / (source_name + '.wav'), cut, tone)
@@ -127,8 +126,30 @@ def main():
                          'kind': 'synthetic-contour-demonstration',
                          'engine': 'Google Cloud Gemini 2.5 Pro TTS, Leda; Praat via praat-parselmouth 0.4.7',
                          'segments': details, 'pitchLevelsHz': PITCH_LEVELS,
-                         'limitations': 'Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech. Mandarin syllables are separately cut and joined; not an unedited place-name utterance.',
+                         'limitations': 'Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech.',
                          'sha256': digest(OUTPUT_DIR / filename)})
+    # Mandarin is one continuous neural utterance. Preserve sample values and
+    # the syllable transition; only remove silence/repeated whole-name examples.
+    source = sources['tongshi-natural']
+    cut = source['cuts']['whole-name']
+    with wave.open(str(args.base_dir / 'tongshi-natural.wav'), 'rb') as recording:
+        sample_rate = recording.getframerate()
+        params = recording.getparams()
+        frames = [round(time * sample_rate) for time in cut]
+        recording.setpos(frames[0])
+        original_samples = recording.readframes(frames[1] - frames[0])
+    filename = 'tongshi-mandarin-natural.wav'
+    with wave.open(str(OUTPUT_DIR / filename), 'wb') as output:
+        output.setparams(params)
+        output.writeframes(original_samples)
+    manifest.append({'file': filename, 'targetIPA': '[tʰuŋ˥˥ tsa˧˥]',
+                     'kind': 'synthetic-mandarin-utterance',
+                     'engine': 'Google Cloud Gemini 2.5 Pro TTS, Leda',
+                     'source': 'tongshi-natural.wav', 'sourceSHA256': source['sha256'],
+                     'sourceCutSeconds': cut, 'sourceFrameRange': frames,
+                     'processing': 'One contiguous whole-name crop retaining original PCM samples; no syllable concatenation, pitch manipulation, time stretching, normalization or resynthesis.',
+                     'limitations': 'Synthetic Mandarin reading of the written place name; not Hlai or Hainanese field evidence. Model-assisted transcription checks are not human listening validation.',
+                     'sha256': digest(OUTPUT_DIR / filename)})
     (ROOT / 'docs/hainan-toponymy-audio.json').write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
     print('Rendered', len(manifest), 'Gemini voice demonstrations')
