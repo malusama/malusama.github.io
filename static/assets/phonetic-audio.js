@@ -6,7 +6,6 @@ let current;
 const reset = () => {
   if (current) {
     current.setAttribute('aria-pressed', 'false');
-    current.querySelector('span').textContent = '▶';
   }
   current = undefined;
 };
@@ -32,7 +31,6 @@ for (const button of buttons) {
     if (source.origin !== location.origin || !source.pathname.startsWith('/audio/hainan-toponymy/')) return reset();
     player.src = source.href;
     button.setAttribute('aria-pressed', 'true');
-    button.querySelector('span').textContent = '■';
     if (note) note.textContent = button.getAttribute('aria-label') + '（非母语录音）。';
     try {
       await player.play();
