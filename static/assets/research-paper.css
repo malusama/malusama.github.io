@@ -7,6 +7,8 @@
 .blog .research-paper .paper-figure img{margin:0 auto 18px;border-radius:3px;max-height:680px;object-fit:contain}
 .blog .research-paper .paper-figure figcaption{font-size:14px;line-height:1.85;color:var(--muted)}
 .blog .research-paper .paper-figure figcaption p{margin:0}
+.blog .lightbox-caption{min-width:0;flex:1;max-width:none}
+.blog .lightbox-toolbar>a,.blog .lightbox-toolbar>button{flex-shrink:0;white-space:nowrap}
 @media(max-width:767px){.blog .research-paper .paper-figure{padding:12px;margin:26px 0 30px}.blog .research-paper .paper-figure figcaption{font-size:13px}}
 .blog .research-paper a.citation{display:inline;font-size:.78em;vertical-align:super;line-height:0;text-decoration:none;white-space:nowrap;margin:0 2px;scroll-margin-top:120px}
 .blog .research-paper a.citation:hover,.blog .research-paper a.citation[aria-expanded=true]{text-decoration:underline}
