@@ -1,6 +1,6 @@
 # Hainan toponymy synthetic demonstrations
 
-The seven current playback buttons use **Google Cloud Gemini 2.5 Pro TTS,
+The six current playback buttons use **Google Cloud Gemini 2.5 Pro TTS,
 Leda**, with a bright, playful, clear delivery prompt. This is a stock synthetic
 voice, not Klee's official voice or a replica of the original performer.
 The current filenames end in `-gemini.wav`, so cached older eSpeak media cannot
@@ -22,7 +22,9 @@ The neural source clips instead use words in supported languages:
 | sand | 抛。抛。抛。 | cmn-CN | approximate /pʰaw/ |
 | mandarin | 通过。杂志。通过。杂志。 | cmn-CN | separately cut /tʰuŋ/ and /tsa/ |
 
-The seventh clip illustrates the **Mandarin** reading of 通什, tōng zá,
+The spliced Mandarin clip was withdrawn from the article after the user
+reported unnatural syllable transitions and voice quality. The file and its
+source metadata remain as historical provenance. It had illustrated 通什, tōng zá,
 `[tʰuŋ˥˥ tsa˧˥]`. Its syllables are extracted from 通过 and 杂志 and joined
 with a 60 ms interval, avoiding the usual dictionary reading of 什. It is not
 the Hlai or Hainanese pronunciation, or an unedited utterance of the place name.

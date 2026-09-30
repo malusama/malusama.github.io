@@ -38,7 +38,7 @@ test('research article citations resolve to all 20 sources and preserve specific
 test('synthetic pronunciation demos disclose provenance and resolve to valid local WAV files', async () => {
   const $ = load(await readFile('public/post/hainan-toponymy/index.html', 'utf8'));
   const metadata = JSON.parse(await readFile('docs/hainan-toponymy-audio.json', 'utf8'));
-  assert.equal($('.ipa-play').length, 7);
+  assert.equal($('.ipa-play').length, 6);
   assert.equal($('script[src^="/assets/phonetic-audio.js"]').length, 1);
   assert.match($('.pronunciation-note').text(), /非母语录音/);
   for (const node of $('.ipa-play').toArray()) {
