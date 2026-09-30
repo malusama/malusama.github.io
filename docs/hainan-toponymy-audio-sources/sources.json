@@ -118,5 +118,221 @@
         0.97
       ]
     }
+  },
+  "village-baw": {
+    "sha256": "1a52a99dfd0b376888063a056b7b2692b932e069a405a33481ed791af468b6ed",
+    "request": {
+      "input": {
+        "text": "bào gỗ. bào gỗ. bào gỗ.",
+        "prompt": "Use a clear light female speaking voice. Read the supplied words naturally and accurately in the specified language, keeping native consonants, vowel length and lexical tones. A normal conversational pace, smooth articulation, no exaggerated acting or added explanations. Read all written repetitions."
+      },
+      "voice": {
+        "languageCode": "vi-VN",
+        "name": "Leda",
+        "modelName": "gemini-2.5-pro-tts"
+      },
+      "audioConfig": {
+        "audioEncoding": "LINEAR16",
+        "sampleRateHertz": 24000
+      }
+    },
+    "cuts": {
+      "village-baw": [
+        0.14,
+        0.51
+      ]
+    }
+  },
+  "village-faan": {
+    "sha256": "22d33c8f91b3789708eb65874de3d591034d408272e77536279d1e03af5b2931",
+    "request": {
+      "input": {
+        "text": "ฟาน ฟาน ฟาน",
+        "prompt": "Use a clear light female speaking voice. Read the supplied words naturally and accurately in the specified language, keeping native consonants, vowel length and lexical tones. A normal conversational pace, smooth articulation, no exaggerated acting or added explanations. Read all written repetitions."
+      },
+      "voice": {
+        "languageCode": "th-TH",
+        "name": "Leda",
+        "modelName": "gemini-2.5-pro-tts"
+      },
+      "audioConfig": {
+        "audioEncoding": "LINEAR16",
+        "sampleRateHertz": 24000
+      }
+    },
+    "cuts": {
+      "village-faan": [
+        0.02,
+        0.76
+      ]
+    }
+  },
+  "new-paan": {
+    "sha256": "382c330a82aceb1aba3aea4d5b1757f0b8d181c33f5c6af31e7415f48a71eced",
+    "request": {
+      "input": {
+        "text": "ปาน ปาน ปาน",
+        "prompt": "Use a clear light female speaking voice. Read the supplied words naturally and accurately in the specified language, keeping native consonants, vowel length and lexical tones. A normal conversational pace, smooth articulation, no exaggerated acting or added explanations. Read all written repetitions."
+      },
+      "voice": {
+        "languageCode": "th-TH",
+        "name": "Leda",
+        "modelName": "gemini-2.5-pro-tts"
+      },
+      "audioConfig": {
+        "audioEncoding": "LINEAR16",
+        "sampleRateHertz": 24000
+      }
+    },
+    "cuts": {
+      "new-paan": [
+        0.18,
+        1.03
+      ]
+    }
+  },
+  "new-noo": {
+    "sha256": "585aa694de00e6ddd3402071a615197bfbd37b5abc185068839fae0bc8737539",
+    "request": {
+      "input": {
+        "text": "โน โน โน",
+        "prompt": "Use a clear light female speaking voice. Read the supplied words naturally and accurately in the specified language, keeping native consonants, vowel length and lexical tones. A normal conversational pace, smooth articulation, no exaggerated acting or added explanations. Read all written repetitions."
+      },
+      "voice": {
+        "languageCode": "th-TH",
+        "name": "Leda",
+        "modelName": "gemini-2.5-pro-tts"
+      },
+      "audioConfig": {
+        "audioEncoding": "LINEAR16",
+        "sampleRateHertz": 24000
+      }
+    },
+    "cuts": {
+      "new-noo": [
+        0.18,
+        0.82
+      ]
+    }
+  },
+  "old-maan": {
+    "sha256": "6be3260ec4d7be0b5e30145115db0520f6f6e745508e91994c7e0f14a7cf64a3",
+    "request": {
+      "input": {
+        "text": "มาน มาน มาน",
+        "prompt": "Use a clear light female speaking voice. Read the supplied words naturally and accurately in the specified language, keeping native consonants, vowel length and lexical tones. A normal conversational pace, smooth articulation, no exaggerated acting or added explanations. Read all written repetitions."
+      },
+      "voice": {
+        "languageCode": "th-TH",
+        "name": "Leda",
+        "modelName": "gemini-2.5-pro-tts"
+      },
+      "audioConfig": {
+        "audioEncoding": "LINEAR16",
+        "sampleRateHertz": 24000
+      }
+    },
+    "cuts": {
+      "old-maan": [
+        0.2,
+        1.04
+      ]
+    }
+  },
+  "sanya-context": {
+    "sha256": "b4ddf0d9ee1903635179b629e14925a3870d9a8c35062fd0c05c7e56b571a37c",
+    "request": {
+      "input": {
+        "text": "海南三亚，三亚，三亚。",
+        "prompt": "用清晰自然的普通话女声，正常语速连续朗读正文，不拆音节，不夸张表演，不加解释。地名三亚读 sān yà，三是阴平，亚是去声；地名牛漏读 niú lòu，牛是阳平，漏是去声，漏和漏洞的漏同音，声母是舌尖边音 l，韵母 ou。保持正文中的全部重复。"
+      },
+      "voice": {
+        "languageCode": "cmn-CN",
+        "name": "Leda",
+        "modelName": "gemini-2.5-pro-tts"
+      },
+      "audioConfig": {
+        "audioEncoding": "LINEAR16",
+        "sampleRateHertz": 24000
+      }
+    },
+    "cuts": {
+      "whole-name": [
+        2.26,
+        3.14
+      ]
+    }
+  },
+  "niulu-natural": {
+    "sha256": "03cafb7bad60e4faa18729a85e7ded9a02d12f61e26f9c65f63dde880ce1fb60",
+    "request": {
+      "input": {
+        "text": "牛路。牛路。牛路。",
+        "prompt": "Use a clear light female speaking voice. Read the supplied words naturally and accurately in the specified language, keeping native consonants, vowel length and lexical tones. A normal conversational pace, smooth articulation, no exaggerated acting or added explanations. Read all written repetitions."
+      },
+      "voice": {
+        "languageCode": "cmn-CN",
+        "name": "Leda",
+        "modelName": "gemini-2.5-pro-tts"
+      },
+      "audioConfig": {
+        "audioEncoding": "LINEAR16",
+        "sampleRateHertz": 24000
+      }
+    },
+    "cuts": {
+      "whole-name": [
+        0.24,
+        0.94
+      ]
+    }
+  },
+  "lou-natural": {
+    "sha256": "551e96c483a28f622ada30ed4cdcbdf6d7c4d2c4e06953ba26e1ddfe0856ae72",
+    "request": {
+      "input": {
+        "text": "漏。漏。漏。",
+        "prompt": "Use a clear light female speaking voice. Read the supplied words naturally and accurately in the specified language, keeping native consonants, vowel length and lexical tones. A normal conversational pace, smooth articulation, no exaggerated acting or added explanations. Read all written repetitions."
+      },
+      "voice": {
+        "languageCode": "cmn-CN",
+        "name": "Leda",
+        "modelName": "gemini-2.5-pro-tts"
+      },
+      "audioConfig": {
+        "audioEncoding": "LINEAR16",
+        "sampleRateHertz": 24000
+      }
+    },
+    "cuts": {
+      "whole-name": [
+        0.3,
+        0.74
+      ]
+    }
+  },
+  "lu-natural": {
+    "sha256": "5c12755efd210c0d3145ef95ee074122df0b71e7b93b8b30c71de19d174d8ab0",
+    "request": {
+      "input": {
+        "text": "路。路。路。",
+        "prompt": "Use a clear light female speaking voice. Read the supplied words naturally and accurately in the specified language, keeping native consonants, vowel length and lexical tones. A normal conversational pace, smooth articulation, no exaggerated acting or added explanations. Read all written repetitions."
+      },
+      "voice": {
+        "languageCode": "cmn-CN",
+        "name": "Leda",
+        "modelName": "gemini-2.5-pro-tts"
+      },
+      "audioConfig": {
+        "audioEncoding": "LINEAR16",
+        "sampleRateHertz": 24000
+      }
+    },
+    "cuts": {
+      "whole-name": [
+        0.2,
+        0.74
+      ]
+    }
   }
 }
