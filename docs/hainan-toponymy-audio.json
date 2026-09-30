@@ -1,157 +1,232 @@
 [
   {
-    "file": "field-zhongsha.wav",
+    "file": "field-zhongsha-gemini.wav",
     "targetIPA": "[taː˥˥]",
     "tone": "55",
     "kind": "synthetic-contour-demonstration",
-    "phonemeInput": "ta:",
-    "engine": "eSpeak NG 1.52.0, Vietnamese phoneme inventory; Praat via praat-parselmouth 0.4.7",
-    "limitations": "Generic synthetic timbre; explicit p+h approximates aspiration; equal pitch intervals are schematic and not measured Hlai F0; not a native-speaker word recording.",
-    "pitchLevelsHz": [
-      100,
-      120,
-      140,
-      160,
-      180
-    ],
-    "voicedSegmentSeconds": [
-      0.13391156462585033,
-      0.39391156462585036
-    ]
-  },
-  {
-    "file": "field-tongzha.wav",
-    "targetIPA": "[taː˩˨˩]",
-    "tone": "121",
-    "kind": "synthetic-contour-demonstration",
-    "phonemeInput": "ta:",
-    "engine": "eSpeak NG 1.52.0, Vietnamese phoneme inventory; Praat via praat-parselmouth 0.4.7",
-    "limitations": "Generic synthetic timbre; explicit p+h approximates aspiration; equal pitch intervals are schematic and not measured Hlai F0; not a native-speaker word recording.",
-    "pitchLevelsHz": [
-      100,
-      120,
-      140,
-      160,
-      180
-    ],
-    "voicedSegmentSeconds": [
-      0.13391156462585033,
-      0.39391156462585036
-    ]
-  },
-  {
-    "file": "big-zhongsha.wav",
-    "targetIPA": "[luŋ˥˧]",
-    "tone": "53",
-    "kind": "synthetic-contour-demonstration",
-    "phonemeInput": "luN",
-    "engine": "eSpeak NG 1.52.0, Vietnamese phoneme inventory; Praat via praat-parselmouth 0.4.7",
-    "limitations": "Generic synthetic timbre; explicit p+h approximates aspiration; equal pitch intervals are schematic and not measured Hlai F0; not a native-speaker word recording.",
-    "pitchLevelsHz": [
-      100,
-      120,
-      140,
-      160,
-      180
-    ],
-    "voicedSegmentSeconds": [
-      0.027630385487528355,
-      0.2776303854875284
-    ]
-  },
-  {
-    "file": "big-tongzha.wav",
-    "targetIPA": "[loŋ˧˧]",
-    "tone": "33",
-    "kind": "synthetic-contour-demonstration",
-    "phonemeInput": "loN",
-    "engine": "eSpeak NG 1.52.0, Vietnamese phoneme inventory; Praat via praat-parselmouth 0.4.7",
-    "limitations": "Generic synthetic timbre; explicit p+h approximates aspiration; equal pitch intervals are schematic and not measured Hlai F0; not a native-speaker word recording.",
-    "pitchLevelsHz": [
-      100,
-      120,
-      140,
-      160,
-      180
-    ],
-    "voicedSegmentSeconds": [
-      0.026870748299319732,
-      0.28687074829931974
-    ]
-  },
-  {
-    "file": "sand-zhongsha.wav",
-    "targetIPA": "[pʰaw˥˥]",
-    "tone": "55",
-    "kind": "synthetic-contour-demonstration",
-    "phonemeInput": "phaw",
-    "engine": "eSpeak NG 1.52.0, Vietnamese phoneme inventory; Praat via praat-parselmouth 0.4.7",
-    "limitations": "Generic synthetic timbre; explicit p+h approximates aspiration; equal pitch intervals are schematic and not measured Hlai F0; not a native-speaker word recording.",
-    "pitchLevelsHz": [
-      100,
-      120,
-      140,
-      160,
-      180
-    ],
-    "voicedSegmentSeconds": [
-      0.16485260770975058,
-      0.3048526077097506
-    ]
-  },
-  {
-    "file": "sand-tongzha.wav",
-    "targetIPA": "[pʰaw˥˩]",
-    "tone": "51",
-    "kind": "synthetic-contour-demonstration",
-    "phonemeInput": "phaw",
-    "engine": "eSpeak NG 1.52.0, Vietnamese phoneme inventory; Praat via praat-parselmouth 0.4.7",
-    "limitations": "Generic synthetic timbre; explicit p+h approximates aspiration; equal pitch intervals are schematic and not measured Hlai F0; not a native-speaker word recording.",
-    "pitchLevelsHz": [
-      100,
-      120,
-      140,
-      160,
-      180
-    ],
-    "voicedSegmentSeconds": [
-      0.16485260770975058,
-      0.3048526077097506
-    ]
-  },
-  {
-    "file": "tongshi-mandarin.wav",
-    "targetIPA": "[tʰuŋ˥˥ tsa˧˥]",
-    "tone": "55 35",
-    "kind": "synthetic-contour-demonstration",
-    "language": "cmn",
-    "pinyinInput": "tong1 za2",
+    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda; Praat via praat-parselmouth 0.4.7",
     "segments": [
       {
-        "pinyin": "tong1",
+        "source": "field.wav",
+        "sourceSHA256": "b9b763b7001a1b34761414b98e54866ca36acfef27ca34c4493c09ed2a8a026f",
+        "sourceCutSeconds": [
+          1.29,
+          1.76
+        ],
         "tone": "55",
         "voicedSegmentSeconds": [
-          0.11664399092970523,
-          0.48664399092970523
-        ]
-      },
-      {
-        "pinyin": "za2",
-        "tone": "35",
-        "voicedSegmentSeconds": [
-          0.15763038548752836,
-          0.4576303854875284
+          0.05000000000000002,
+          0.36000000000000004
         ]
       }
     ],
-    "engine": "eSpeak NG 1.52.0, Mandarin voice; Praat via praat-parselmouth 0.4.7",
-    "limitations": "Mandarin approximation with independently synthesized citation-tone syllables; schematic equal pitch intervals, not measured F0 or connected-speech timing; not a Hlai or Hainanese recording.",
     "pitchLevelsHz": [
-      100,
-      120,
-      140,
-      160,
-      180
-    ]
+      200,
+      225,
+      250,
+      275,
+      300
+    ],
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech. Mandarin syllables are separately cut and joined; not an unedited place-name utterance.",
+    "sha256": "77651869646243b86a4df154ea25f4c99b99e1d3114cd4fbe2355a18be4b49ad"
+  },
+  {
+    "file": "field-tongzha-gemini.wav",
+    "targetIPA": "[taː˩˨˩]",
+    "tone": "121",
+    "kind": "synthetic-contour-demonstration",
+    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda; Praat via praat-parselmouth 0.4.7",
+    "segments": [
+      {
+        "source": "field.wav",
+        "sourceSHA256": "b9b763b7001a1b34761414b98e54866ca36acfef27ca34c4493c09ed2a8a026f",
+        "sourceCutSeconds": [
+          1.29,
+          1.76
+        ],
+        "tone": "121",
+        "voicedSegmentSeconds": [
+          0.05000000000000002,
+          0.36000000000000004
+        ]
+      }
+    ],
+    "pitchLevelsHz": [
+      200,
+      225,
+      250,
+      275,
+      300
+    ],
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech. Mandarin syllables are separately cut and joined; not an unedited place-name utterance.",
+    "sha256": "c6a2eb18c5afffb61e8cc98ec0ae7f8d72b2d31f459beed68a24e00ee6b7feac"
+  },
+  {
+    "file": "big-zhongsha-gemini.wav",
+    "targetIPA": "[luŋ˥˧]",
+    "tone": "53",
+    "kind": "synthetic-contour-demonstration",
+    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda; Praat via praat-parselmouth 0.4.7",
+    "segments": [
+      {
+        "source": "big-u.wav",
+        "sourceSHA256": "498459b3d1c05dd88c4c99fe28c5f2e75539065281d26f50d35087573a75c215",
+        "sourceCutSeconds": [
+          1.61,
+          2.01
+        ],
+        "tone": "53",
+        "voicedSegmentSeconds": [
+          0.054999999999999785,
+          0.3849999999999998
+        ]
+      }
+    ],
+    "pitchLevelsHz": [
+      200,
+      225,
+      250,
+      275,
+      300
+    ],
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech. Mandarin syllables are separately cut and joined; not an unedited place-name utterance.",
+    "sha256": "eacfe5096240d8f7f7def0ea7afd507c33369bd5b96376f1f6ff27cdafd3b5a1"
+  },
+  {
+    "file": "big-tongzha-gemini.wav",
+    "targetIPA": "[loŋ˧˧]",
+    "tone": "33",
+    "kind": "synthetic-contour-demonstration",
+    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda; Praat via praat-parselmouth 0.4.7",
+    "segments": [
+      {
+        "source": "big-o.wav",
+        "sourceSHA256": "bdbafb4c9f64eae76d062677bfda9404198c1700dd9567bfb81d69a67e7040b9",
+        "sourceCutSeconds": [
+          1.41,
+          1.84
+        ],
+        "tone": "33",
+        "voicedSegmentSeconds": [
+          0.05500000000000001,
+          0.385
+        ]
+      }
+    ],
+    "pitchLevelsHz": [
+      200,
+      225,
+      250,
+      275,
+      300
+    ],
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech. Mandarin syllables are separately cut and joined; not an unedited place-name utterance.",
+    "sha256": "4381b5bfce1ef8a3dedf09083bbdfb34771a9ccf1bc34185d4cf4f2cd26d11d2"
+  },
+  {
+    "file": "sand-zhongsha-gemini.wav",
+    "targetIPA": "[pʰaw˥˥]",
+    "tone": "55",
+    "kind": "synthetic-contour-demonstration",
+    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda; Praat via praat-parselmouth 0.4.7",
+    "segments": [
+      {
+        "source": "sand.wav",
+        "sourceSHA256": "f7cf6d4239c9b4f45fd0a7bc482869c21512a59ff7c083d1f561259592f4bcd4",
+        "sourceCutSeconds": [
+          1.65,
+          2.36
+        ],
+        "tone": "55",
+        "voicedSegmentSeconds": [
+          0.13999999999999996,
+          0.59
+        ]
+      }
+    ],
+    "pitchLevelsHz": [
+      200,
+      225,
+      250,
+      275,
+      300
+    ],
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech. Mandarin syllables are separately cut and joined; not an unedited place-name utterance.",
+    "sha256": "62b5e067f81128b8c767ea83986541ddab45db6f11d88be545e599c425f26be9"
+  },
+  {
+    "file": "sand-tongzha-gemini.wav",
+    "targetIPA": "[pʰaw˥˩]",
+    "tone": "51",
+    "kind": "synthetic-contour-demonstration",
+    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda; Praat via praat-parselmouth 0.4.7",
+    "segments": [
+      {
+        "source": "sand.wav",
+        "sourceSHA256": "f7cf6d4239c9b4f45fd0a7bc482869c21512a59ff7c083d1f561259592f4bcd4",
+        "sourceCutSeconds": [
+          1.65,
+          2.36
+        ],
+        "tone": "51",
+        "voicedSegmentSeconds": [
+          0.13999999999999996,
+          0.59
+        ]
+      }
+    ],
+    "pitchLevelsHz": [
+      200,
+      225,
+      250,
+      275,
+      300
+    ],
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech. Mandarin syllables are separately cut and joined; not an unedited place-name utterance.",
+    "sha256": "4e77592b0a6eaa3ce2e720e6791cc03a6753bcd2179388eb52e04c2a13170262"
+  },
+  {
+    "file": "tongshi-mandarin-gemini.wav",
+    "targetIPA": "[tʰuŋ˥˥ tsa˧˥]",
+    "tone": "55 35",
+    "kind": "synthetic-contour-demonstration",
+    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda; Praat via praat-parselmouth 0.4.7",
+    "segments": [
+      {
+        "source": "mandarin.wav",
+        "sourceSHA256": "5e3aaca6f54b086bbc2e53b8ded1a0e4eb18ecaa4d32e43bedfc90ef468e749b",
+        "sourceCutSeconds": [
+          4.9,
+          5.47
+        ],
+        "tone": "55",
+        "voicedSegmentSeconds": [
+          0.06999999999999974,
+          0.5199999999999998
+        ]
+      },
+      {
+        "source": "mandarin.wav",
+        "sourceSHA256": "5e3aaca6f54b086bbc2e53b8ded1a0e4eb18ecaa4d32e43bedfc90ef468e749b",
+        "sourceCutSeconds": [
+          5.82,
+          6.25
+        ],
+        "tone": "35",
+        "voicedSegmentSeconds": [
+          0.09499999999999979,
+          0.4049999999999998
+        ]
+      }
+    ],
+    "pitchLevelsHz": [
+      200,
+      225,
+      250,
+      275,
+      300
+    ],
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech. Mandarin syllables are separately cut and joined; not an unedited place-name utterance.",
+    "sha256": "8aa4a45762167d1e36d9444199edbc829efea8b2b256a5eca729d8582470940f"
   }
 ]

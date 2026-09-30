@@ -1,0 +1,126 @@
+{
+  "field": {
+    "sha256": "b9b763b7001a1b34761414b98e54866ca36acfef27ca34c4493c09ed2a8a026f",
+    "request": {
+      "input": {
+        "text": "搭。搭。搭。",
+        "prompt": "Bright, playful and clear delivery. Careful standard pronunciation in the specified language, normal lexical tones, light expression without changing consonants or vowels. No laughter or extra words."
+      },
+      "voice": {
+        "languageCode": "cmn-CN",
+        "name": "Leda",
+        "modelName": "gemini-2.5-pro-tts"
+      },
+      "audioConfig": {
+        "audioEncoding": "LINEAR16",
+        "sampleRateHertz": 24000
+      }
+    },
+    "cuts": {
+      "field": [
+        1.29,
+        1.76
+      ]
+    }
+  },
+  "big-u": {
+    "sha256": "498459b3d1c05dd88c4c99fe28c5f2e75539065281d26f50d35087573a75c215",
+    "request": {
+      "input": {
+        "text": "lung linh. lung linh. lung linh.",
+        "prompt": "Bright, playful and clear delivery. Careful standard pronunciation in the specified language, normal lexical tones, light expression without changing consonants or vowels. No laughter or extra words."
+      },
+      "voice": {
+        "languageCode": "vi-VN",
+        "name": "Leda",
+        "modelName": "gemini-2.5-pro-tts"
+      },
+      "audioConfig": {
+        "audioEncoding": "LINEAR16",
+        "sampleRateHertz": 24000
+      }
+    },
+    "cuts": {
+      "big-u": [
+        1.61,
+        2.01
+      ]
+    }
+  },
+  "big-o": {
+    "sha256": "bdbafb4c9f64eae76d062677bfda9404198c1700dd9567bfb81d69a67e7040b9",
+    "request": {
+      "input": {
+        "text": "lông chim. lông chim. lông chim.",
+        "prompt": "Bright, playful and clear delivery. Careful standard pronunciation in the specified language, normal lexical tones, light expression without changing consonants or vowels. No laughter or extra words."
+      },
+      "voice": {
+        "languageCode": "vi-VN",
+        "name": "Leda",
+        "modelName": "gemini-2.5-pro-tts"
+      },
+      "audioConfig": {
+        "audioEncoding": "LINEAR16",
+        "sampleRateHertz": 24000
+      }
+    },
+    "cuts": {
+      "big-o": [
+        1.41,
+        1.84
+      ]
+    }
+  },
+  "sand": {
+    "sha256": "f7cf6d4239c9b4f45fd0a7bc482869c21512a59ff7c083d1f561259592f4bcd4",
+    "request": {
+      "input": {
+        "text": "抛。抛。抛。",
+        "prompt": "Bright, playful and clear delivery. Careful standard pronunciation in the specified language, normal lexical tones, light expression without changing consonants or vowels. No laughter or extra words."
+      },
+      "voice": {
+        "languageCode": "cmn-CN",
+        "name": "Leda",
+        "modelName": "gemini-2.5-pro-tts"
+      },
+      "audioConfig": {
+        "audioEncoding": "LINEAR16",
+        "sampleRateHertz": 24000
+      }
+    },
+    "cuts": {
+      "sand": [
+        1.65,
+        2.36
+      ]
+    }
+  },
+  "mandarin": {
+    "sha256": "5e3aaca6f54b086bbc2e53b8ded1a0e4eb18ecaa4d32e43bedfc90ef468e749b",
+    "request": {
+      "input": {
+        "text": "通过。杂志。通过。杂志。",
+        "prompt": "Bright, playful and clear delivery. Careful standard pronunciation in the specified language, normal lexical tones, light expression without changing consonants or vowels. No laughter or extra words."
+      },
+      "voice": {
+        "languageCode": "cmn-CN",
+        "name": "Leda",
+        "modelName": "gemini-2.5-pro-tts"
+      },
+      "audioConfig": {
+        "audioEncoding": "LINEAR16",
+        "sampleRateHertz": 24000
+      }
+    },
+    "cuts": {
+      "mandarin-tong": [
+        4.9,
+        5.47
+      ],
+      "mandarin-za": [
+        5.82,
+        6.25
+      ]
+    }
+  }
+}

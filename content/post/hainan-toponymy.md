@@ -64,7 +64,7 @@ Chuntao Liu（2023）从语言接触讨论海南汉语方言的内爆音。出�
 | 黎语词汇 | 通什地区黎语的“水田”：{{< ipa lang="lic" >}}[taː˩˨˩]{{< /ipa >}}，调值121 | 单词调查音；为田地成分提供原语比较 |
 | 海南话字音 | 尚缺注明本地方言点的“什”字音及完整地名音 | 中介解释须在这一层取得独立支持 |
 | 汉字书写 | “什”列为田地类地名用字；完整名称写作“通什” | 译音字的汉语字义不等于原语的田地义 |
-| 普通话读字 | tōng zá，宽式本调 {{< ipa lang="cmn" demo="tongshi-mandarin" label="普通话通什（tōng zá）" >}}[tʰuŋ˥˥ tsa˧˥]{{< /ipa >}} | 按官方所记特殊地名读法转写 |
+| 普通话读字 | tōng zá，宽式本调 {{< ipa lang="cmn" demo="tongshi-mandarin-gemini" label="普通话通什（tōng zá）" >}}[tʰuŋ˥˥ tsa˧˥]{{< /ipa >}} | 按官方所记特殊地名读法转写 |
 
 音标旁的 ▶ 可播放普通话 tōng zá 的近似合成示范；这段音频不是通什的黎语或海南话读音。
 
@@ -82,9 +82,9 @@ Norquest 的附录分别列出“田（wet field）”“田（野，mountain fi
 
 | 词义 | 中沙，侾方言 | 通什，杞方言 | 原论文词表页码 |
 | --- | --- | --- | --- |
-| 田，水田 | {{< ipa lang="lic" demo="field-zhongsha" >}}[taː˥˥]{{< /ipa >}}（55） | {{< ipa lang="lic" demo="field-tongzha" >}}[taː˩˨˩]{{< /ipa >}}（121） | 562 |
-| 大 | {{< ipa lang="lic" demo="big-zhongsha" >}}[luŋ˥˧]{{< /ipa >}}（53） | {{< ipa lang="lic" demo="big-tongzha" >}}[loŋ˧˧]{{< /ipa >}}（33） | 454 |
-| 沙 | {{< ipa lang="lic" demo="sand-zhongsha" >}}[pʰaw˥˥]{{< /ipa >}}（55） | {{< ipa lang="lic" demo="sand-tongzha" >}}[pʰaw˥˩]{{< /ipa >}}（51） | 545 |
+| 田，水田 | {{< ipa lang="lic" demo="field-zhongsha-gemini" >}}[taː˥˥]{{< /ipa >}}（55） | {{< ipa lang="lic" demo="field-tongzha-gemini" >}}[taː˩˨˩]{{< /ipa >}}（121） | 562 |
+| 大 | {{< ipa lang="lic" demo="big-zhongsha-gemini" >}}[luŋ˥˧]{{< /ipa >}}（53） | {{< ipa lang="lic" demo="big-tongzha-gemini" >}}[loŋ˧˧]{{< /ipa >}}（33） | 454 |
+| 沙 | {{< ipa lang="lic" demo="sand-zhongsha-gemini" >}}[pʰaw˥˥]{{< /ipa >}}（55） | {{< ipa lang="lic" demo="sand-tongzha-gemini" >}}[pʰaw˥˩]{{< /ipa >}}（51） | 545 |
 
 {{< pronunciation-note >}}
 
