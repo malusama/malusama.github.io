@@ -18,7 +18,7 @@ test('research article citations resolve to all 21 sources and preserve specific
   });
   assert.equal(cited.size, 21);
   assert.ok($('.citation[href="#ref-2"]').toArray().some(n => $(n).text().includes('表1及第3.3节')));
-  assert.equal($('.paper-table').length, 8);
+  assert.equal($('.paper-table').length, 10);
   assert.equal($('script[src^="/assets/citation-preview.js"]').length, 1);
   assert.equal($('.toc a').length, 14);
   const figures = $('.paper-figure');
