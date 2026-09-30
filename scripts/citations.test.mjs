@@ -3,10 +3,10 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {load} from 'cheerio';
 
-test('research article citations resolve to all 18 sources and preserve specific sections', async () => {
+test('research article citations resolve to all 21 sources and preserve specific sections', async () => {
   const $ = load(await readFile('public/post/hainan-toponymy/index.html', 'utf8'));
   const sources = $('.bibliography>li');
-  assert.equal(sources.length, 18);
+  assert.equal(sources.length, 21);
   const cited = new Set();
   $('.citation').each((_, node) => {
     const id = $(node).attr('data-reference');
@@ -16,9 +16,9 @@ test('research article citations resolve to all 18 sources and preserve specific
     assert.equal($(node).attr('href'), '#' + id);
     cited.add(id);
   });
-  assert.equal(cited.size, 18);
+  assert.equal(cited.size, 21);
   assert.ok($('.citation[href="#ref-2"]').toArray().some(n => $(n).text().includes('表1及第3.3节')));
-  assert.equal($('.paper-table').length, 6);
+  assert.equal($('.paper-table').length, 8);
   assert.equal($('script[src^="/assets/citation-preview.js"]').length, 1);
   assert.equal($('.toc a').length, 14);
   const figures = $('.paper-figure');
