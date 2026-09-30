@@ -193,7 +193,7 @@ Norquest 的附录分别列出“田（wet field）”“田（野，mountain fi
 | 新 | {{< ipa lang="lic" demo="new-zhongsha-gemini" >}}[paːn˥˧]{{< /ipa >}}（53） | {{< ipa lang="lic" demo="new-tongzha-gemini" >}}[noː˥˥]{{< /ipa >}}（55） | 582 |
 | 旧 | {{< ipa lang="lic" demo="old-zhongsha-gemini" >}}[maːn˥˧]{{< /ipa >}}（53） | {{< ipa lang="lic" demo="old-tongzha-gemini" >}}[maːn˧˧]{{< /ipa >}}（33） | 501 |
 
-*音标据论文词表；▶ 为近似合成示范，非母语录音。*
+*音标据论文词表；点击带虚线下划线的音标可试听近似合成示范，非母语录音。*
 
 “旧”采用词表old／旧条，不借用表示人年老的另一个词。两处“村”连音段也不同，“新”分别是paːn和noː；“旧”则都含maːn而调值不同。这些词条为原语声音提供参照，不是各村名的完整本地音。[[14，第451、501、582页]](#ref-14)
 

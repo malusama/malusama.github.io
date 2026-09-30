@@ -46,9 +46,9 @@ test('synthetic pronunciation demos disclose provenance and resolve to valid loc
     const src = button.attr('data-audio');
     const record = metadata.find(item => src.endsWith('/' + item.file));
     assert.ok(record);
-    const mandarin = button.parent().find('.ipa').attr('lang') === 'cmn';
+    const mandarin = button.attr('lang') === 'cmn';
     assert.equal(record.kind, mandarin ? 'synthetic-mandarin-utterance' : 'synthetic-contour-demonstration');
-    assert.equal(button.parent().find('.ipa').text(), record.targetIPA);
+    assert.equal(button.text(), record.targetIPA);
     assert.match(button.attr('aria-label'), /合成示范/);
     const wav = await readFile('public' + src);
     assert.equal(wav.subarray(0, 4).toString(), 'RIFF');
