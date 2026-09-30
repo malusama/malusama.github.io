@@ -38,7 +38,7 @@ test('research article citations resolve to all 20 sources and preserve specific
 test('synthetic pronunciation demos disclose provenance and resolve to valid local WAV files', async () => {
   const $ = load(await readFile('public/post/hainan-toponymy/index.html', 'utf8'));
   const metadata = JSON.parse(await readFile('docs/hainan-toponymy-audio.json', 'utf8'));
-  assert.equal($('.ipa-play').length, 6);
+  assert.equal($('.ipa-play').length, 7);
   assert.equal($('script[src^="/assets/phonetic-audio.js"]').length, 1);
   assert.match($('.pronunciation-note').text(), /非母语录音/);
   for (const node of $('.ipa-play').toArray()) {
@@ -46,13 +46,29 @@ test('synthetic pronunciation demos disclose provenance and resolve to valid loc
     const src = button.attr('data-audio');
     const record = metadata.find(item => src.endsWith('/' + item.file));
     assert.ok(record);
-    assert.equal(record.kind, 'synthetic-contour-demonstration');
+    const mandarin = button.parent().find('.ipa').attr('lang') === 'cmn';
+    assert.equal(record.kind, mandarin ? 'synthetic-mandarin-utterance' : 'synthetic-contour-demonstration');
     assert.equal(button.parent().find('.ipa').text(), record.targetIPA);
     assert.match(button.attr('aria-label'), /合成示范/);
     const wav = await readFile('public' + src);
     assert.equal(wav.subarray(0, 4).toString(), 'RIFF');
     assert.equal(wav.subarray(8, 12).toString(), 'WAVE');
     assert.ok(wav.length > 1000);
+    if (mandarin) {
+      // Regression guard for the reported unnatural splicing/resynthesis:
+      // the delivered samples must be a contiguous range of the neural source.
+      const source = await readFile('docs/hainan-toponymy-audio-sources/' + record.source);
+      const pcm = bytes => {
+        for (let offset = 12; offset + 8 <= bytes.length;) {
+          const size = bytes.readUInt32LE(offset + 4);
+          if (bytes.subarray(offset, offset + 4).toString() === 'data') return bytes.subarray(offset + 8, offset + 8 + size);
+          offset += 8 + size + (size % 2);
+        }
+        assert.fail('Missing PCM data chunk');
+      };
+      const [start, end] = record.sourceFrameRange;
+      assert.deepEqual(pcm(wav), pcm(source).subarray(start * 2, end * 2));
+    }
   }
 });
 

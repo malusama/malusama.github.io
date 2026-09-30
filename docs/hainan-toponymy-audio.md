@@ -1,10 +1,13 @@
 # Hainan toponymy synthetic demonstrations
 
-The six current playback buttons use **Google Cloud Gemini 2.5 Pro TTS,
-Leda**, with a bright, playful, clear delivery prompt. This is a stock synthetic
-voice, not Klee's official voice or a replica of the original performer.
-The current filenames end in `-gemini.wav`, so cached older eSpeak media cannot
-be selected by the new buttons. Older files remain for existing links.
+The seven current playback buttons use **Google Cloud Gemini 2.5 Pro TTS,
+Leda**. The six Hlai demonstrations use a bright, playful, clear delivery
+prompt; the Mandarin clip uses natural connected speech without exaggerated
+acting. This is a stock synthetic voice, not Klee's official voice or a replica
+of the original performer.
+The six contour filenames end in `-gemini.wav`; Mandarin now uses
+`tongshi-mandarin-natural.wav`. New URLs bypass cached superseded clips.
+Older files remain for existing links.
 
 Six clips illustrate approximate segments and schematic tone contours for
 word forms transcribed in Norquest (2007). They are **not Hlai speaker
@@ -20,17 +23,26 @@ The neural source clips instead use words in supported languages:
 | big-u | lung linh. lung linh. lung linh. | vi-VN | cut the first syllable, approximate /luŋ/ |
 | big-o | lông chim. lông chim. lông chim. | vi-VN | cut the first syllable, approximate /loŋ/ |
 | sand | 抛。抛。抛。 | cmn-CN | approximate /pʰaw/ |
-| mandarin | 通过。杂志。通过。杂志。 | cmn-CN | separately cut /tʰuŋ/ and /tsa/ |
+| tongshi-natural | 通杂，通杂，通杂。 | cmn-CN | one complete /tʰuŋ tsa/ utterance, original connected speech |
 
-The spliced Mandarin clip was withdrawn from the article after the user
-reported unnatural syllable transitions and voice quality. The file and its
-source metadata remain as historical provenance. It had illustrated 通什, tōng zá,
-`[tʰuŋ˥˥ tsa˧˥]`. Its syllables are extracted from 通过 and 杂志 and joined
-with a 60 ms interval, avoiding the usual dictionary reading of 什. It is not
-the Hlai or Hainanese pronunciation, or an unedited utterance of the place name.
+The Mandarin clip illustrates 通什, tōng zá, `[tʰuŋ˥˥ tsa˧˥]`. The neural
+request uses the same-sounding spelling 通杂 to avoid the ordinary dictionary
+reading of 什; its prompt explicitly specifies the place-name reading. One
+complete occurrence is cropped from the repeated-name source, with no cut
+inside the name. Original PCM samples, syllable transitions, pitch, duration
+and amplitude are retained: **no joining syllables or Praat processing**.
+Model-assisted transcription of the full source reported three repetitions
+of /tʰuŋ tsa/, with first and second tones. This auxiliary check does not
+establish subjective listening quality or replace a human pronunciation check.
 
-Praat overlap-add resynthesis through praat-parselmouth 0.4.7 applies the
-indicated contours. Pitch levels 1–5 are 200, 225, 250, 275 and 300 Hz solely
+The earlier clip assembled from 通过 and 杂志 was withdrawn after the user
+reported unnatural syllable transitions and voice quality. Its public file
+and the older source `mandarin.wav` remain historical artifacts; current
+buttons and rendering no longer use that source. The new Mandarin clip is
+not the Hlai or Hainanese pronunciation of the place name.
+
+For the six Hlai demonstrations only, Praat overlap-add resynthesis through
+praat-parselmouth 0.4.7 applies the indicated contours. Pitch levels 1–5 are 200, 225, 250, 275 and 300 Hz solely
 to demonstrate relative direction; they are not measured Hlai frequencies.
 Source durations are retained. In particular, the Mandarin /ta/ source does
 not establish Hlai vowel quantity. Vowels, aspiration, phonation, duration
@@ -42,11 +54,12 @@ native pronunciation or subjective listening quality.
 
 ## Reproduction and new synthesis
 
-The five original neural outputs are preserved in
+The five current neural outputs and the superseded Mandarin source are preserved in
 `docs/hainan-toponymy-audio-sources/`. Its `sources.json` contains request bodies,
 SHA-256 hashes and cut boundaries, without credentials or a cloud project ID.
 The per-demo manifest `docs/hainan-toponymy-audio.json` records source cuts,
-processing parameters, target notation and output hashes.
+processing parameters, target notation and output hashes. A test checks that
+the delivered Mandarin PCM is an unchanged contiguous range of its source.
 
 With Python packages `numpy` and `praat-parselmouth==0.4.7` installed, run:
 

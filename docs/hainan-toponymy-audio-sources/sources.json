@@ -95,12 +95,12 @@
       ]
     }
   },
-  "mandarin": {
-    "sha256": "5e3aaca6f54b086bbc2e53b8ded1a0e4eb18ecaa4d32e43bedfc90ef468e749b",
+  "tongshi-natural": {
+    "sha256": "3877067bedf1f6c1dae2072187ab137f072f6e7e5806384fc4459c88ca0487de",
     "request": {
       "input": {
-        "text": "通过。杂志。通过。杂志。",
-        "prompt": "Bright, playful and clear delivery. Careful standard pronunciation in the specified language, normal lexical tones, light expression without changing consonants or vowels. No laughter or extra words."
+        "text": "通杂，通杂，通杂。",
+        "prompt": "Read naturally in standard Mandarin, as one complete place name, with smooth connected speech at a normal conversational pace. The intended pronunciation is tōng zá (tong1 za2), like 通杂: 通 is first tone and 杂 is second tone. If the spelling is 通什, 什 has the special place-name reading zá here. Use a clear, light female speaking voice, without exaggerated acting, singing, separating the syllables, explanations or extra words. Say the name once only."
       },
       "voice": {
         "languageCode": "cmn-CN",
@@ -113,13 +113,9 @@
       }
     },
     "cuts": {
-      "mandarin-tong": [
-        4.9,
-        5.47
-      ],
-      "mandarin-za": [
-        5.82,
-        6.25
+      "whole-name": [
+        0.18,
+        0.97
       ]
     }
   }
