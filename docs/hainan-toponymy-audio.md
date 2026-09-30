@@ -1,10 +1,17 @@
 # Hainan toponymy synthetic demonstrations
 
-These six audio clips illustrate approximate segments and schematic tone
+Six Hlai audio clips illustrate approximate segments and schematic tone
 contours for the word forms printed in Norquest (2007). They are **not Hlai
 speaker recordings** and must not be treated as source evidence for any place
 name. The regional labels on the article refer to the source transcriptions,
 not to the provenance of the synthetic voice.
+
+The seventh clip, `tongshi-mandarin.wav`, illustrates the **Mandarin** reading
+of 通什, tōng zá, `[tʰuŋ˥˥ tsa˧˥]`. It uses eSpeak NG's Mandarin voice with
+explicit pinyin inputs `tong1` and `za2` to avoid dictionary readings shí or
+shén for 什. Praat applies schematic 55 and 35 contours separately, then the
+syllables are joined. It is not the Hlai or Hainanese pronunciation of the name;
+connected-speech timing and actual speaker pitch have not been modelled.
 
 Generation uses eSpeak NG 1.52.0's Vietnamese phoneme inventory and Praat
 overlap-add resynthesis through praat-parselmouth 0.4.7. The `ph` input is an
@@ -15,6 +22,8 @@ and contextual pronunciation have not been validated against native speakers.
 
 With eSpeak NG and Python packages `numpy`, `praat-parselmouth` installed,
 run `python3 scripts/generate-hainan-audio.py` from the repository root.
+Use `--tongshi-only` to generate just the added Mandarin clip and preserve the
+existing Hlai files and metadata.
 The per-clip manifest records the target notation, synthesis parameters and
 limitations. Browser playback checks verify media loading and completion;
 they do not validate native pronunciation.

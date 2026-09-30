@@ -118,5 +118,40 @@
       0.16485260770975058,
       0.3048526077097506
     ]
+  },
+  {
+    "file": "tongshi-mandarin.wav",
+    "targetIPA": "[tʰuŋ˥˥ tsa˧˥]",
+    "tone": "55 35",
+    "kind": "synthetic-contour-demonstration",
+    "language": "cmn",
+    "pinyinInput": "tong1 za2",
+    "segments": [
+      {
+        "pinyin": "tong1",
+        "tone": "55",
+        "voicedSegmentSeconds": [
+          0.11664399092970523,
+          0.48664399092970523
+        ]
+      },
+      {
+        "pinyin": "za2",
+        "tone": "35",
+        "voicedSegmentSeconds": [
+          0.15763038548752836,
+          0.4576303854875284
+        ]
+      }
+    ],
+    "engine": "eSpeak NG 1.52.0, Mandarin voice; Praat via praat-parselmouth 0.4.7",
+    "limitations": "Mandarin approximation with independently synthesized citation-tone syllables; schematic equal pitch intervals, not measured F0 or connected-speech timing; not a Hlai or Hainanese recording.",
+    "pitchLevelsHz": [
+      100,
+      120,
+      140,
+      160,
+      180
+    ]
   }
 ]

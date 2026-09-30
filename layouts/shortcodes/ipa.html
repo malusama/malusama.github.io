@@ -1,4 +1,5 @@
 {{- $text := .Inner | plainify -}}
+{{- $label := .Get "label" | default $text -}}
 {{- if .Get "demo" -}}<span class="ipa-example">{{- end -}}
 <span class="ipa" lang="{{ .Get "lang" | default "und" }}" translate="no">{{ $text }}</span>
-{{- with .Get "demo" }}<button class="ipa-play" type="button" data-audio="/audio/hainan-toponymy/{{ . }}.wav" aria-label="播放 {{ $text }} 的近似合成示范" aria-pressed="false" title="近似合成示范，非母语录音"><span aria-hidden="true">▶</span></button></span>{{ end -}}
+{{- with .Get "demo" }}<button class="ipa-play" type="button" data-audio="/audio/hainan-toponymy/{{ . }}.wav" aria-label="播放 {{ $label }} 的近似合成示范" aria-pressed="false" title="{{ $label }}：近似合成示范，非母语录音"><span aria-hidden="true">▶</span></button></span>{{ end -}}
