@@ -439,7 +439,7 @@ Norquest 的附录分别列出“田（wet field）”“田（野，mountain fi
 
 5. **语言接触论文，核到出版社摘要**　Chuntao Liu. “Social status, contact history and the implosives in the Chinese dialects of Hainan.” *Journal of Pidgin and Creole Languages*, 2023, 38(1): 135–150. DOI: 10.1075/jpcl.00107.liu。仅据公开摘要讨论接触特征的社会差异；全文需授权，未用其未取得的正文推导地名音。[出版社页面与摘要](https://benjamins.com/catalog/jpcl.00107.liu)。
 
-6. **原始语音调查论文全文**　Mantarô Hashimoto. “A Historical and Comparative Study of Its Phonological Structure First part: The Initials.” *Gengo Kenkyu*, 1960, (38): 106–135. DOI: 10.11435/gengo1939.1960.38_106。研究对象为文昌话；核对第108—110页发音人与材料说明、第115—117页声母对应及内爆音记号。文昌材料不代替三亚或万宁的本地音。[学会期刊页面](https://www.jstage.jst.go.jp/article/gengo1939/1960/38/1960_106/_article/-char/en)，[期刊PDF](https://www.jstage.jst.go.jp/article/gengo1939/1960/38/1960_106/_pdf/-char/en)。
+6. **原始语音调查论文全文**　Mantarô Hashimoto. “The Bon-shio (文昌) Dialect of Hainan: A Historical and Comparative Study of Its Phonological Structure. First part: The Initials.” *Gengo Kenkyu*, 1960, (38): 106–135. DOI: 10.11435/gengo1939.1960.38_106。研究对象为文昌话；核对第108—110页发音人与材料说明、第115—117页声母对应及内爆音记号。文昌材料不代替三亚或万宁的本地音。[学会期刊页面](https://www.jstage.jst.go.jp/article/gengo1939/1960/38/1960_106/_article/-char/en)，[期刊PDF](https://www.jstage.jst.go.jp/article/gengo1939/1960/38/1960_106/_pdf/-char/en)。
 
 7. **研究者本人署名考察**　刘剑三：《因为谐音而一地多名——“美兰”之名七度变脸》，《海南日报》，2017-07-17，第016版。用于美兰、迈号、花场的历史异写及所引志书栏目；本文未将作者引述的所有古籍原页当作亲见。[原文](https://news.hndaily.cn/html/2017-07/17/content_16_2.htm)。
 
