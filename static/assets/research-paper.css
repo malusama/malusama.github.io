@@ -1,3 +1,4 @@
+@font-face{font-family:"Paper Charis";src:url("/assets/fonts/Charis-Regular.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
 .blog .research-paper{line-height:1.95}
 .blog .research-paper>h2{margin-top:2.8em;padding-top:1em;border-top:1px solid var(--line);font-size:26px;letter-spacing:0}
 .blog .research-paper>h2:first-child{margin-top:0;padding-top:0;border-top:0;font-size:20px;color:var(--muted)}
@@ -17,6 +18,8 @@
 .blog .research-paper .paper-table td,.blog .research-paper .paper-table th{padding:12px 14px;border:0;border-bottom:1px solid var(--line);vertical-align:top}
 .blog .research-paper .paper-table th{background:var(--surface);font-weight:600;text-align:left}
 .blog .research-paper .paper-table :is(td,th):first-child{white-space:normal}
+.blog .research-paper .paper-table .short-row-labels :is(td,th):first-child{white-space:nowrap;min-width:6em}
+.blog .research-paper .paper-table .four-columns{min-width:680px}
 .blog .research-paper .paper-table tr:last-child td{border-bottom:0}
 .blog .research-paper .bibliography{font-size:14px;line-height:1.85;padding-left:1.8em}
 .blog .bibliography>li{padding:8px 0 16px;scroll-margin-top:110px;overflow-wrap:anywhere}
@@ -35,4 +38,12 @@
 @media(max-width:767px){.blog .research-paper{line-height:1.95}.blog .research-paper>h2{font-size:23px}.blog .research-paper h3{font-size:19px}.blog .research-paper a.citation{white-space:normal;overflow-wrap:anywhere}.blog .paper-table::before{content:"表格可左右滑动";display:block;padding:8px 14px;font-size:12px;color:var(--muted)}.blog .citation-preview{font-size:14px}.blog .citation-preview-close{min-height:40px;min-width:40px}.blog .citation-preview-links a{padding:8px 0}}
 @media print{.blog .citation-preview{display:none!important}.blog .paper-table{overflow:visible;border-radius:0}.blog .research-paper .paper-table table{min-width:0;font-size:10pt}.blog .research-paper .bibliography{font-size:10pt}.blog .research-paper a.citation{color:black}.blog .research-paper h2,.blog .research-paper h3{break-after:avoid}}
 
-.blog .research-paper .ipa{font-family:"Charis SIL","Doulos SIL","Noto Sans","DejaVu Sans", "Times New Roman",serif;font-variant:normal;letter-spacing:0;white-space:nowrap;word-break:normal}
+.blog .research-paper .ipa{font-family:"Paper Charis","Charis SIL","Doulos SIL","Noto Sans","DejaVu Sans", "Times New Roman",serif;font-size:1.08em;font-variant:normal;letter-spacing:0;white-space:nowrap;word-break:normal}
+.blog .research-paper .ipa-example{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.blog .research-paper .ipa-play{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;min-width:32px;min-height:32px;padding:4px;color:var(--accent);background:var(--surface);border:1px solid var(--line);border-radius:50%;cursor:pointer}
+.blog .research-paper .ipa-play:hover,.blog .research-paper .ipa-play[aria-pressed=true]{background:var(--bg);border-color:var(--accent)}
+.blog .research-paper .ipa-play:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.blog .research-paper .pronunciation-note{font-size:13px;color:var(--muted);margin:12px 0 20px;line-height:1.8}
+.blog .research-paper .pronunciation-note summary{cursor:pointer;color:var(--text);font-weight:600}
+.blog .research-paper .phonetic-audio-status{font-size:13px;color:var(--muted);min-height:1.8em;margin:0 0 12px}
+@media(max-width:767px){.blog .research-paper .ipa-play{min-width:40px;min-height:40px}}

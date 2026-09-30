@@ -1,0 +1,122 @@
+[
+  {
+    "file": "field-zhongsha.wav",
+    "targetIPA": "[taː˥˥]",
+    "tone": "55",
+    "kind": "synthetic-contour-demonstration",
+    "phonemeInput": "ta:",
+    "engine": "eSpeak NG 1.52.0, Vietnamese phoneme inventory; Praat via praat-parselmouth 0.4.7",
+    "limitations": "Generic synthetic timbre; explicit p+h approximates aspiration; equal pitch intervals are schematic and not measured Hlai F0; not a native-speaker word recording.",
+    "pitchLevelsHz": [
+      100,
+      120,
+      140,
+      160,
+      180
+    ],
+    "voicedSegmentSeconds": [
+      0.13391156462585033,
+      0.39391156462585036
+    ]
+  },
+  {
+    "file": "field-tongzha.wav",
+    "targetIPA": "[taː˩˨˩]",
+    "tone": "121",
+    "kind": "synthetic-contour-demonstration",
+    "phonemeInput": "ta:",
+    "engine": "eSpeak NG 1.52.0, Vietnamese phoneme inventory; Praat via praat-parselmouth 0.4.7",
+    "limitations": "Generic synthetic timbre; explicit p+h approximates aspiration; equal pitch intervals are schematic and not measured Hlai F0; not a native-speaker word recording.",
+    "pitchLevelsHz": [
+      100,
+      120,
+      140,
+      160,
+      180
+    ],
+    "voicedSegmentSeconds": [
+      0.13391156462585033,
+      0.39391156462585036
+    ]
+  },
+  {
+    "file": "big-zhongsha.wav",
+    "targetIPA": "[luŋ˥˧]",
+    "tone": "53",
+    "kind": "synthetic-contour-demonstration",
+    "phonemeInput": "luN",
+    "engine": "eSpeak NG 1.52.0, Vietnamese phoneme inventory; Praat via praat-parselmouth 0.4.7",
+    "limitations": "Generic synthetic timbre; explicit p+h approximates aspiration; equal pitch intervals are schematic and not measured Hlai F0; not a native-speaker word recording.",
+    "pitchLevelsHz": [
+      100,
+      120,
+      140,
+      160,
+      180
+    ],
+    "voicedSegmentSeconds": [
+      0.027630385487528355,
+      0.2776303854875284
+    ]
+  },
+  {
+    "file": "big-tongzha.wav",
+    "targetIPA": "[loŋ˧˧]",
+    "tone": "33",
+    "kind": "synthetic-contour-demonstration",
+    "phonemeInput": "loN",
+    "engine": "eSpeak NG 1.52.0, Vietnamese phoneme inventory; Praat via praat-parselmouth 0.4.7",
+    "limitations": "Generic synthetic timbre; explicit p+h approximates aspiration; equal pitch intervals are schematic and not measured Hlai F0; not a native-speaker word recording.",
+    "pitchLevelsHz": [
+      100,
+      120,
+      140,
+      160,
+      180
+    ],
+    "voicedSegmentSeconds": [
+      0.026870748299319732,
+      0.28687074829931974
+    ]
+  },
+  {
+    "file": "sand-zhongsha.wav",
+    "targetIPA": "[pʰaw˥˥]",
+    "tone": "55",
+    "kind": "synthetic-contour-demonstration",
+    "phonemeInput": "phaw",
+    "engine": "eSpeak NG 1.52.0, Vietnamese phoneme inventory; Praat via praat-parselmouth 0.4.7",
+    "limitations": "Generic synthetic timbre; explicit p+h approximates aspiration; equal pitch intervals are schematic and not measured Hlai F0; not a native-speaker word recording.",
+    "pitchLevelsHz": [
+      100,
+      120,
+      140,
+      160,
+      180
+    ],
+    "voicedSegmentSeconds": [
+      0.16485260770975058,
+      0.3048526077097506
+    ]
+  },
+  {
+    "file": "sand-tongzha.wav",
+    "targetIPA": "[pʰaw˥˩]",
+    "tone": "51",
+    "kind": "synthetic-contour-demonstration",
+    "phonemeInput": "phaw",
+    "engine": "eSpeak NG 1.52.0, Vietnamese phoneme inventory; Praat via praat-parselmouth 0.4.7",
+    "limitations": "Generic synthetic timbre; explicit p+h approximates aspiration; equal pitch intervals are schematic and not measured Hlai F0; not a native-speaker word recording.",
+    "pitchLevelsHz": [
+      100,
+      120,
+      140,
+      160,
+      180
+    ],
+    "voicedSegmentSeconds": [
+      0.16485260770975058,
+      0.3048526077097506
+    ]
+  }
+]
