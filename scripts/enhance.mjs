@@ -71,7 +71,7 @@ await mkdir('assets/vendor', { recursive: true });
 await copyFile(join(import.meta.dirname, '../node_modules/fuse.js/dist/fuse.mjs'), 'assets/vendor/fuse.mjs');
 await copyFile(join(import.meta.dirname, '../node_modules/fuse.js/LICENSE'), 'assets/vendor/FUSE-LICENSE');
 const version = createHash('sha256').update(await readFile('assets/blog.css')).update(await readFile('assets/blog.js')).update(await readFile('assets/theme.js')).digest('hex').slice(0, 12);
-const paperVersion = createHash('sha256').update(await readFile('assets/research-paper.css')).update(await readFile('assets/citation-preview.js')).digest('hex').slice(0, 12);
+const paperVersion = createHash('sha256').update(await readFile('assets/research-paper.css')).update(await readFile('assets/citation-preview.js')).update(await readFile('assets/phonetic-audio.js')).digest('hex').slice(0, 12);
 for (const [path, $] of pages) {
   const canonical = 'https://malu.moe/' + path.replace(/index\.html$/, '');
   const redirect = $('meta[http-equiv="refresh"]');
@@ -120,7 +120,12 @@ for (const [path, $] of pages) {
       });
       content.find('table').each((_, e) => {
         if (!$(e).parent().hasClass('paper-table')) $(e).wrap('<div class="paper-table" tabindex="0" role="region" aria-label="资料对照表，可横向滚动"></div>');
+        const table = $(e);
+        const labels = table.find('tr').map((_, row) => $(row).children('th,td').first().text().trim()).get();
+        if (labels.every(label => [...label].length <= 8)) table.addClass('short-row-labels');
+        if (table.find('tr').first().children('th,td').length === 4) table.addClass('four-columns');
       });
+      if (content.find('.ipa-play').length) $('head').append(`<script type="module" src="/assets/phonetic-audio.js?v=${paperVersion}"></script>`);
     }
     content.find('.image-link').each((_, a) => $(a).replaceWith($(a).contents()));
     content.find('img').each((_, img) => {

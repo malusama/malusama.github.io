@@ -3,10 +3,10 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {load} from 'cheerio';
 
-test('research article citations resolve to all 21 sources and preserve specific sections', async () => {
+test('research article citations resolve to all 20 sources and preserve specific sections', async () => {
   const $ = load(await readFile('public/post/hainan-toponymy/index.html', 'utf8'));
   const sources = $('.bibliography>li');
-  assert.equal(sources.length, 21);
+  assert.equal(sources.length, 20);
   const cited = new Set();
   $('.citation').each((_, node) => {
     const id = $(node).attr('data-reference');
@@ -16,7 +16,7 @@ test('research article citations resolve to all 21 sources and preserve specific
     assert.equal($(node).attr('href'), '#' + id);
     cited.add(id);
   });
-  assert.equal(cited.size, 21);
+  assert.equal(cited.size, 20);
   assert.ok($('.citation[href="#ref-2"]').toArray().some(n => $(n).text().includes('表1及第3.3节')));
   assert.equal($('.paper-table').length, 10);
   assert.equal($('script[src^="/assets/citation-preview.js"]').length, 1);
@@ -32,6 +32,28 @@ test('research article citations resolve to all 21 sources and preserve specific
     await readFile('public' + img.attr('src'));
   }
   assert.ok(!$('.article-post').text().match(/LLM|资料卡|验收|选题初稿/));
+  assert.ok(!$('.bibliography a').toArray().some(a => /toonkam|wiktionary|zhongguodiqing|voicedic|fx361|guifanku/.test($(a).attr('href'))));
+});
+
+test('synthetic pronunciation demos disclose provenance and resolve to valid local WAV files', async () => {
+  const $ = load(await readFile('public/post/hainan-toponymy/index.html', 'utf8'));
+  const metadata = JSON.parse(await readFile('docs/hainan-toponymy-audio.json', 'utf8'));
+  assert.equal($('.ipa-play').length, 6);
+  assert.equal($('script[src^="/assets/phonetic-audio.js"]').length, 1);
+  assert.match($('.pronunciation-note').text(), /非母语录音/);
+  for (const node of $('.ipa-play').toArray()) {
+    const button = $(node);
+    const src = button.attr('data-audio');
+    const record = metadata.find(item => src.endsWith('/' + item.file));
+    assert.ok(record);
+    assert.equal(record.kind, 'synthetic-contour-demonstration');
+    assert.equal(button.parent().find('.ipa').text(), record.targetIPA);
+    assert.match(button.attr('aria-label'), /合成示范/);
+    const wav = await readFile('public' + src);
+    assert.equal(wav.subarray(0, 4).toString(), 'RIFF');
+    assert.equal(wav.subarray(8, 12).toString(), 'WAVE');
+    assert.ok(wav.length > 1000);
+  }
 });
 
 
