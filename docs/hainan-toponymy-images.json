@@ -1,0 +1,57 @@
+[
+  {
+    "file": "static/img/hainan-toponymy/shilong-aerial.jpg",
+    "width": 900,
+    "height": 506,
+    "source_image": "https://www.hinews.cn/news/pic/003/216/030/00321603056_f2b3f5c0.jpg",
+    "source_article": "https://www.hinews.cn/news/system/2021/12/04/032661196.shtml",
+    "original_credit": "保亭县响水镇什龙村供图",
+    "reference": 13,
+    "sha256": "0989cd61f542cc15c92d8e316972332b28581dd3c43f0defaf4c61c644e38d32",
+    "processing": "原图文件直接保存；无生成、重绘、修复或裁剪"
+  },
+  {
+    "file": "static/img/hainan-toponymy/meilan-map.jpg",
+    "width": 400,
+    "height": 408,
+    "source_image": "https://news.hndaily.cn/resfile/2023-04-22/008/1_b.jpg",
+    "source_article": "https://news.hndaily.cn/html/2023-04/22/content_58471_16039256.htm",
+    "original_credit": "何以端 摄",
+    "reference": 8,
+    "sha256": "297fcfab5e3b4b8b5b88e6b72c1df6e31ec253eebe9a3b5ccbe475bde3215635",
+    "processing": "原图文件直接保存；无生成、重绘、修复或裁剪"
+  },
+  {
+    "file": "static/img/hainan-toponymy/meichao-poem.jpg",
+    "width": 400,
+    "height": 299,
+    "source_image": "https://news.hndaily.cn/resfile/2021-12-04/012/3293667_hnrbtp3_1638539649838_b.jpg",
+    "source_article": "https://news.hndaily.cn/html/2021-12/04/content_58475_14220938.htm",
+    "original_credit": "海南日报原刊配图，网页未另列摄影署名",
+    "reference": 9,
+    "sha256": "58d5dabdcfbeeb5aaf2c983323844860ece2166d25ea89922c1e14992e963568",
+    "processing": "原图文件直接保存；无生成、重绘、修复或裁剪"
+  },
+  {
+    "file": "static/img/hainan-toponymy/meichao-stone.jpg",
+    "width": 400,
+    "height": 533,
+    "source_image": "https://news.hndaily.cn/resfile/2021-12-04/012/3293628_hnrbtp3_1638539024946_b.jpg",
+    "source_article": "https://news.hndaily.cn/html/2021-12/04/content_58475_14220938.htm",
+    "original_credit": "海南日报原刊配图，网页未另列摄影署名",
+    "reference": 9,
+    "sha256": "64b2346aa81fa5df8fdcc4afe721027914d8e077f1023753f36643651d02f0b2",
+    "processing": "原图文件直接保存；无生成、重绘、修复或裁剪"
+  },
+  {
+    "file": "static/img/hainan-toponymy/tongjia-specimen.jpg",
+    "width": 400,
+    "height": 577,
+    "source_image": "https://news.hndaily.cn/resfile/2014-08-04/016/302782_hnrbtp1_1405847046422_b.jpg",
+    "source_article": "https://news.hndaily.cn/html/2014-08/04/content_16_1.htm",
+    "original_credit": "邢福武 提供",
+    "reference": 11,
+    "sha256": "74e8ddd3a1a76db1dcde44c7c6a7611a2a839ac87c33620af53fb42f7409d1c1",
+    "processing": "原图文件直接保存；无生成、重绘、修复或裁剪"
+  }
+]

@@ -3,6 +3,11 @@
 .blog .research-paper>h2:first-child{margin-top:0;padding-top:0;border-top:0;font-size:20px;color:var(--muted)}
 .blog .research-paper h3{font-size:21px;line-height:1.6;letter-spacing:0}
 .blog .research-paper strong{font-weight:600}
+.blog .research-paper .paper-figure{margin:32px 0 38px;padding:20px 20px 16px;border:1px solid var(--line);border-radius:7px;background:var(--surface)}
+.blog .research-paper .paper-figure img{margin:0 auto 18px;border-radius:3px;max-height:680px;object-fit:contain}
+.blog .research-paper .paper-figure figcaption{font-size:14px;line-height:1.85;color:var(--muted)}
+.blog .research-paper .paper-figure figcaption p{margin:0}
+@media(max-width:767px){.blog .research-paper .paper-figure{padding:12px;margin:26px 0 30px}.blog .research-paper .paper-figure figcaption{font-size:13px}}
 .blog .research-paper a.citation{display:inline;font-size:.78em;vertical-align:super;line-height:0;text-decoration:none;white-space:nowrap;margin:0 2px;scroll-margin-top:120px}
 .blog .research-paper a.citation:hover,.blog .research-paper a.citation[aria-expanded=true]{text-decoration:underline}
 .blog .paper-table{max-width:100%;overflow-x:auto;margin:28px 0 32px;border:1px solid var(--line);border-radius:6px}
