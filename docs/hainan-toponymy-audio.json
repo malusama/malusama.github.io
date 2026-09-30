@@ -186,10 +186,196 @@
     "sha256": "4e77592b0a6eaa3ce2e720e6791cc03a6753bcd2179388eb52e04c2a13170262"
   },
   {
+    "file": "village-zhongsha-gemini.wav",
+    "targetIPA": "[ɓaw˩˩]",
+    "tone": "11",
+    "kind": "synthetic-contour-demonstration",
+    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda; Praat via praat-parselmouth 0.4.7",
+    "segments": [
+      {
+        "source": "village-baw.wav",
+        "sourceSHA256": "1a52a99dfd0b376888063a056b7b2692b932e069a405a33481ed791af468b6ed",
+        "sourceCutSeconds": [
+          0.14,
+          0.51
+        ],
+        "tone": "11",
+        "voicedSegmentSeconds": [
+          0.07999999999999996,
+          0.35
+        ]
+      }
+    ],
+    "pitchLevelsHz": [
+      200,
+      225,
+      250,
+      275,
+      300
+    ],
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech.",
+    "sha256": "646ad9f049f51111fd6454488f8b3e239e264dc7d6dd7ea4f103d311d474e4cd"
+  },
+  {
+    "file": "village-tongzha-gemini.wav",
+    "targetIPA": "[faːn˧˧]",
+    "tone": "33",
+    "kind": "synthetic-contour-demonstration",
+    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda; Praat via praat-parselmouth 0.4.7",
+    "segments": [
+      {
+        "source": "village-faan.wav",
+        "sourceSHA256": "22d33c8f91b3789708eb65874de3d591034d408272e77536279d1e03af5b2931",
+        "sourceCutSeconds": [
+          0.02,
+          0.76
+        ],
+        "tone": "33",
+        "voicedSegmentSeconds": [
+          0.125,
+          0.675
+        ]
+      }
+    ],
+    "pitchLevelsHz": [
+      200,
+      225,
+      250,
+      275,
+      300
+    ],
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech.",
+    "sha256": "d66a99110a3df0123c81761e9f8c775e0843285bb63031705fcdd519052c533f"
+  },
+  {
+    "file": "new-zhongsha-gemini.wav",
+    "targetIPA": "[paːn˥˧]",
+    "tone": "53",
+    "kind": "synthetic-contour-demonstration",
+    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda; Praat via praat-parselmouth 0.4.7",
+    "segments": [
+      {
+        "source": "new-paan.wav",
+        "sourceSHA256": "382c330a82aceb1aba3aea4d5b1757f0b8d181c33f5c6af31e7415f48a71eced",
+        "sourceCutSeconds": [
+          0.18,
+          1.03
+        ],
+        "tone": "53",
+        "voicedSegmentSeconds": [
+          0.07499999999999996,
+          0.7949999999999999
+        ]
+      }
+    ],
+    "pitchLevelsHz": [
+      200,
+      225,
+      250,
+      275,
+      300
+    ],
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech.",
+    "sha256": "839688dfce90e5d2d58a57b4cdbbbf5511686c5865e7489665ad95a8d9a6a149"
+  },
+  {
+    "file": "new-tongzha-gemini.wav",
+    "targetIPA": "[noː˥˥]",
+    "tone": "55",
+    "kind": "synthetic-contour-demonstration",
+    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda; Praat via praat-parselmouth 0.4.7",
+    "segments": [
+      {
+        "source": "new-noo.wav",
+        "sourceSHA256": "585aa694de00e6ddd3402071a615197bfbd37b5abc185068839fae0bc8737539",
+        "sourceCutSeconds": [
+          0.18,
+          0.82
+        ],
+        "tone": "55",
+        "voicedSegmentSeconds": [
+          0.07500000000000001,
+          0.5850000000000001
+        ]
+      }
+    ],
+    "pitchLevelsHz": [
+      200,
+      225,
+      250,
+      275,
+      300
+    ],
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech.",
+    "sha256": "866e4dbb2d75d5aa7a5c8fb47178ecbb4948f4cafd31ded5826674a24b17e21f"
+  },
+  {
+    "file": "old-zhongsha-gemini.wav",
+    "targetIPA": "[maːn˥˧]",
+    "tone": "53",
+    "kind": "synthetic-contour-demonstration",
+    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda; Praat via praat-parselmouth 0.4.7",
+    "segments": [
+      {
+        "source": "old-maan.wav",
+        "sourceSHA256": "6be3260ec4d7be0b5e30145115db0520f6f6e745508e91994c7e0f14a7cf64a3",
+        "sourceCutSeconds": [
+          0.2,
+          1.04
+        ],
+        "tone": "53",
+        "voicedSegmentSeconds": [
+          0.06999999999999991,
+          0.7799999999999999
+        ]
+      }
+    ],
+    "pitchLevelsHz": [
+      200,
+      225,
+      250,
+      275,
+      300
+    ],
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech.",
+    "sha256": "0f8c8860f18cf9feadbbefb1186ad5c2fe1d35a2e04d0252b9c261d90b10fee6"
+  },
+  {
+    "file": "old-tongzha-gemini.wav",
+    "targetIPA": "[maːn˧˧]",
+    "tone": "33",
+    "kind": "synthetic-contour-demonstration",
+    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda; Praat via praat-parselmouth 0.4.7",
+    "segments": [
+      {
+        "source": "old-maan.wav",
+        "sourceSHA256": "6be3260ec4d7be0b5e30145115db0520f6f6e745508e91994c7e0f14a7cf64a3",
+        "sourceCutSeconds": [
+          0.2,
+          1.04
+        ],
+        "tone": "33",
+        "voicedSegmentSeconds": [
+          0.06999999999999991,
+          0.7799999999999999
+        ]
+      }
+    ],
+    "pitchLevelsHz": [
+      200,
+      225,
+      250,
+      275,
+      300
+    ],
+    "limitations": "Approximate segments from supported-language words, with schematic pitch contours. Not native Hlai or Hainanese recordings, not measured local F0, no native-speaker validation of quantity, phonation or connected speech.",
+    "sha256": "8bbd0c3d7a5ad73923589fbd34b83466bd8b059527ae16f2ffc7134a14fd59a6"
+  },
+  {
     "file": "tongshi-mandarin-natural.wav",
     "targetIPA": "[tʰuŋ˥˥ tsa˧˥]",
     "kind": "synthetic-mandarin-utterance",
-    "engine": "Google Cloud Gemini 2.5 Pro TTS, Leda",
+    "engine": "Google Cloud gemini-2.5-pro-tts, Leda",
     "source": "tongshi-natural.wav",
     "sourceSHA256": "3877067bedf1f6c1dae2072187ab137f072f6e7e5806384fc4459c88ca0487de",
     "sourceCutSeconds": [
@@ -200,8 +386,84 @@
       4320,
       23280
     ],
-    "processing": "One contiguous whole-name crop retaining original PCM samples; no syllable concatenation, pitch manipulation, time stretching, normalization or resynthesis.",
-    "limitations": "Synthetic Mandarin reading of the written place name; not Hlai or Hainanese field evidence. Model-assisted transcription checks are not human listening validation.",
+    "processing": "One contiguous whole-word crop retaining original PCM samples; no syllable concatenation, pitch manipulation, time stretching, normalization or resynthesis.",
+    "limitations": "Synthetic Mandarin reading of written forms; not Hlai or Hainanese field evidence. Model-assisted transcription checks are not human listening validation.",
     "sha256": "f1fe2b12b524a184fc46062652581dbdbf0068ee00f7e31995c31172fd5aa922"
+  },
+  {
+    "file": "sanya-mandarin-natural.wav",
+    "targetIPA": "[san˥˥ ja˥˩]",
+    "kind": "synthetic-mandarin-utterance",
+    "engine": "Google Cloud gemini-2.5-pro-tts, Leda",
+    "source": "sanya-context.wav",
+    "sourceSHA256": "b4ddf0d9ee1903635179b629e14925a3870d9a8c35062fd0c05c7e56b571a37c",
+    "sourceCutSeconds": [
+      2.26,
+      3.14
+    ],
+    "sourceFrameRange": [
+      54240,
+      75360
+    ],
+    "processing": "One contiguous whole-word crop retaining original PCM samples; no syllable concatenation, pitch manipulation, time stretching, normalization or resynthesis.",
+    "limitations": "Synthetic Mandarin reading of written forms; not Hlai or Hainanese field evidence. Model-assisted transcription checks are not human listening validation.",
+    "sha256": "f1ba1a1b373fffb3962ca6536450458f862d6c935a0547094cbd0aecee121c0a"
+  },
+  {
+    "file": "niulu-mandarin-natural.wav",
+    "targetIPA": "[niou˧˥ lu˥˩]",
+    "kind": "synthetic-mandarin-utterance",
+    "engine": "Google Cloud gemini-2.5-pro-tts, Leda",
+    "source": "niulu-natural.wav",
+    "sourceSHA256": "03cafb7bad60e4faa18729a85e7ded9a02d12f61e26f9c65f63dde880ce1fb60",
+    "sourceCutSeconds": [
+      0.24,
+      0.94
+    ],
+    "sourceFrameRange": [
+      5760,
+      22560
+    ],
+    "processing": "One contiguous whole-word crop retaining original PCM samples; no syllable concatenation, pitch manipulation, time stretching, normalization or resynthesis.",
+    "limitations": "Synthetic Mandarin reading of written forms; not Hlai or Hainanese field evidence. Model-assisted transcription checks are not human listening validation.",
+    "sha256": "545dfa5c6bc7666d4486765ccc33533ce3622153ee52c34375e9cd0ed4df75ac"
+  },
+  {
+    "file": "lou-mandarin-natural.wav",
+    "targetIPA": "[lou˥˩]",
+    "kind": "synthetic-mandarin-utterance",
+    "engine": "Google Cloud gemini-2.5-pro-tts, Leda",
+    "source": "lou-natural.wav",
+    "sourceSHA256": "551e96c483a28f622ada30ed4cdcbdf6d7c4d2c4e06953ba26e1ddfe0856ae72",
+    "sourceCutSeconds": [
+      0.3,
+      0.74
+    ],
+    "sourceFrameRange": [
+      7200,
+      17760
+    ],
+    "processing": "One contiguous whole-word crop retaining original PCM samples; no syllable concatenation, pitch manipulation, time stretching, normalization or resynthesis.",
+    "limitations": "Synthetic Mandarin reading of written forms; not Hlai or Hainanese field evidence. Model-assisted transcription checks are not human listening validation.",
+    "sha256": "94437051d6ea3ad6301058b5223480772fe383fdb75be196fdb3b60c3faac249"
+  },
+  {
+    "file": "lu-mandarin-natural.wav",
+    "targetIPA": "[lu˥˩]",
+    "kind": "synthetic-mandarin-utterance",
+    "engine": "Google Cloud gemini-2.5-pro-tts, Leda",
+    "source": "lu-natural.wav",
+    "sourceSHA256": "5c12755efd210c0d3145ef95ee074122df0b71e7b93b8b30c71de19d174d8ab0",
+    "sourceCutSeconds": [
+      0.2,
+      0.74
+    ],
+    "sourceFrameRange": [
+      4800,
+      17760
+    ],
+    "processing": "One contiguous whole-word crop retaining original PCM samples; no syllable concatenation, pitch manipulation, time stretching, normalization or resynthesis.",
+    "limitations": "Synthetic Mandarin reading of written forms; not Hlai or Hainanese field evidence. Model-assisted transcription checks are not human listening validation.",
+    "sha256": "4ad300403a883e27c96e71ad979656fe57c7f0fda7dc15098fe85e7319a9dab6"
   }
 ]

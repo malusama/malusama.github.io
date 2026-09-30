@@ -100,6 +100,12 @@ def main():
         ('big-tongzha', '[loŋ˧˧]', [('big-o', '33')]),
         ('sand-zhongsha', '[pʰaw˥˥]', [('sand', '55')]),
         ('sand-tongzha', '[pʰaw˥˩]', [('sand', '51')]),
+        ('village-zhongsha', '[ɓaw˩˩]', [('village-baw', '11')]),
+        ('village-tongzha', '[faːn˧˧]', [('village-faan', '33')]),
+        ('new-zhongsha', '[paːn˥˧]', [('new-paan', '53')]),
+        ('new-tongzha', '[noː˥˥]', [('new-noo', '55')]),
+        ('old-zhongsha', '[maːn˥˧]', [('old-maan', '53')]),
+        ('old-tongzha', '[maːn˧˧]', [('old-maan', '33')]),
     ]
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     manifest = []
@@ -130,26 +136,34 @@ def main():
                          'sha256': digest(OUTPUT_DIR / filename)})
     # Mandarin is one continuous neural utterance. Preserve sample values and
     # the syllable transition; only remove silence/repeated whole-name examples.
-    source = sources['tongshi-natural']
-    cut = source['cuts']['whole-name']
-    with wave.open(str(args.base_dir / 'tongshi-natural.wav'), 'rb') as recording:
-        sample_rate = recording.getframerate()
-        params = recording.getparams()
-        frames = [round(time * sample_rate) for time in cut]
-        recording.setpos(frames[0])
-        original_samples = recording.readframes(frames[1] - frames[0])
-    filename = 'tongshi-mandarin-natural.wav'
-    with wave.open(str(OUTPUT_DIR / filename), 'wb') as output:
-        output.setparams(params)
-        output.writeframes(original_samples)
-    manifest.append({'file': filename, 'targetIPA': '[tʰuŋ˥˥ tsa˧˥]',
-                     'kind': 'synthetic-mandarin-utterance',
-                     'engine': 'Google Cloud Gemini 2.5 Pro TTS, Leda',
-                     'source': 'tongshi-natural.wav', 'sourceSHA256': source['sha256'],
-                     'sourceCutSeconds': cut, 'sourceFrameRange': frames,
-                     'processing': 'One contiguous whole-name crop retaining original PCM samples; no syllable concatenation, pitch manipulation, time stretching, normalization or resynthesis.',
-                     'limitations': 'Synthetic Mandarin reading of the written place name; not Hlai or Hainanese field evidence. Model-assisted transcription checks are not human listening validation.',
-                     'sha256': digest(OUTPUT_DIR / filename)})
+    natural_readings = [
+        ('tongshi', 'tongshi-natural', '[tʰuŋ˥˥ tsa˧˥]'),
+        ('sanya', 'sanya-context', '[san˥˥ ja˥˩]'),
+        ('niulu', 'niulu-natural', '[niou˧˥ lu˥˩]'),
+        ('lou', 'lou-natural', '[lou˥˩]'),
+        ('lu', 'lu-natural', '[lu˥˩]'),
+    ]
+    for slug, source_name, ipa in natural_readings:
+        source = sources[source_name]
+        cut = source['cuts']['whole-name']
+        with wave.open(str(args.base_dir / (source_name + '.wav')), 'rb') as recording:
+            sample_rate = recording.getframerate()
+            params = recording.getparams()
+            frames = [round(time * sample_rate) for time in cut]
+            recording.setpos(frames[0])
+            original_samples = recording.readframes(frames[1] - frames[0])
+        filename = slug + '-mandarin-natural.wav'
+        with wave.open(str(OUTPUT_DIR / filename), 'wb') as output:
+            output.setparams(params)
+            output.writeframes(original_samples)
+        manifest.append({'file': filename, 'targetIPA': ipa,
+                         'kind': 'synthetic-mandarin-utterance',
+                         'engine': 'Google Cloud ' + source['request']['voice']['modelName'] + ', Leda',
+                         'source': source_name + '.wav', 'sourceSHA256': source['sha256'],
+                         'sourceCutSeconds': cut, 'sourceFrameRange': frames,
+                         'processing': 'One contiguous whole-word crop retaining original PCM samples; no syllable concatenation, pitch manipulation, time stretching, normalization or resynthesis.',
+                         'limitations': 'Synthetic Mandarin reading of written forms; not Hlai or Hainanese field evidence. Model-assisted transcription checks are not human listening validation.',
+                         'sha256': digest(OUTPUT_DIR / filename)})
     (ROOT / 'docs/hainan-toponymy-audio.json').write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
     print('Rendered', len(manifest), 'Gemini voice demonstrations')
