@@ -9,6 +9,7 @@
 .blog .research-paper .paper-table table{display:table;min-width:560px;width:100%;overflow:visible;margin:0;font-size:14px;line-height:1.75}
 .blog .research-paper .paper-table td,.blog .research-paper .paper-table th{padding:12px 14px;border:0;border-bottom:1px solid var(--line);vertical-align:top}
 .blog .research-paper .paper-table th{background:var(--surface);font-weight:600;text-align:left}
+.blog .research-paper .paper-table :is(td,th):first-child{white-space:nowrap}
 .blog .research-paper .paper-table tr:last-child td{border-bottom:0}
 .blog .research-paper .bibliography{font-size:14px;line-height:1.85;padding-left:1.8em}
 .blog .bibliography>li{padding:8px 0 16px;scroll-margin-top:110px;overflow-wrap:anywhere}
@@ -24,5 +25,5 @@
 .blog .citation-preview-record{margin:0 0 14px;font-size:14px;line-height:1.85}
 .blog .citation-preview-links{display:flex;gap:22px;border-top:1px solid var(--line);padding-top:12px;font-size:13px}
 .blog .citation-preview-links a{color:var(--accent);text-decoration:underline;text-underline-offset:4px}
-@media(max-width:767px){.blog .research-paper{line-height:1.95}.blog .research-paper>h2{font-size:23px}.blog .research-paper h3{font-size:19px}.blog .research-paper a.citation{white-space:normal;overflow-wrap:anywhere}.blog .citation-preview{font-size:14px}.blog .citation-preview-close{min-height:40px;min-width:40px}.blog .citation-preview-links a{padding:8px 0}}
+@media(max-width:767px){.blog .research-paper{line-height:1.95}.blog .research-paper>h2{font-size:23px}.blog .research-paper h3{font-size:19px}.blog .research-paper a.citation{white-space:normal;overflow-wrap:anywhere}.blog .paper-table::before{content:"表格可左右滑动";display:block;padding:8px 14px;font-size:12px;color:var(--muted)}.blog .citation-preview{font-size:14px}.blog .citation-preview-close{min-height:40px;min-width:40px}.blog .citation-preview-links a{padding:8px 0}}
 @media print{.blog .citation-preview{display:none!important}.blog .paper-table{overflow:visible;border-radius:0}.blog .research-paper .paper-table table{min-width:0;font-size:10pt}.blog .research-paper .bibliography{font-size:10pt}.blog .research-paper a.citation{color:black}.blog .research-paper h2,.blog .research-paper h3{break-after:avoid}}
