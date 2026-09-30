@@ -65,6 +65,14 @@ if (citations.length) {
   bibliography.addEventListener('click', () => hide());
   document.addEventListener('pointerdown', event => { if (!preview.contains(event.target) && !event.target.closest('.citation')) hide(); });
   document.addEventListener('keydown', event => { if (event.key === 'Escape' && !preview.hidden) { event.preventDefault(); hide(true); } });
-  addEventListener('scroll', () => hide(), {passive: true});
+  addEventListener('scroll', () => {
+    if (!active) return;
+    // Focusing a citation may scroll it into view after the focus event.
+    // Keep keyboard and touch previews attached to a visible focused source.
+    const anchor = active.getBoundingClientRect();
+    const focused = document.activeElement === active || preview.contains(document.activeElement);
+    if (focused && anchor.bottom > 0 && anchor.top < innerHeight) show(active);
+    else hide();
+  }, {passive: true});
   addEventListener('resize', () => hide(), {passive: true});
 }

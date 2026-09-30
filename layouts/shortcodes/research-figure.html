@@ -1,0 +1,4 @@
+<figure class="paper-figure" id="{{ .Get "id" }}">
+  <img src="{{ .Get "src" }}" alt="{{ .Get "alt" }}" width="{{ .Get "width" }}" height="{{ .Get "height" }}" loading="lazy" decoding="async">
+  <figcaption>{{ .Inner | .Page.RenderString }}</figcaption>
+</figure>
