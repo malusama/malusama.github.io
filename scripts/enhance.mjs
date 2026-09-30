@@ -71,6 +71,7 @@ await mkdir('assets/vendor', { recursive: true });
 await copyFile(join(import.meta.dirname, '../node_modules/fuse.js/dist/fuse.mjs'), 'assets/vendor/fuse.mjs');
 await copyFile(join(import.meta.dirname, '../node_modules/fuse.js/LICENSE'), 'assets/vendor/FUSE-LICENSE');
 const version = createHash('sha256').update(await readFile('assets/blog.css')).update(await readFile('assets/blog.js')).update(await readFile('assets/theme.js')).digest('hex').slice(0, 12);
+const paperVersion = createHash('sha256').update(await readFile('assets/research-paper.css')).update(await readFile('assets/citation-preview.js')).digest('hex').slice(0, 12);
 for (const [path, $] of pages) {
   const canonical = 'https://malu.moe/' + path.replace(/index\.html$/, '');
   const redirect = $('meta[http-equiv="refresh"]');
@@ -86,7 +87,7 @@ for (const [path, $] of pages) {
     if ($(e).attr('type') !== 'application/ld+json') $(e).remove();
     else $(e).text($(e).text().replaceAll('malu.ome', 'malu.moe'));
   });
-  $('link[data-blog], meta[name="referrer"], link[rel="canonical"]').remove();
+  $('link[data-blog], link[data-paper], meta[name="referrer"], link[rel="canonical"]').remove();
   $('meta[http-equiv="x-ua-compatible"], meta[http-equiv="Content-Security-Policy"]').remove();
   $('head').append("<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'; script-src 'self' https://utteranc.es; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; connect-src 'self' https://utteranc.es; frame-src https://utteranc.es; object-src 'none'; base-uri 'self'; form-action 'self'\">");
   $('link[rel="stylesheet"][href^="/sass/"]').remove();
@@ -105,6 +106,22 @@ for (const [path, $] of pages) {
     $('main').html('<div class="container about-page"><p class="eyebrow">ABOUT / 关于</p><h1>你好，我是 Malu<span class="accent">。</span></h1><div class="article-post"><p>这里是我的个人博客，分享技术笔记、旅行记录和生活随笔。</p><p><a href="/articles/">文章归档 →</a></p><p><a href="https://github.com/malusama">在 GitHub 找到我 ↗</a></p><p><a href="/index.xml">通过 RSS 订阅更新 →</a></p></div></div>');
   } else if (post) {
     const content = $('.article-post').first();
+    const paper = path === 'post/hainan-toponymy/index.html';
+    if (paper) {
+      $('head').append(`<link data-paper rel="stylesheet" href="/assets/research-paper.css?v=${paperVersion}"><script type="module" src="/assets/citation-preview.js?v=${paperVersion}"></script>`);
+      content.addClass('research-paper');
+      const bibliography = content.find('h2').filter((_, h) => $(h).text().trim() === '参考文献').nextAll('ol').first();
+      bibliography.addClass('bibliography');
+      bibliography.children('li').each((i, e) => $(e).attr('id', `ref-${i + 1}`));
+      content.find('a[href^="#ref-"]').each((i, e) => {
+        const reference = $(e).attr('href').slice(1);
+        if (!content.find(`#${reference}`).length) throw new Error(`Missing reference: ${reference}`);
+        $(e).addClass('citation').attr({'data-reference': reference, 'aria-label': `参考文献 ${$(e).text()}`, id: `cite-${i + 1}`});
+      });
+      content.find('table').each((_, e) => {
+        if (!$(e).parent().hasClass('paper-table')) $(e).wrap('<div class="paper-table" tabindex="0" role="region" aria-label="资料对照表，可横向滚动"></div>');
+      });
+    }
     content.find('.image-link').each((_, a) => $(a).replaceWith($(a).contents()));
     content.find('img').each((_, img) => {
       const e = $(img); let src = e.attr('data-original') || e.attr('src');
@@ -124,13 +141,14 @@ for (const [path, $] of pages) {
       $(e).find('a.anchor').attr({'aria-label': `链接到${h.text}`, href: '#' + encodeURIComponent(h.id)});
       return h;
     }).get();
-    const toc = headings.length > 2 ? `<aside class="toc"><details open><summary>本文目录</summary><nav aria-label="本文目录">${headings.map(h => `<a class="toc-${h.level}" href="#${encodeURIComponent(h.id)}">${esc(h.text)}</a>`).join('')}</nav></details></aside>` : '';
+    const outline = paper ? headings.filter(h => h.level === 'h2') : headings;
+    const toc = outline.length > 2 ? `<aside class="toc"><details open><summary>本文目录</summary><nav aria-label="本文目录">${outline.map(h => `<a class="toc-${h.level}" href="#${encodeURIComponent(h.id)}">${esc(h.text)}</a>`).join('')}</nav></details></aside>` : '';
     const suggested = $('.suggested').first().clone();
     suggested.find('a[rel="prev"]').attr('title', '上一篇').find('span').text('上一篇');
     suggested.find('a[rel="next"]').attr('title', '下一篇').find('span').text('下一篇');
     const tagHTML = post.tags.map(t => `<a href="/tags/${encodeURIComponent(t.toLowerCase())}/">${esc(t === 'Life' ? '生活' : t)}</a>`).join('');
     const cover = post.image ? `<figure class="article-cover"><a class="image-link" href="${esc(post.image.replace('http:', 'https:'))}" aria-label="放大封面"><img src="${esc(imageURL(post.image, 960))}" srcset="${[480,768,960,1440].map(w => `${esc(imageURL(post.image,w))} ${w}w`).join(', ')}" sizes="(max-width: 767px) calc(100vw - 48px), 720px" alt="${esc(post.title)}" width="720" height="405" fetchpriority="high" decoding="async"></a></figure>` : '';
-    $('main').html(`<div class="reading-layout${toc ? ' with-toc' : ''}"><article class="reading-main"><header class="article-header"><a class="back-link" href="/articles/">← 全部文章</a><h1>${esc(post.title)}</h1><div class="post-meta"><time datetime="${post.date}">${post.date.replaceAll('-', '.')}</time><span>约 ${post.minutes} 分钟阅读</span></div><div class="tags">${tagHTML}</div></header>${cover}<div class="article-post">${content.html()}</div>${suggested.length ? $.html(suggested) : ''}<section class="comments" aria-label="文章评论"><h2>聊两句</h2><p>评论使用 GitHub 账号，点击后加载。</p><button type="button" id="load-comments">加载评论</button><div id="comments-mount"></div></section></article>${toc}</div>`);
+    $('main').html(`<div class="reading-layout${toc ? ' with-toc' : ''}"><article class="reading-main"><header class="article-header"><a class="back-link" href="/articles/">← 全部文章</a><h1>${esc(post.title)}</h1><div class="post-meta"><time datetime="${post.date}">${post.date.replaceAll('-', '.')}</time><span>约 ${post.minutes} 分钟阅读</span></div><div class="tags">${tagHTML}</div></header>${cover}<div class="article-post${paper ? ' research-paper' : ''}">${content.html()}</div>${suggested.length ? $.html(suggested) : ''}<section class="comments" aria-label="文章评论"><h2>聊两句</h2><p>评论使用 GitHub 账号，点击后加载。</p><button type="button" id="load-comments">加载评论</button><div id="comments-mount"></div></section></article>${toc}</div>`);
   } else {
     // Keep the original Unicode ordering, independent of Hugo's locale collation.
     $('.terms').each((_, container) => {
