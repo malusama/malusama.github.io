@@ -1,0 +1,4 @@
+<figure style="max-width: {{ .Get "displayWidth" | default "720" }}px; margin: 2rem auto;">
+  <img src="{{ .Get "src" }}" alt="{{ .Get "alt" }}" width="{{ .Get "width" }}" height="{{ .Get "height" }}" style="width: 100%; margin: 0;" loading="lazy" decoding="async">
+  <figcaption style="margin-top: 10px; font-size: 14px; line-height: 1.7; color: var(--muted);">{{ .Inner | .Page.RenderString }}</figcaption>
+</figure>
